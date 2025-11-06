@@ -1,11 +1,173 @@
 ---
-import Welcome from '../components/Welcome.astro';
+// src/pages/index.astro (FINAL - Carousel dengan Hover Pause)
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Panel Maker Simetri Jakarta - Solusi Panel Listrik">
+  <main id="page-content">
+    <!-- ... Section Hero, Product, CTA tidak berubah ... -->
+    <section class="hero-section">
+      <div class="hero-overlay"></div>
+      <div class="container">
+        <div class="hero-content">
+          <h1>PANEL MAKER SIMETRI JAKARTA</h1>
+          <p>Tri Yudhi merupakan sales panel listrik PT Sinar Metrindo perkasa sudah bergabung sejak tahun 2007. Panel Maker terbaik saat ini yang masih tetap eksis adalah Simetri. Segera Hubungi Team Sales Simetri...</p>
+        </div>
+      </div>
+    </section>
+    <section id="produk" class="page-section">
+      <div class="container">
+        <h2 class="section-title">PRODUCT SERVICES</h2>
+        <p class="section-subtitle">
+          Selain panel Matrix, panel Sivacon S8 dan panel Typetest, Simetri juga memiliki produk panel lokal seperti terlihat dibawah ini ;
+        </p>
+        <div class="services-list">
+          <div class="service-item">
+            <div class="service-image"><img src="/img/Panel-LVMDP-Simetri.webp" alt="Panel LVMDP" /></div>
+            <div class="service-content">
+              <h3>PANEL LVMDP</h3>
+              <p>Beberapa fitur utama kami: Sistem interlock dan interlock dengan coupler.</p>
+              <a href="#" class="read-more-btn">Read More</a>
+            </div>
+          </div>
+          <div class="service-item">
+            <div class="service-image"><img src="/img/panel-kontrol-genset-simetri.webp" alt="Panel Genset PKG" /></div>
+            <div class="service-content">
+              <h3>PANEL GENSET PKG</h3>
+              <p>Simetri dapat melakukan sinkronisasi hingga 6 genset dan juga dapat melakukan sinkronisasi antara genset dan PLN ('Back and Forward Synchron').</p>
+              <a href="#" class="read-more-btn">Read More</a>
+            </div>
+          </div>
+          <div class="service-item">
+            <div class="service-image"><img src="/img/panel_listrik_distribusi_simetri.webp" alt="Panel Distribusi" /></div>
+            <div class="service-content">
+              <h3>PANEL DISTRIBUSI</h3>
+              <p>Sistem Control dan Proteksi distribusi tenaga listrik ke sub panel dan beban seperti hydrant, lighting, lift, dll.</p>
+              <a href="#" class="read-more-btn">Read More</a>
+            </div>
+          </div>
+          <div class="service-item">
+            <div class="service-image"><img src="/img/panel_listrik_simetri_kapasitor.webp" alt="Panel Kapasitor Bank" /></div>
+            <div class="service-content">
+              <h3>PANEL CAPASITOR BANK</h3>
+              <p>Panel Capasitor berfungsi untuk memperkecil daya reaktif.</p>
+              <a href="#" class="read-more-btn">Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="kontak" class="cta-section-v2">
+      <div class="container cta-grid">
+        <div class="cta-text">
+          <h2>Hubungi Segera</h2>
+          <p>Hubungi kami segera, atau silahkan datang langsung ke kantor pusat simetri dengan alamat: Aries Niaga Blok A1 No. 3A-3B, Jalan Taman Aries, Meruya Utara, Kembangan, Jakarta Barat, DKI 11620, Indonesia</p>
+          <a href="https://wa.me/628121342383" class="cta-button" target="_blank">Contact Us</a>
+        </div>
+        <div class="cta-image">
+          <img src="/img/yudi-sales-simetri.webp" alt="Kontak Sales Panel Listrik Simetri">
+          <div class="dots-pattern"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. PROJECT / KLIEN (VERSI BARU - CSS MURNI ) -->
+    <section id="project" class="page-section">
+      <div class="container">
+        <h2 class="section-title">KLIEN KAMI</h2>
+      </div>
+      
+      <div class="logo-scroller">
+        <div class="logo-scroller__inner">
+          <!-- Daftar gambar Anda -->
+          <img src="/img/klien/klien-1.webp" alt="Logo Klien 1">
+          <img src="/img/klien/klien-2.webp" alt="Logo Klien 2">
+          <img src="/img/klien/klien-3.webp" alt="Logo Klien 3">
+          <img src="/img/klien/klien-4.webp" alt="Logo Klien 4">
+          
+          <!-- Daftar gambar yang sama, diduplikasi untuk efek loop -->
+          <img src="/img/klien/klien-1.webp" alt="Logo Klien 1">
+          <img src="/img/klien/klien-2.webp" alt="Logo Klien 2">
+          <img src="/img/klien/klien-3.webp" alt="Logo Klien 3">
+          <img src="/img/klien/klien-4.webp" alt="Logo Klien 4">
+        </div>
+      </div>
+    </section>
+  </main>
 </Layout>
+
+<style>
+  /* ... CSS untuk Hero, Product, CTA tidak berubah ... */
+  #page-content { padding-top: 80px; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+  .hero-section { position: relative; height: 70vh; background-image: url('/img/Panel-matrix-simetri.webp'); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; margin-top: -80px; }
+  .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); }
+  .hero-section .container { position: relative; z-index: 2; }
+  .hero-content { text-align: center; color: white; }
+  .hero-content h1 { font-size: 3.5rem; font-weight: 900; margin: 0 0 1rem 0; }
+  .hero-content p { font-size: 1.2rem; line-height: 1.6; margin: 0; }
+  .page-section { padding: 5rem 0; }
+  .section-title { text-align: center; font-size: 2rem; font-weight: 900; margin-bottom: 1rem; color: #222; }
+  .section-subtitle { text-align: center; max-width: 700px; margin: 0 auto 3rem auto; color: #555; line-height: 1.6; }
+  .services-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2.5rem; }
+  .service-item { display: flex; align-items: center; gap: 1.5rem; background-color: #f8f9fa; padding: 1.5rem; border-radius: 8px; }
+  .service-image { flex-shrink: 0; width: 200px; }
+  .service-image img { width: 100%; height: auto; display: block; border-radius: 4px; }
+  .service-content { flex-grow: 1; }
+  .service-content h3 { margin: 0 0 0.75rem 0; font-size: 1.2rem; font-weight: 700; color: #333; }
+  .service-content p { margin: 0 0 1.5rem 0; color: #555; line-height: 1.6; }
+  .read-more-btn { display: inline-block; background-color: #1abc9c; color: white; padding: 0.6rem 1.2rem; border-radius: 4px; text-decoration: none; font-weight: bold; transition: background-color 0.2s; }
+  .read-more-btn:hover { background-color: #16a085; }
+  .cta-section-v2 { background-color: #e0f2f1; padding: 5rem 0; }
+  .cta-grid { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 4rem; }
+  .cta-text h2 { font-size: 2.5rem; font-weight: 900; margin: 0 0 1rem 0; color: #004d40; }
+  .cta-text p { font-size: 1.1rem; line-height: 1.7; color: #00695c; margin-bottom: 2rem; }
+  .cta-button { display: inline-block; background-color: #00796b; color: white; padding: 0.8rem 2rem; border-radius: 4px; text-decoration: none; font-weight: bold; transition: background-color 0.2s; }
+  .cta-button:hover { background-color: #004d40; }
+  .cta-image { position: relative; }
+  .cta-image img { width: 100%; height: auto; display: block; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+  .dots-pattern { position: absolute; bottom: -20px; right: -20px; width: 100px; height: 100px; background-image: radial-gradient(#00796b 2px, transparent 2px); background-size: 10px 10px; z-index: -1; }
+
+  /* === CSS BARU: CAROUSEL CSS MURNI === */
+  .logo-scroller {
+    max-width: 100%;
+    overflow: hidden;
+    -webkit-mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+    mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+  }
+  .logo-scroller__inner {
+    display: flex;
+    gap: 3rem; /* Jarak antar logo */
+    width: fit-content; /* Lebar sesuai konten */
+    animation: scroll 20s linear infinite;
+  }
+  
+  /* INI KUNCINYA */
+  .logo-scroller:hover .logo-scroller__inner {
+    animation-play-state: paused;
+  }
+
+  .logo-scroller img {
+    height: 200px; /* Ukuran logo */
+    width: auto;
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: all 0.3s ease;
+  }
+  .logo-scroller img:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+  }
+  @keyframes scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* Responsif */
+  @media (max-width: 992px) { .services-list { grid-template-columns: 1fr; } }
+  @media (max-width: 768px) {
+    .hero-content h1 { font-size: 2.5rem; }
+    .cta-grid { grid-template-columns: 1fr; }
+    .cta-image { display: none; }
+  }
+</style>

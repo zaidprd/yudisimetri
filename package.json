@@ -9,6 +9,11 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.15.3"
+    "@astrojs/sitemap": "^3.6.0",
+    "@iconify-json/mdi": "^1.2.3",
+    "astro": "^5.15.3",
+    "astro-icon": "^1.1.5",
+    "astro-portabletext": "^0.11.3",
+    "astro-sanity": "^1.1.7"
   }
 }

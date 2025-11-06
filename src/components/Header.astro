@@ -1,0 +1,89 @@
+---
+// src/components/Header.astro (Versi dengan Logo)
+---
+<header id="site-header">
+  <div class="container">
+    <div class="logo">
+      <!-- GANTI TEKS DENGAN GAMBAR LOGO -->
+      <a href="/">
+        <img src="/img/logosales.webp" alt="Logo Panel Maker Simetri Jakarta">
+      </a>
+    </div>
+    <nav class="main-nav">
+      <a href="/">Home</a>
+      <a href="/about">About Me</a>
+      <a href="/blog">Blog</a>
+      
+    </nav>
+  </div>
+</header>
+
+<script>
+  // Script untuk mengubah background header saat scroll
+  const header = document.getElementById('site-header');
+  if (header) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+  }
+</script>
+
+<style>
+  #site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 1.5rem 0;
+    transition: background-color 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease;
+  }
+  #site-header.scrolled {
+    background-color: rgba(255, 255, 255, 1);
+    padding: 1rem 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+  .container {
+    max-width: 1200px; margin: 0 auto; padding: 0 1.5rem;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+
+  /* === CSS BARU UNTUK LOGO GAMBAR === */
+  .logo a {
+    display: block; /* Pastikan link mengisi area gambar */
+  }
+  .logo img {
+    height: 40px; /* <-- ATUR TINGGI LOGO DI SINI. 40px adalah awal yang baik */
+    width: auto; /* Lebar akan menyesuaikan otomatis */
+    display: block; /* Menghilangkan spasi ekstra di bawah gambar */
+    transition: filter 0.3s ease;
+  }
+  
+  /* Saat header transparan, logo mungkin sulit terlihat. Kita buat jadi putih. */
+  #site-header:not(.scrolled) .logo img {
+    filter: brightness(0) invert(1);
+  }
+  /* Saat di-scroll, logo kembali ke warna asli */
+  #site-header.scrolled .logo img {
+    filter: none;
+  }
+  /* =================================== */
+
+  .main-nav { display: flex; gap: 2.5rem; }
+  .main-nav a {
+    text-decoration: none;
+    color: #fff; /* Warna putih saat transparan */
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+  #site-header.scrolled .main-nav a {
+    color: #222; /* Warna hitam saat di-scroll */
+  }
+  .main-nav a:hover {
+    opacity: 0.8;
+  }
+</style>
