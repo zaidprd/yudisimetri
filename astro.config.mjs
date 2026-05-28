@@ -10,5 +10,10 @@ export default defineConfig({
       priority: 0.7,
     }),
   ],
+  image: {
+    service: {
+      entrypoint: 'astro/assets/services/sharp',
+    },
+  },
   compressHTML: true,
 });
