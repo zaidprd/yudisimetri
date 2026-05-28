@@ -1,0 +1,337 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+
+import imgHero from '../assets/img/Panel-matrix-simetri.webp';
+import imgAward from '../assets/img/sales-simetri-dapat.webp';
+import imgCompany from '../assets/img/Panel-matrix-simetri.webp';
+
+const career = [
+  { year: "2007", role: "Staf Estimator", desc: "Memulai karir di PT Sinar Metrindo Perkasa (Simetri) sebagai estimator, membangun fondasi teknis yang kuat tentang panel listrik." },
+  { year: "2010", role: "Sales Engineer", desc: "Terjun ke dunia sales dengan bekal ilmu estimasi. Berhasil menembus pasar proyek swasta skala menengah ke atas." },
+  { year: "2017", role: "Team Leader Sales", desc: "Dipercaya memimpin tim sales. Membimbing junior sales dan memperluas jangkauan proyek ke institusi pemerintah." },
+  { year: "2022", role: "Sales Manager", desc: "Menjabat sebagai Sales Manager hingga saat ini. Mengelola portofolio proyek besar nasional termasuk bandara, rumah sakit, dan bank sentral." },
+];
+---
+
+<Layout
+  title="Tentang Tri Yudhi – Sales Manager Panel Listrik Simetri Jakarta"
+  description="Tri Yudhi, Sales Manager PT Sinar Metrindo Perkasa (Simetri) sejak 2007. Perjalanan 18+ tahun dari estimator hingga Sales Manager. Spesialis panel LVMDP, genset, distribusi, kapasitor bank."
+>
+
+  <!-- HERO -->
+  <section class="about-hero" aria-label="Header halaman about">
+    <div class="hero-bg">
+      <Image src={imgHero} alt="Panel Listrik Simetri" loading="eager" class="hero-img" />
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="container hero-content">
+      <span class="section-label" style="color: var(--c-accent); animation: fadeUp 0.7s ease 0.2s both; display:inline-block">Tentang Kami</span>
+      <h1 class="hero-title" style="animation: fadeUp 0.7s ease 0.35s both">Tri Yudhi<br/><em>Sales Manager Simetri</em></h1>
+      <p class="hero-desc" style="animation: fadeUp 0.7s ease 0.5s both">18+ tahun membangun kepercayaan klien melalui panel listrik berkualitas tinggi dari PT Sinar Metrindo Perkasa.</p>
+    </div>
+  </section>
+
+  <!-- INTRO SECTION -->
+  <section class="section-intro">
+    <div class="container intro-grid">
+
+      <div class="intro-image reveal">
+        <div class="image-frame">
+          <Image src={imgAward} alt="Tri Yudhi menerima penghargaan Top Sales PT Sinar Metrindo Perkasa Simetri" loading="lazy" />
+        </div>
+        <div class="award-badge">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="var(--c-accent)" stroke="var(--c-accent)" stroke-width="1" stroke-linejoin="round"/>
+          </svg>
+          <div>
+            <strong>Top Sales</strong>
+            <span>Setiap Tahun</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="intro-text reveal reveal-delay-2">
+        <span class="section-label">Perjalanan Saya</span>
+        <h2 class="section-title">Dari Estimator<br/>Menjadi Sales Manager</h2>
+        <div class="divider"></div>
+        <p>Saya bergabung dengan Simetri (PT. Sinar Metrindo Perkasa) sejak tahun 2007. Memulai karir sebagai staf estimator selama 3 tahun memberi saya pemahaman mendalam tentang teknis dan harga panel listrik.</p>
+        <p>Bekal ilmu estimasi inilah yang menjadi keunggulan saya sebagai sales – mampu memberikan penjelasan teknis yang akurat kepada klien, bukan sekadar menjual produk.</p>
+        <p>Selama 18+ tahun, saya telah menangani ratusan proyek panel listrik untuk gedung bertingkat, industri, bandara, rumah sakit, hingga bank sentral di seluruh Indonesia.</p>
+
+        <div class="trust-metrics">
+          <div class="trust-item">
+            <strong>18+</strong>
+            <span>Tahun di Simetri</span>
+          </div>
+          <div class="trust-item">
+            <strong>500+</strong>
+            <span>Proyek Selesai</span>
+          </div>
+          <div class="trust-item">
+            <strong>#1</strong>
+            <span>Top Sales Tahunan</span>
+          </div>
+        </div>
+
+        <a href="https://wa.me/628121342383?text=Halo%20Pak%20Yudhi%2C%20saya%20ingin%20konsultasi%20panel%20listrik" class="btn-primary" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Hubungi Sekarang
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE KARIR -->
+  <section class="section-career" aria-label="Timeline karir">
+    <div class="container">
+      <div class="section-header reveal" style="text-align:center">
+        <span class="section-label">Perjalanan Karir</span>
+        <h2 class="section-title" style="margin:0 auto">Pengalaman yang Terus<br/>Berkembang</h2>
+      </div>
+
+      <div class="timeline">
+        {career.map((item, i) => (
+          <div class={`timeline-item reveal reveal-delay-${(i % 3) + 1}`}>
+            <div class="timeline-year">{item.year}</div>
+            <div class="timeline-connector">
+              <div class="timeline-dot"></div>
+              {i < career.length - 1 && <div class="timeline-line"></div>}
+            </div>
+            <div class="timeline-content">
+              <h3>{item.role}</h3>
+              <p>{item.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- TENTANG SIMETRI -->
+  <section class="section-company" aria-label="Tentang PT Sinar Metrindo Perkasa">
+    <div class="container company-grid">
+      <div class="company-text reveal">
+        <span class="section-label">PT Sinar Metrindo Perkasa</span>
+        <h2 class="section-title">Panel Maker Terpercaya<br/>di Indonesia</h2>
+        <div class="divider"></div>
+        <p>Simetri adalah perusahaan panel maker lokal terkemuka yang telah berdiri lebih dari dua dekade. Dengan fasilitas produksi modern di Jakarta, Simetri mampu memproduksi panel listrik berstandar nasional dan internasional.</p>
+        <p>Produk unggulan meliputi Panel Matrix (flagship product), Panel Sivacon S8 (lisensi Siemens), dan berbagai panel lokal berkualitas tinggi untuk proyek komersial, industri, dan infrastruktur.</p>
+        <ul class="company-certs">
+          <li>✓ Panel Matrix – Typetest bersertifikasi</li>
+          <li>✓ Panel Sivacon S8 – Lisensi Siemens</li>
+          <li>✓ SNI & IEC compliant</li>
+          <li>✓ Garansi & purna jual terjamin</li>
+        </ul>
+      </div>
+      <div class="company-image reveal reveal-delay-2">
+        <Image src={imgCompany} alt="Panel Matrix Simetri – Produk Unggulan PT Sinar Metrindo Perkasa" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  /* HERO */
+  .about-hero {
+    position: relative;
+    height: 55vh;
+    min-height: 420px;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+    margin-top: -80px;
+  }
+  .hero-bg { position: absolute; inset: 0; }
+  .hero-img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(15,19,24,0.9) 0%, rgba(15,19,24,0.4) 60%);
+  }
+  .hero-content {
+    position: relative; z-index: 2;
+    padding-bottom: 4rem;
+    padding-top: 80px;
+  }
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-weight: 800;
+    color: white;
+    line-height: 1.1;
+    margin: 0.5rem 0 1rem;
+  }
+  .hero-title em { font-style: normal; color: var(--c-primary); }
+  .hero-desc { font-size: 1rem; color: rgba(255,255,255,0.7); max-width: 500px; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: none; }
+  }
+
+  /* INTRO */
+  .section-intro { padding: 6rem 0; background: white; }
+  .intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 5rem;
+    align-items: center;
+  }
+  .intro-image { position: relative; }
+  .image-frame {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+  }
+  .image-frame img { width: 100%; height: auto; }
+  .award-badge {
+    position: absolute;
+    bottom: -1.5rem;
+    right: 1.5rem;
+    background: var(--c-dark);
+    color: white;
+    padding: 0.85rem 1.25rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  .award-badge strong { display: block; font-weight: 700; font-size: 0.95rem; }
+  .award-badge span { display: block; font-size: 0.75rem; color: rgba(255,255,255,0.55); }
+
+  .divider { width: 48px; height: 3px; background: var(--c-primary); border-radius: 2px; margin: 1.5rem 0; }
+  .intro-text p { font-size: 0.95rem; line-height: 1.8; color: var(--c-text-muted); margin-bottom: 1.25rem; }
+
+  .trust-metrics {
+    display: flex;
+    gap: 2rem;
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: var(--c-light);
+    border-radius: 8px;
+  }
+  .trust-item { text-align: center; flex: 1; }
+  .trust-item strong { display: block; font-family: var(--font-display); font-size: 1.8rem; font-weight: 800; color: var(--c-primary); }
+  .trust-item span { font-size: 0.78rem; color: var(--c-text-muted); font-weight: 500; }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--c-primary);
+    color: white;
+    padding: 0.85rem 1.75rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+    box-shadow: 0 4px 20px rgba(232,64,26,0.35);
+  }
+  .btn-primary:hover {
+    background: var(--c-primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(232,64,26,0.45);
+  }
+
+  /* TIMELINE */
+  .section-career {
+    padding: 6rem 0;
+    background: var(--c-light);
+  }
+  .section-header { margin-bottom: 4rem; }
+  .timeline {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    position: relative;
+    margin-top: 3rem;
+  }
+  .timeline-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+  }
+  .timeline-year {
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    color: var(--c-primary);
+    background: rgba(232,64,26,0.08);
+    padding: 0.35rem 0.85rem;
+    border-radius: 50px;
+    border: 1px solid rgba(232,64,26,0.2);
+  }
+  .timeline-connector {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    position: relative;
+  }
+  .timeline-dot {
+    width: 12px; height: 12px;
+    background: var(--c-primary);
+    border-radius: 50%;
+    flex-shrink: 0;
+    box-shadow: 0 0 0 4px rgba(232,64,26,0.15);
+    margin: 0 auto;
+  }
+  .timeline-content h3 {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--c-dark);
+    margin-bottom: 0.5rem;
+  }
+  .timeline-content p { font-size: 0.85rem; color: var(--c-text-muted); line-height: 1.6; }
+
+  /* COMPANY */
+  .section-company {
+    padding: 6rem 0;
+    background: white;
+  }
+  .company-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+  .company-text p { font-size: 0.95rem; line-height: 1.8; color: var(--c-text-muted); margin-bottom: 1rem; }
+  .company-certs {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-top: 1.5rem;
+  }
+  .company-certs li {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--c-text);
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .company-image {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+  }
+  .company-image img { width: 100%; height: auto; }
+
+  @media (max-width: 900px) {
+    .intro-grid, .company-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .timeline { grid-template-columns: 1fr 1fr; }
+    .company-image { display: none; }
+  }
+  @media (max-width: 560px) {
+    .timeline { grid-template-columns: 1fr; }
+    .trust-metrics { gap: 1rem; }
+  }
+</style>

@@ -1,0 +1,462 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { client, urlFor } from '../lib/sanity';
+import { PortableText } from 'astro-portabletext';
+
+export async function getStaticPaths() {
+  const query = `*[_type == "post" && defined(slug.current)][] { "slug": slug.current }`;
+  const posts = await client.fetch(query);
+  return posts.map(post => ({
+    params: { slug: post.slug }
+  }));
+}
+
+const { slug } = Astro.params;
+if (!slug) throw new Error("Slug tidak ditemukan");
+
+const detailQuery = `*[_type == "post" && slug.current == $slug][0] {
+  title,
+  mainImage,
+  body,
+  publishedAt,
+  excerpt,
+  "authorName": author->name,
+  "categories": categories[]->title
+}`;
+const post = await client.fetch(detailQuery, { slug });
+
+if (!post) return Astro.redirect('/404');
+
+const recentQuery = `*[_type == "post" && slug.current != $slug] | order(publishedAt desc)[0...3] {
+  title,
+  mainImage,
+  "slug": slug.current,
+  publishedAt,
+  excerpt
+}`;
+const recentPosts = await client.fetch(recentQuery, { slug });
+
+const formatDate = (dateStr: string) => {
+  if (!dateStr) return '';
+  return new Date(dateStr).toLocaleDateString('id-ID', {
+    day: 'numeric', month: 'long', year: 'numeric'
+  });
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": post.title,
+  "datePublished": post.publishedAt,
+  "author": {
+    "@type": "Person",
+    "name": post.authorName || "Tri Yudhi",
+    "jobTitle": "Sales Manager – Panel Listrik",
+    "worksFor": { "@type": "Organization", "name": "PT Sinar Metrindo Perkasa" }
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Sales Panel Simetri",
+    "url": "https://salespanelsimetri.com"
+  },
+  ...(post.mainImage && {
+    "image": urlFor(post.mainImage).width(1200).height(630).url()
+  })
+};
+---
+
+<Layout
+  title={`${post.title} | Blog Panel Listrik Simetri`}
+  description={post.excerpt || `Artikel tentang ${post.title} dari Tri Yudhi Sales Manager Panel Listrik Simetri.`}
+  type="article"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} slot="head" />
+
+  <!-- HERO -->
+  <section class="article-hero">
+    <div class="hero-bg">
+      {post.mainImage ? (
+        <img
+          src={urlFor(post.mainImage).width(1600).height(700).url()}
+          alt={post.mainImage.alt || post.title}
+          class="hero-img"
+          loading="eager"
+        />
+      ) : (
+        <img src="/img/Panel-matrix-simetri.webp" alt="Panel Listrik Simetri" class="hero-img" loading="eager" />
+      )}
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="container hero-content">
+      <div class="breadcrumb">
+        <a href="/">Home</a>
+        <span aria-hidden="true">›</span>
+        <a href="/blog">Blog</a>
+        <span aria-hidden="true">›</span>
+        <span>{post.title}</span>
+      </div>
+      {post.categories?.[0] && (
+        <span class="hero-category">{post.categories[0]}</span>
+      )}
+      <h1 class="hero-title">{post.title}</h1>
+      <div class="hero-meta">
+        {post.publishedAt && (
+          <time datetime={post.publishedAt}>{formatDate(post.publishedAt)}</time>
+        )}
+        {post.authorName && (
+          <>
+            <span class="meta-dot" aria-hidden="true">·</span>
+            <span>Oleh {post.authorName}</span>
+          </>
+        )}
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTIKEL -->
+  <section class="section-article">
+    <div class="container article-layout">
+
+      <!-- KONTEN UTAMA -->
+      <article class="article-main reveal">
+        <div class="article-body prose">
+          {post.body
+            ? <PortableText value={post.body} />
+            : <p>Konten tidak tersedia.</p>
+          }
+        </div>
+
+        <!-- CTA inline dalam artikel -->
+        <div class="article-cta">
+          <div class="cta-content">
+            <strong>Butuh panel listrik untuk proyek Anda?</strong>
+            <p>Konsultasi gratis dengan Tri Yudhi – Sales Manager Simetri berpengalaman 18 tahun.</p>
+          </div>
+          <a
+            href="https://wa.me/628121342383?text=Halo%20Pak%20Yudhi%2C%20saya%20baca%20artikel%20ini%20dan%20ingin%20konsultasi"
+            class="btn-wa"
+            target="_blank"
+            rel="noopener"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Konsultasi WhatsApp
+          </a>
+        </div>
+
+        <div class="back-link-wrapper">
+          <a href="/blog" class="back-link">← Kembali ke Semua Artikel</a>
+        </div>
+      </article>
+
+      <!-- SIDEBAR -->
+      <aside class="article-sidebar">
+        <div class="sidebar-card">
+          <img src="/img/yudi-sales-simetri.webp" alt="Tri Yudhi Sales Manager Panel Listrik Simetri" loading="lazy" class="sidebar-avatar" />
+          <h3>Tri Yudhi</h3>
+          <p class="sidebar-role">Sales Manager – Simetri</p>
+          <p class="sidebar-bio">18+ tahun pengalaman di industri panel listrik. Mulai dari estimator hingga Sales Manager PT Sinar Metrindo Perkasa.</p>
+          <a
+            href="https://wa.me/628121342383"
+            class="sidebar-wa"
+            target="_blank"
+            rel="noopener"
+          >
+            Hubungi Langsung
+          </a>
+        </div>
+
+        <div class="sidebar-card">
+          <h4 class="sidebar-title">Produk Simetri</h4>
+          <ul class="sidebar-products">
+            <li><a href="/#produk">→ Panel LVMDP</a></li>
+            <li><a href="/#produk">→ Panel Genset PKG</a></li>
+            <li><a href="/#produk">→ Panel Distribusi</a></li>
+            <li><a href="/#produk">→ Panel Kapasitor Bank</a></li>
+          </ul>
+        </div>
+      </aside>
+
+    </div>
+  </section>
+
+  <!-- ARTIKEL TERKINI -->
+  {recentPosts.length > 0 && (
+    <section class="section-recent">
+      <div class="container">
+        <div class="recent-header">
+          <span class="section-label">Baca Juga</span>
+          <h2 class="section-title">Artikel Terkini</h2>
+        </div>
+        <div class="recent-grid">
+          {recentPosts.map((rp, i) => (
+            <article class={`recent-card reveal reveal-delay-${i + 1}`}>
+              <a href={`/${rp.slug}`} class="recent-link">
+                <div class="recent-image">
+                  {rp.mainImage ? (
+                    <img
+                      src={urlFor(rp.mainImage).width(600).height(360).url()}
+                      alt={rp.title}
+                      loading="lazy"
+                    />
+                  ) : (
+                    <img src="/img/Panel-matrix-simetri.webp" alt={rp.title} loading="lazy" />
+                  )}
+                </div>
+                <div class="recent-body">
+                  {rp.publishedAt && (
+                    <time class="recent-date">{formatDate(rp.publishedAt)}</time>
+                  )}
+                  <h3 class="recent-title">{rp.title}</h3>
+                  {rp.excerpt && <p class="recent-excerpt">{rp.excerpt}</p>}
+                  <span class="recent-readmore">Baca →</span>
+                </div>
+              </a>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+</Layout>
+
+<style>
+  /* HERO */
+  .article-hero {
+    position: relative;
+    min-height: 55vh;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+    margin-top: -80px;
+  }
+  .hero-bg { position: absolute; inset: 0; }
+  .hero-img { width: 100%; height: 100%; object-fit: cover; }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(15,19,24,0.95) 0%, rgba(15,19,24,0.3) 70%);
+  }
+  .hero-content {
+    position: relative; z-index: 2;
+    padding-bottom: 4rem; padding-top: 80px;
+    max-width: 800px;
+  }
+  .breadcrumb {
+    display: flex; align-items: center; gap: 0.5rem;
+    font-size: 0.78rem; color: rgba(255,255,255,0.5);
+    margin-bottom: 1rem;
+  }
+  .breadcrumb a { color: rgba(255,255,255,0.6); transition: color var(--transition); }
+  .breadcrumb a:hover { color: white; }
+  .breadcrumb span:last-child {
+    color: rgba(255,255,255,0.4);
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 200px;
+  }
+  .hero-category {
+    display: inline-block;
+    background: var(--c-primary); color: white;
+    font-size: 0.7rem; font-weight: 700;
+    padding: 0.3rem 0.8rem; border-radius: 50px;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    margin-bottom: 0.75rem;
+  }
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 800; color: white; line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+  .hero-meta {
+    display: flex; align-items: center; gap: 0.5rem;
+    font-size: 0.85rem; color: rgba(255,255,255,0.55);
+  }
+  .meta-dot { opacity: 0.4; }
+
+  /* ARTICLE LAYOUT */
+  .section-article { padding: 4rem 0 5rem; background: white; }
+  .article-layout {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  /* PROSE */
+  .article-body.prose {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: var(--c-text);
+  }
+  :global(.prose (h2) {
+    font-family: var(--font-display);
+    font-size: 1.65rem; font-weight: 800;
+    color: var(--c-dark);
+    margin: 2.5rem 0 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--c-light);
+  }
+  .prose :global(h3) {
+    font-family: var(--font-display);
+    font-size: 1.3rem; font-weight: 800;
+    color: var(--c-dark); margin: 2rem 0 0.75rem;
+  }
+  .prose :global(p) { margin-bottom: 1.5rem; }
+  .prose :global(a) { color: var(--c-primary); text-decoration: underline; text-underline-offset: 3px; }
+  .prose :global(a:hover) { color: var(--c-primary-dark); }
+  .prose :global(ul), .prose :global(ol) {
+    margin-bottom: 1.5rem; padding-left: 1.5rem;
+  }
+  .prose :global(li) { margin-bottom: 0.5rem; line-height: 1.7; }
+  .prose :global(blockquote) {
+    border-left: 3px solid var(--c-primary);
+    padding: 1rem 1.5rem;
+    margin: 2rem 0;
+    background: var(--c-light);
+    border-radius: 0 8px 8px 0;
+    font-style: italic; color: var(--c-text-muted);
+  }
+  .prose :global(img) {
+    width: 100%; height: auto; border-radius: 8px;
+    margin: 2rem 0; box-shadow: var(--shadow);
+  }
+  .prose :global(strong) { color: var(--c-dark); font-weight: 700; }
+
+  /* ARTICLE CTA */
+  .article-cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    background: var(--c-dark);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem 2rem;
+    margin: 3rem 0;
+    flex-wrap: wrap;
+  }
+  .cta-content strong { display: block; color: white; font-size: 1rem; margin-bottom: 0.35rem; }
+  .cta-content p { color: rgba(255,255,255,0.6); font-size: 0.875rem; margin: 0; }
+  .btn-wa {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: #25D366; color: white;
+    padding: 0.75rem 1.5rem; border-radius: 8px;
+    font-size: 0.875rem; font-weight: 700;
+    white-space: nowrap;
+    transition: background var(--transition), transform var(--transition);
+    box-shadow: 0 4px 16px rgba(37,211,102,0.35);
+    flex-shrink: 0;
+  }
+  .btn-wa:hover { background: #1ebe5d; transform: translateY(-2px); }
+
+  .back-link-wrapper { padding-top: 2rem; border-top: 1px solid #f0f0f0; }
+  .back-link {
+    display: inline-block;
+    font-size: 0.875rem; font-weight: 600;
+    color: var(--c-text-muted);
+    transition: color var(--transition);
+  }
+  .back-link:hover { color: var(--c-primary); }
+
+  /* SIDEBAR */
+  .article-sidebar { position: sticky; top: 100px; }
+  .sidebar-card {
+    background: var(--c-light);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .sidebar-avatar {
+    width: 80px; height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: top;
+    margin-bottom: 0.75rem;
+    border: 3px solid white;
+    box-shadow: var(--shadow);
+  }
+  .sidebar-card h3 {
+    font-family: var(--font-display);
+    font-size: 1rem; font-weight: 800;
+    color: var(--c-dark); margin-bottom: 0.25rem;
+  }
+  .sidebar-role {
+    font-size: 0.75rem; color: var(--c-primary);
+    font-weight: 600; margin-bottom: 0.75rem;
+  }
+  .sidebar-bio {
+    font-size: 0.82rem; line-height: 1.65;
+    color: var(--c-text-muted); margin-bottom: 1.25rem;
+  }
+  .sidebar-wa {
+    display: block; text-align: center;
+    background: var(--c-primary); color: white;
+    padding: 0.65rem 1rem; border-radius: 8px;
+    font-size: 0.85rem; font-weight: 700;
+    transition: background var(--transition);
+  }
+  .sidebar-wa:hover { background: var(--c-primary-dark); }
+  .sidebar-title {
+    font-family: var(--font-display);
+    font-size: 0.8rem; font-weight: 800;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--c-dark); margin-bottom: 1rem;
+  }
+  .sidebar-products { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+  .sidebar-products a {
+    font-size: 0.875rem; color: var(--c-text-muted);
+    transition: color var(--transition);
+    display: block; padding: 0.3rem 0;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+  }
+  .sidebar-products a:hover { color: var(--c-primary); }
+
+  /* RECENT POSTS */
+  .section-recent { padding: 5rem 0; background: var(--c-light); }
+  .recent-header { margin-bottom: 2.5rem; }
+  .recent-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  .recent-card {
+    background: white; border-radius: var(--radius-lg);
+    overflow: hidden; box-shadow: var(--shadow);
+    transition: transform var(--transition), box-shadow var(--transition);
+  }
+  .recent-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+  .recent-link { display: flex; flex-direction: column; height: 100%; }
+  .recent-image { height: 180px; overflow: hidden; }
+  .recent-image img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  .recent-card:hover .recent-image img { transform: scale(1.05); }
+  .recent-body { padding: 1.25rem; flex: 1; display: flex; flex-direction: column; }
+  .recent-date { font-size: 0.72rem; color: var(--c-text-muted); display: block; margin-bottom: 0.4rem; }
+  .recent-title {
+    font-family: var(--font-display);
+    font-size: 0.95rem; font-weight: 800;
+    color: var(--c-dark); line-height: 1.35; flex: 1; margin-bottom: 0.5rem;
+  }
+  .recent-excerpt {
+    font-size: 0.8rem; color: var(--c-text-muted); line-height: 1.6;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+    margin-bottom: 1rem;
+  }
+  .recent-readmore {
+    font-size: 0.8rem; font-weight: 700; color: var(--c-primary);
+    border-top: 1px solid #f0f0f0; padding-top: 0.75rem; display: block;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 1024px) {
+    .article-layout { grid-template-columns: 1fr; }
+    .article-sidebar { position: static; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  }
+  @media (max-width: 768px) {
+    .recent-grid { grid-template-columns: 1fr; }
+    .article-sidebar { grid-template-columns: 1fr; }
+    .article-cta { flex-direction: column; align-items: flex-start; }
+  }
+</style>

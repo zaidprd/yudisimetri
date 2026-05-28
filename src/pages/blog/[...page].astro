@@ -1,0 +1,311 @@
+---
+// src/pages/blog/[...page].astro
+import Layout from '../../layouts/Layout.astro';
+import { client, urlFor } from '../../lib/sanity';
+
+export async function getStaticPaths({ paginate }) {
+  const query = `*[_type == "post"] | order(publishedAt desc) {
+    _id,
+    title,
+    "slug": slug.current,
+    mainImage,
+    excerpt,
+    publishedAt,
+    "categories": categories[]->title
+  }`;
+  const allPosts = await client.fetch(query);
+  return paginate(allPosts, { pageSize: 9 });
+}
+
+const { page } = Astro.props;
+const postsOnThisPage = page.data;
+
+const formatDate = (dateStr: string) => {
+  if (!dateStr) return '';
+  return new Date(dateStr).toLocaleDateString('id-ID', {
+    day: 'numeric', month: 'long', year: 'numeric'
+  });
+};
+---
+
+<Layout
+  title={`Blog Panel Listrik – Halaman ${page.currentPage} | Sales Panel Simetri`}
+  description="Artikel, tips, dan panduan teknis seputar panel listrik LVMDP, panel genset, kapasitor bank dari Tri Yudhi Sales Manager Simetri."
+>
+
+  <!-- HERO -->
+  <section class="blog-hero">
+    <div class="hero-bg">
+      <img src="/img/Panel-matrix-simetri.webp" alt="Blog Panel Listrik Simetri" class="hero-img" loading="eager" />
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="container hero-content">
+      <span class="section-label" style="color: var(--c-accent)">Blog & Edukasi</span>
+      <h1 class="hero-title">Wawasan Seputar<br/><em>Panel Listrik</em></h1>
+      <p class="hero-desc">Artikel teknis, tips proyek, dan panduan dari Tri Yudhi – Sales Manager Simetri.</p>
+    </div>
+  </section>
+
+  <!-- BLOG GRID -->
+  <section class="section-blog">
+    <div class="container">
+
+      {postsOnThisPage.length > 0 ? (
+        <div class="blog-grid">
+          {postsOnThisPage.map((post, i) => (
+            <article class={`post-card reveal reveal-delay-${(i % 3) + 1}`}>
+              <a href={`/${post.slug}`} class="card-link" aria-label={`Baca: ${post.title}`}>
+                <div class="card-image">
+                  {post.mainImage ? (
+                    <img
+                      src={urlFor(post.mainImage).width(600).height(380).url()}
+                      alt={post.mainImage.alt || post.title}
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div class="placeholder-image">
+                      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                        <circle cx="8.5" cy="8.5" r="1.5" fill="currentColor"/>
+                        <path d="M21 15l-5-5L5 21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                      </svg>
+                    </div>
+                  )}
+                  {post.categories?.[0] && (
+                    <span class="card-category">{post.categories[0]}</span>
+                  )}
+                </div>
+                <div class="card-body">
+                  {post.publishedAt && (
+                    <time class="card-date" datetime={post.publishedAt}>
+                      {formatDate(post.publishedAt)}
+                    </time>
+                  )}
+                  <h2 class="card-title">{post.title || 'Tanpa Judul'}</h2>
+                  {post.excerpt && <p class="card-excerpt">{post.excerpt}</p>}
+                  <span class="card-readmore">Baca selengkapnya →</span>
+                </div>
+              </a>
+            </article>
+          ))}
+        </div>
+      ) : (
+        <div class="empty-state">
+          <p>Belum ada artikel. Segera hadir!</p>
+          <a href="/" class="btn-primary">Kembali ke Beranda</a>
+        </div>
+      )}
+
+      <!-- PAGINATION -->
+      {page.lastPage > 1 && (
+        <nav class="pagination" aria-label="Navigasi halaman blog">
+          {page.url.prev
+            ? <a href={page.url.prev} class="page-btn">← Sebelumnya</a>
+            : <span class="page-btn disabled">← Sebelumnya</span>
+          }
+          <span class="page-info">Halaman {page.currentPage} / {page.lastPage}</span>
+          {page.url.next
+            ? <a href={page.url.next} class="page-btn">Selanjutnya →</a>
+            : <span class="page-btn disabled">Selanjutnya →</span>
+          }
+        </nav>
+      )}
+
+      <!-- CTA -->
+      <div class="blog-cta reveal">
+        <p>Punya pertanyaan teknis? Konsultasi langsung dengan Tri Yudhi.</p>
+        <a
+          href="https://wa.me/628121342383?text=Halo%20Pak%20Yudhi%2C%20saya%20ingin%20konsultasi%20panel%20listrik"
+          class="btn-primary"
+          target="_blank"
+          rel="noopener"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          WhatsApp Sekarang
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  /* HERO */
+  .blog-hero {
+    position: relative;
+    height: 55vh;
+    min-height: 400px;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+    margin-top: -80px;
+  }
+  .hero-bg { position: absolute; inset: 0; }
+  .hero-img { width: 100%; height: 100%; object-fit: cover; }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(15,19,24,0.92) 0%, rgba(15,19,24,0.35) 65%);
+  }
+  .hero-content {
+    position: relative; z-index: 2;
+    padding-bottom: 4rem; padding-top: 80px;
+  }
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-weight: 800; color: white; line-height: 1.1;
+    margin: 0.5rem 0 0.75rem;
+  }
+  .hero-title em { font-style: normal; color: var(--c-primary); }
+  .hero-desc { font-size: 1rem; color: rgba(255,255,255,0.65); max-width: 500px; }
+
+  /* BLOG SECTION */
+  .section-blog { padding: 5rem 0; background: var(--c-light); }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .post-card {
+    background: white;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform var(--transition), box-shadow var(--transition);
+  }
+  .post-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+  .card-link { display: flex; flex-direction: column; height: 100%; }
+
+  .card-image {
+    position: relative;
+    height: 210px;
+    overflow: hidden;
+    background: #e8e8e8;
+    flex-shrink: 0;
+  }
+  .card-image img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  .post-card:hover .card-image img { transform: scale(1.05); }
+  .placeholder-image {
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    color: #bbb;
+  }
+  .card-category {
+    position: absolute; top: 0.75rem; left: 0.75rem;
+    background: var(--c-primary); color: white;
+    font-size: 0.68rem; font-weight: 700;
+    padding: 0.25rem 0.65rem; border-radius: 50px;
+    letter-spacing: 0.05em; text-transform: uppercase;
+  }
+
+  .card-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
+  .card-date {
+    font-size: 0.75rem; color: var(--c-text-muted);
+    display: block; margin-bottom: 0.5rem;
+  }
+  .card-title {
+    font-family: var(--font-display);
+    font-size: 1rem; font-weight: 800;
+    color: var(--c-dark); line-height: 1.35;
+    margin-bottom: 0.75rem; flex: 1;
+  }
+  .card-excerpt {
+    font-size: 0.85rem; line-height: 1.65;
+    color: var(--c-text-muted); margin-bottom: 1.25rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .card-readmore {
+    display: block;
+    font-size: 0.82rem; font-weight: 700;
+    color: var(--c-primary);
+    border-top: 1px solid #f0f0f0;
+    padding-top: 1rem;
+    transition: letter-spacing var(--transition);
+  }
+  .post-card:hover .card-readmore { letter-spacing: 0.01em; }
+
+  /* PAGINATION */
+  .pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 3rem 0;
+    padding: 2rem;
+    background: white;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+  }
+  .page-btn {
+    display: inline-block;
+    background: var(--c-dark);
+    color: white;
+    padding: 0.7rem 1.5rem;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: background var(--transition), transform var(--transition);
+  }
+  .page-btn:hover:not(.disabled) {
+    background: var(--c-primary);
+    transform: translateY(-1px);
+  }
+  .page-btn.disabled {
+    background: #e0e0e0;
+    color: #aaa;
+    cursor: not-allowed;
+  }
+  .page-info { font-size: 0.875rem; color: var(--c-text-muted); font-weight: 500; }
+
+  /* EMPTY STATE */
+  .empty-state {
+    text-align: center;
+    padding: 5rem 0;
+    color: var(--c-text-muted);
+  }
+  .empty-state p { font-size: 1.1rem; margin-bottom: 1.5rem; }
+
+  /* CTA */
+  .blog-cta {
+    text-align: center;
+    padding: 3rem;
+    background: var(--c-dark);
+    border-radius: var(--radius-lg);
+    margin-top: 2rem;
+  }
+  .blog-cta p { color: rgba(255,255,255,0.65); margin-bottom: 1.25rem; font-size: 1rem; }
+
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: var(--c-primary); color: white;
+    padding: 0.85rem 1.75rem; border-radius: 8px;
+    font-size: 0.95rem; font-weight: 600;
+    transition: background var(--transition), transform var(--transition);
+    box-shadow: 0 4px 20px rgba(232,64,26,0.35);
+  }
+  .btn-primary:hover { background: var(--c-primary-dark); transform: translateY(-2px); }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .blog-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 560px) {
+    .blog-grid { grid-template-columns: 1fr; }
+    .pagination { flex-direction: column; gap: 1rem; text-align: center; }
+  }
+</style>

@@ -1,0 +1,294 @@
+---
+const navLinks = [
+  { href: "/", label: "Home" },
+  { href: "/about", label: "Tentang Kami" },
+  
+  { href: "/#kontak", label: "Kontak" },
+  { href: "/blog", label: "Blog" },
+];
+
+const currentPath = Astro.url.pathname;
+
+// Cek active: untuk hash links (#produk, #kontak), aktif kalau di homepage (/)
+// Untuk halaman normal, aktif kalau path sama persis
+function isActive(href: string): boolean {
+  if (href.includes('#')) {
+    return currentPath === '/';
+  }
+  return currentPath === href || 
+    (href !== '/' && currentPath.startsWith(href));
+}
+---
+
+<header id="site-header">
+  <div class="container header-inner">
+    <a href="/" class="header-logo" aria-label="Beranda Simetri Panel">
+      <img src="/img/logosales.webp" alt="Logo Tri Yudhi Sales Panel Simetri" />
+    </a>
+
+    <nav class="main-nav" role="navigation" aria-label="Menu Utama">
+      {navLinks.map(link => (
+        <a
+          href={link.href}
+          class={`nav-link ${isActive(link.href) ? 'active' : ''}`}
+        >
+          {link.label}
+        </a>
+      ))}
+    </nav>
+
+    <a href="https://wa.me/628121342383" class="header-cta" target="_blank" rel="noopener" aria-label="Hubungi via WhatsApp">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      </svg>
+      <span class="cta-text">Minta Penawaran</span>
+    </a>
+
+    <!-- Mobile hamburger -->
+    <button class="hamburger" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <!-- Mobile nav drawer -->
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <nav>
+      {navLinks.map(link => (
+        <a href={link.href} class="mobile-nav-link">{link.label}</a>
+      ))}
+      <a href="https://wa.me/628121342383" class="mobile-wa-btn" target="_blank" rel="noopener">
+        Hubungi via WhatsApp
+      </a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  function initHeader() {
+    const header = document.getElementById('site-header');
+    const toggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('mobile-menu');
+
+    if (!header || !toggle || !menu) return;
+
+    // Scroll effect
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    // Mobile toggle
+    toggle.addEventListener('click', () => {
+      const isOpen = menu.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(isOpen));
+      menu.setAttribute('aria-hidden', String(!isOpen));
+      toggle.classList.toggle('active', isOpen);
+    });
+
+    // Close menu on link click
+    menu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        menu.classList.remove('open');
+        toggle.classList.remove('active');
+        menu.setAttribute('aria-hidden', 'true');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // Update active nav berdasarkan scroll position (untuk hash sections)
+    const sections = ['produk', 'kontak'];
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    if (window.location.pathname === '/') {
+      window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(id => {
+          const el = document.getElementById(id);
+          if (el && window.scrollY >= el.offsetTop - 120) {
+            current = id;
+          }
+        });
+        navLinks.forEach(link => {
+          const href = link.getAttribute('href') || '';
+          link.classList.remove('active');
+          if (current && href === `/#${current}`) {
+            link.classList.add('active');
+          } else if (!current && href === '/') {
+            link.classList.add('active');
+          }
+        });
+      }, { passive: true });
+    }
+  }
+  initHeader();
+  document.addEventListener('astro:after-swap', initHeader);
+</script>
+
+<style>
+  #site-header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    transition: background var(--transition), box-shadow var(--transition), padding var(--transition);
+    padding: 0;
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    gap: 2rem;
+  }
+
+  /* === TRANSPARENT STATE === */
+  #site-header:not(.scrolled) {
+    background: linear-gradient(180deg, rgba(15,19,24,0.85) 0%, transparent 100%);
+  }
+  #site-header:not(.scrolled) .header-logo img {
+    filter: brightness(0) invert(1);
+  }
+  #site-header:not(.scrolled) .nav-link { color: rgba(255,255,255,0.9); }
+  #site-header:not(.scrolled) .hamburger span { background: white; }
+
+  /* === SCROLLED STATE === */
+  #site-header.scrolled {
+    background: rgba(255,255,255,0.97);
+    box-shadow: 0 1px 0 rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.06);
+    backdrop-filter: blur(12px);
+  }
+  #site-header.scrolled .header-logo img { filter: none; }
+  #site-header.scrolled .nav-link { color: var(--c-dark); }
+  #site-header.scrolled .hamburger span { background: var(--c-dark); }
+
+  /* Logo */
+  .header-logo img {
+    height: 36px;
+    width: auto;
+    transition: filter var(--transition);
+  }
+
+  /* Nav */
+  .main-nav {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    margin-left: auto;
+  }
+  .nav-link {
+    font-size: 0.875rem;
+    font-weight: 500;
+    padding: 0.5rem 0.85rem;
+    border-radius: 6px;
+    transition: color var(--transition), background var(--transition);
+    position: relative;
+  }
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 2px; left: 50%; right: 50%;
+    height: 2px;
+    background: var(--c-primary);
+    transition: left var(--transition), right var(--transition);
+    border-radius: 2px;
+  }
+  .nav-link:hover::after,
+  .nav-link.active::after { left: 0.85rem; right: 0.85rem; }
+  .nav-link.active { color: var(--c-primary) !important; }
+
+  /* CTA Button */
+  .header-cta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--c-primary);
+    color: white;
+    padding: 0.55rem 1.1rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+    box-shadow: 0 2px 12px rgba(232,64,26,0.35);
+  }
+  .header-cta:hover {
+    background: var(--c-primary-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 20px rgba(232,64,26,0.45);
+  }
+
+  /* Hamburger */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 40px; height: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+  .hamburger span {
+    display: block;
+    width: 24px; height: 2px;
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  .hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  .hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* Mobile menu */
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 80px; left: 0; right: 0;
+    background: var(--c-dark);
+    padding: 1.5rem;
+    transform: translateY(-10px);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  .mobile-menu.open {
+    opacity: 1;
+    transform: none;
+    pointer-events: all;
+  }
+  .mobile-menu nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  .mobile-nav-link {
+    display: block;
+    padding: 0.85rem 1rem;
+    color: rgba(255,255,255,0.85);
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 6px;
+    transition: background var(--transition), color var(--transition);
+  }
+  .mobile-nav-link:hover { background: rgba(255,255,255,0.08); color: white; }
+  .mobile-wa-btn {
+    display: block;
+    margin-top: 1rem;
+    text-align: center;
+    background: #25D366;
+    color: white;
+    padding: 0.85rem;
+    border-radius: 8px;
+    font-weight: 600;
+  }
+
+  @media (max-width: 900px) {
+    .main-nav, .header-cta { display: none; }
+    .hamburger { display: flex; }
+    .mobile-menu { display: block; }
+  }
+  @media (max-width: 480px) {
+    .cta-text { display: none; }
+    .header-cta { padding: 0.55rem 0.75rem; }
+  }
+</style>

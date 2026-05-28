@@ -1,0 +1,714 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+
+// Import semua gambar produk
+import imgLVMDP from '../assets/img/Panel-LVMDP-Simetri.webp';
+import imgGenset from '../assets/img/panel-kontrol-genset-simetri.webp';
+import imgDistribusi from '../assets/img/panel_listrik_distribusi_simetri.webp';
+import imgKapasitor from '../assets/img/panel_listrik_simetri_kapasitor.webp';
+
+// Import gambar hero & foto
+import imgHero from '../assets/img/Panel-matrix-simetri.webp';
+import imgYudi from '../assets/img/yudi-sales-simetri.webp';
+
+// Import logo klien
+import imgKlien1 from '../assets/img/klien/klien-1.webp';
+import imgKlien2 from '../assets/img/klien/klien-2.webp';
+import imgKlien3 from '../assets/img/klien/klien-3.webp';
+import imgKlien4 from '../assets/img/klien/klien-4.webp';
+
+const products = [
+  {
+    id: "panel-lvmdp",
+    name: "Panel LVMDP",
+    tagline: "Low Voltage Main Distribution Panel",
+    desc: "Sistem proteksi dan distribusi daya listrik utama dengan sistem interlock, coupler, dan pengaman berlapis untuk gedung bertingkat dan industri berat.",
+    features: ["Sistem interlock otomatis", "Interlock dengan coupler", "Kapasitas hingga 6300A", "Proteksi overcurrent & ground fault"],
+    img: imgLVMDP,
+    alt: "Panel LVMDP Simetri Jakarta - Low Voltage Main Distribution Panel"
+  },
+  {
+    id: "panel-genset",
+    name: "Panel Genset PKG",
+    tagline: "Panel Kontrol Genset",
+    desc: "Sinkronisasi hingga 6 unit genset sekaligus, termasuk sinkronisasi antara genset dan PLN (Back and Forward Synchron) untuk keandalan daya tanpa henti.",
+    features: ["Sinkronisasi hingga 6 genset", "Back & Forward Synchron PLN", "Auto transfer switch", "Monitoring load sharing"],
+    img: imgGenset,
+    alt: "Panel Genset PKG Simetri - Panel Kontrol Sinkronisasi Genset Jakarta"
+  },
+  {
+    id: "panel-distribusi",
+    name: "Panel Distribusi",
+    tagline: "Sub Distribution Panel",
+    desc: "Kontrol dan proteksi distribusi tenaga listrik ke sub panel dan beban seperti sistem hydrant, lighting, lift, eskalator, dan beban kritis lainnya.",
+    features: ["Distribusi multi-zone", "Proteksi beban kritis", "Panel hydrant & fire fighting", "Monitoring energi real-time"],
+    img: imgDistribusi,
+    alt: "Panel Distribusi Listrik Simetri Jakarta - Sub Distribution Panel"
+  },
+  {
+    id: "panel-kapasitor",
+    name: "Panel Kapasitor Bank",
+    tagline: "Power Factor Correction",
+    desc: "Meminimalkan daya reaktif untuk meningkatkan power factor, mengurangi rugi daya, dan menurunkan tagihan listrik secara signifikan.",
+    features: ["Koreksi power factor otomatis", "Mengurangi denda kVARh PLN", "APFR otomatis", "Pengurangan rugi daya"],
+    img: imgKapasitor,
+    alt: "Panel Kapasitor Bank Simetri - Power Factor Correction Jakarta"
+  }
+];
+
+const stats = [
+  { value: "18+", label: "Tahun Pengalaman", desc: "Bergabung sejak 2007" },
+  { value: "500+", label: "Proyek Selesai", desc: "Swasta & pemerintah" },
+  { value: "4", label: "Produk Unggulan", desc: "Panel lokal & typetest" },
+  { value: "100%", label: "Garansi Purna Jual", desc: "Service & spare part" },
+];
+---
+
+<Layout
+  title="Jual Panel Listrik Jakarta | Sales Panel LVMDP, Genset, Distribusi – Simetri"
+  description="Tri Yudhi, Sales Manager Panel Listrik PT Sinar Metrindo Perkasa (Simetri) Jakarta. Spesialis Panel LVMDP, Panel Genset PKG, Panel Distribusi, Panel Kapasitor Bank. Pengalaman 18+ tahun. Hubungi sekarang untuk penawaran terbaik."
+>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" aria-label="Hero section">
+    <div class="hero-bg">
+      <Image
+        src={imgHero}
+        alt="Panel Matrix Simetri – Panel Listrik Terbaik Jakarta"
+        loading="eager"
+        fetchpriority="high"
+        class="hero-img"
+      />
+      <div class="hero-overlay"></div>
+    </div>
+
+    <div class="container hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        PT Sinar Metrindo Perkasa · Jakarta Barat
+      </div>
+      <h1 class="hero-title">
+        Panel Listrik<br/>
+        <em>Berkualitas Tinggi</em><br/>
+        untuk Proyek Anda
+      </h1>
+      <p class="hero-desc">
+        Tri Yudhi – Sales Manager Simetri dengan pengalaman 18+ tahun. Dapatkan konsultasi & penawaran panel listrik terbaik untuk gedung, industri, dan infrastruktur Anda.
+      </p>
+      <div class="hero-actions">
+        <a href="https://wa.me/628121342383?text=Halo%20Pak%20Yudhi%2C%20saya%20ingin%20konsultasi%20panel%20listrik" class="btn-primary" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Konsultasi Gratis
+        </a>
+        <a href="#produk" class="btn-outline">Lihat Produk ↓</a>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="scroll-hint" aria-hidden="true">
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ===== STATS BAR ===== -->
+  <section class="stats-bar" aria-label="Statistik perusahaan">
+    <div class="container stats-grid">
+      {stats.map((stat, i) => (
+        <div class={`stat-item reveal reveal-delay-${i+1}`}>
+          <strong class="stat-value">{stat.value}</strong>
+          <span class="stat-label">{stat.label}</span>
+          <span class="stat-desc">{stat.desc}</span>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- ===== PRODUCTS ===== -->
+  <section id="produk" class="section-products" aria-label="Daftar produk panel listrik">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Produk & Layanan</span>
+        <h2 class="section-title">Solusi Panel Listrik<br/>Lengkap dari Simetri</h2>
+        <p class="section-desc">
+          Selain panel Matrix, Sivacon S8, dan panel Typetest bersertifikasi internasional, Simetri juga menghadirkan lini panel lokal berkualitas tinggi untuk setiap kebutuhan proyek.
+        </p>
+      </div>
+
+      <div class="products-grid">
+        {products.map((product, i) => (
+          <article class={`product-card reveal reveal-delay-${(i % 2) + 1}`} id={product.id}>
+            <div class="product-image-wrap">
+              <Image
+                src={product.img}
+                alt={product.alt}
+                loading="lazy"
+                class="product-img"
+              />
+              <div class="product-image-overlay"></div>
+            </div>
+            <div class="product-body">
+              <p class="product-tagline">{product.tagline}</p>
+              <h3 class="product-name">{product.name}</h3>
+              <p class="product-desc">{product.desc}</p>
+              <ul class="product-features" aria-label={`Fitur ${product.name}`}>
+                {product.features.map(f => (
+                  <li>
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                      <circle cx="7" cy="7" r="7" fill="var(--c-primary)" opacity="0.12"/>
+                      <path d="M4 7l2 2 4-4" stroke="var(--c-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    {f}
+                  </li>
+                ))}
+              </ul>
+              <a
+                href={`https://wa.me/628121342383?text=Halo%20Pak%20Yudhi%2C%20saya%20ingin%20informasi%20${encodeURIComponent(product.name)}`}
+                class="product-cta"
+                target="_blank"
+                rel="noopener"
+                aria-label={`Tanya harga ${product.name}`}
+              >
+                Tanya Harga & Spesifikasi →
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA / KONTAK ===== -->
+  <section id="kontak" class="section-cta" aria-label="Kontak sales">
+    <div class="container cta-inner">
+      <div class="cta-text reveal">
+        <span class="section-label" style="color: var(--c-accent)">Hubungi Sekarang</span>
+        <h2 class="section-title light">Siap Bantu Proyek<br/>Panel Listrik Anda</h2>
+        <p class="cta-desc">
+          Konsultasikan kebutuhan panel listrik proyek Anda dengan Tri Yudhi – Sales Manager berpengalaman 18 tahun. Gratis konsultasi, harga kompetitif, pengiriman ke seluruh Indonesia.
+        </p>
+        <ul class="cta-list">
+          <li>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="currentColor"/></svg>
+            Aries Niaga Blok A1 No. 3A-3B, Jl. Taman Aries, Jakarta Barat 11620
+          </li>
+          <li>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" fill="currentColor"/></svg>
+            +62 812-1342-383
+          </li>
+        </ul>
+        <div class="cta-buttons">
+          <a href="https://wa.me/628121342383?text=Halo%20Pak%20Yudhi%2C%20saya%20ingin%20konsultasi%20panel%20listrik" class="btn-primary" target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp Sekarang
+          </a>
+          <a href="/about" class="btn-ghost">Tentang Tri Yudhi →</a>
+        </div>
+      </div>
+      <div class="cta-photo reveal reveal-delay-2">
+        <div class="photo-frame">
+          <Image
+            src={imgYudi}
+            alt="Tri Yudhi – Sales Manager Panel Listrik PT Sinar Metrindo Perkasa Simetri"
+            loading="lazy"
+          />
+        </div>
+        <div class="photo-badge">
+          <strong>Tri Yudhi</strong>
+          <span>Sales Manager Simetri</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== KLIEN ===== -->
+  <section id="klien" class="section-clients" aria-label="Klien kami">
+    <div class="container">
+      <div class="section-header reveal" style="text-align:center">
+        <span class="section-label">Klien & Proyek</span>
+        <h2 class="section-title" style="margin: 0 auto">Dipercaya oleh<br/>Institusi Terkemuka</h2>
+        <p class="section-desc" style="max-width:500px;margin:1rem auto 0">
+          Bandara, rumah sakit, bank sentral, hingga gedung perkantoran. Proyek kami ada di seluruh Indonesia.
+        </p>
+      </div>
+    </div>
+
+    <div class="logo-scroller" aria-label="Logo klien" role="marquee">
+      <div class="logo-scroller__inner">
+        <Image src={imgKlien1} alt="Klien Panel Simetri – Bandara Internasional" loading="lazy" />
+        <Image src={imgKlien2} alt="Klien Panel Simetri – Rumah Sakit" loading="lazy" />
+        <Image src={imgKlien3} alt="Klien Panel Simetri – Bank Indonesia" loading="lazy" />
+        <Image src={imgKlien4} alt="Klien Panel Simetri – Gedung Perkantoran" loading="lazy" />
+        <!-- Duplikat untuk infinite scroll -->
+        <Image src={imgKlien1} alt="Klien Panel Simetri – Bandara Internasional" loading="lazy" aria-hidden="true" />
+        <Image src={imgKlien2} alt="Klien Panel Simetri – Rumah Sakit" loading="lazy" aria-hidden="true" />
+        <Image src={imgKlien3} alt="Klien Panel Simetri – Bank Indonesia" loading="lazy" aria-hidden="true" />
+        <Image src={imgKlien4} alt="Klien Panel Simetri – Gedung Perkantoran" loading="lazy" aria-hidden="true" />
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  /* ===== HERO ===== */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    margin-top: -80px;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  .hero-img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transform: scale(1.03);
+    animation: heroZoom 12s ease-out forwards;
+  }
+  @keyframes heroZoom {
+    from { transform: scale(1.08); }
+    to { transform: scale(1); }
+  }
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(15,19,24,0.88) 0%,
+      rgba(15,19,24,0.55) 60%,
+      rgba(232,64,26,0.15) 100%
+    );
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding-top: 80px;
+    padding-bottom: 6rem;
+    max-width: 800px;
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.85);
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    margin-bottom: 2rem;
+    animation: fadeUp 0.8s ease 0.2s both;
+  }
+  .badge-dot {
+    width: 8px; height: 8px;
+    background: #25D366;
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px rgba(37,211,102,0.3);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 3px rgba(37,211,102,0.3); }
+    50% { box-shadow: 0 0 0 6px rgba(37,211,102,0.1); }
+  }
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    font-weight: 800;
+    line-height: 1.05;
+    color: white;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.8s ease 0.35s both;
+  }
+  .hero-title em {
+    font-style: normal;
+    color: var(--c-primary);
+    position: relative;
+  }
+  .hero-title em::after {
+    content: '';
+    position: absolute;
+    bottom: 2px; left: 0; right: 0;
+    height: 4px;
+    background: var(--c-primary);
+    opacity: 0.35;
+    border-radius: 2px;
+  }
+  .hero-desc {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.75);
+    max-width: 560px;
+    margin-bottom: 2.5rem;
+    animation: fadeUp 0.8s ease 0.5s both;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    animation: fadeUp 0.8s ease 0.65s both;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: none; }
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--c-primary);
+    color: white;
+    padding: 0.85rem 1.75rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+    box-shadow: 0 4px 20px rgba(232,64,26,0.4);
+  }
+  .btn-primary:hover {
+    background: var(--c-primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(232,64,26,0.5);
+  }
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+    color: white;
+    padding: 0.85rem 1.75rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border: 1.5px solid rgba(255,255,255,0.4);
+    transition: border-color var(--transition), background var(--transition);
+  }
+  .btn-outline:hover {
+    border-color: white;
+    background: rgba(255,255,255,0.1);
+  }
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    color: rgba(255,255,255,0.8);
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 0.85rem 0.5rem;
+    transition: color var(--transition);
+  }
+  .btn-ghost:hover { color: white; }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+  }
+  .scroll-line {
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.6));
+    animation: scrollLine 1.5s ease-in-out infinite;
+  }
+  @keyframes scrollLine {
+    0% { transform: scaleY(0); transform-origin: top; }
+    50% { transform: scaleY(1); transform-origin: top; }
+    51% { transform: scaleY(1); transform-origin: bottom; }
+    100% { transform: scaleY(0); transform-origin: bottom; }
+  }
+
+  /* ===== STATS ===== */
+  .stats-bar {
+    background: var(--c-dark);
+    padding: 3rem 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .stats-bar::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--c-primary), var(--c-accent), var(--c-primary));
+  }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+  }
+  .stat-item {
+    text-align: center;
+    padding: 1.5rem 1rem;
+    position: relative;
+  }
+  .stat-item + .stat-item::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 20%; bottom: 20%;
+    width: 1px;
+    background: rgba(255,255,255,0.08);
+  }
+  .stat-value {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: var(--c-primary);
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+  .stat-label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--c-white);
+    margin-bottom: 0.2rem;
+    letter-spacing: 0.02em;
+  }
+  .stat-desc {
+    display: block;
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.4);
+  }
+
+  /* ===== PRODUCTS ===== */
+  .section-products {
+    padding: 6rem 0;
+    background: var(--c-light);
+  }
+  .section-header {
+    margin-bottom: 3.5rem;
+  }
+  .section-desc {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--c-text-muted);
+    margin-top: 0.75rem;
+    max-width: 600px;
+  }
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  .product-card {
+    background: white;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    transition: transform var(--transition), box-shadow var(--transition);
+  }
+  .product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+  .product-image-wrap {
+    position: relative;
+    overflow: hidden;
+    height: 240px;
+    background: #f0f0f0;
+  }
+  .product-img {
+    width: 100%; height: 100%;
+    object-fit: contain;
+    object-position: center;
+    padding: 1.5rem;
+    transition: transform 0.5s ease;
+  }
+  .product-card:hover .product-img { transform: scale(1.04); }
+  .product-image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.04));
+    pointer-events: none;
+  }
+  .product-body {
+    padding: 1.75rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .product-tagline {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--c-primary);
+    margin-bottom: 0.4rem;
+  }
+  .product-name {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--c-dark);
+    margin-bottom: 0.75rem;
+  }
+  .product-desc {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--c-text-muted);
+    margin-bottom: 1.25rem;
+  }
+  .product-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.75rem;
+    flex: 1;
+  }
+  .product-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    font-size: 0.85rem;
+    color: var(--c-text);
+    line-height: 1.5;
+  }
+  .product-features svg { flex-shrink: 0; margin-top: 1px; }
+  .product-cta {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--c-primary);
+    border-top: 1px solid #f0f0f0;
+    padding-top: 1.25rem;
+    transition: color var(--transition), gap var(--transition);
+    gap: 0;
+  }
+  .product-cta:hover { color: var(--c-primary-dark); gap: 0.25rem; }
+
+  /* ===== CTA ===== */
+  .section-cta {
+    background: var(--c-dark-2);
+    padding: 6rem 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .section-cta::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(232,64,26,0.12) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .cta-inner {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+  .cta-desc {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.6);
+    margin: 1.25rem 0 1.75rem;
+    max-width: 480px;
+  }
+  .cta-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+  }
+  .cta-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.5;
+  }
+  .cta-list svg { flex-shrink: 0; color: var(--c-accent); margin-top: 1px; }
+  .cta-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .cta-photo { position: relative; }
+  .photo-frame {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 24px 64px rgba(0,0,0,0.5);
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+  .photo-frame img { width: 100%; height: auto; }
+  .photo-badge {
+    position: absolute;
+    bottom: -1.5rem;
+    left: 1.5rem;
+    background: var(--c-primary);
+    color: white;
+    padding: 0.85rem 1.25rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+  }
+  .photo-badge strong { font-family: var(--font-display); font-size: 1rem; }
+  .photo-badge span { font-size: 0.78rem; opacity: 0.85; }
+
+  /* ===== CLIENTS ===== */
+  .section-clients {
+    padding: 5rem 0;
+    background: white;
+  }
+  .section-clients .section-header { margin-bottom: 3rem; }
+  .logo-scroller {
+    overflow: hidden;
+    -webkit-mask: linear-gradient(90deg, transparent, white 15%, white 85%, transparent);
+    mask: linear-gradient(90deg, transparent, white 15%, white 85%, transparent);
+    margin-top: 3rem;
+  }
+  .logo-scroller__inner {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    width: fit-content;
+    animation: marquee 24s linear infinite;
+  }
+  .logo-scroller:hover .logo-scroller__inner { animation-play-state: paused; }
+  .logo-scroller img {
+    height: 180px;
+    width: auto;
+    object-fit: contain;
+    filter: grayscale(100%);
+    opacity: 0.55;
+    transition: filter 0.4s ease, opacity 0.4s ease;
+  }
+  .logo-scroller img:hover { filter: none; opacity: 1; }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 900px) {
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .stat-item + .stat-item::before { display: none; }
+    .products-grid { grid-template-columns: 1fr; }
+    .cta-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .cta-photo { display: none; }
+  }
+  @media (max-width: 600px) {
+    .hero-title { font-size: 2.2rem; }
+    .hero-content { padding-top: 100px; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 0; }
+    .stat-value { font-size: 2rem; }
+  }
+</style>

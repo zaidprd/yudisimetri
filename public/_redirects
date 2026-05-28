@@ -1,0 +1,5 @@
+# Redirect lama ke domain baru (aktifkan setelah domain diganti)
+# https://yudisimetri.pages.dev/* https://salespanelsimetri.com/:splat 301
+
+# Alias halaman blog lama jika ada
+/blog/* /blog/:splat 200

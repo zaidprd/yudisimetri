@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://salespanelsimetri.com/sitemap-index.xml
+
+# Disallow admin/private paths (jika ada di masa depan)
+Disallow: /api/
