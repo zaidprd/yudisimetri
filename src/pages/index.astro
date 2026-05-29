@@ -1,8 +1,27 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-// Menggunakan data produk lengkap dari file lama dengan path folder public yang baru
 const products = [
+  {
+    id: "panel-simosec",
+    name: "PANEL SIMOSEC",
+    tagline: "Air-Insulated Medium-Voltage Switchgear",
+    desc: "Panel tegangan menengah tipe-tested lisensi Siemens, factory-assembled sesuai IEC 62271-200. Menggabungkan teknologi air-insulated dengan gas-insulated switching untuk keandalan distribusi daya hingga 24 kV.",
+    features: ["Tegangan hingga 24 kV, 25 kA", "Tipe-tested IEC 62271-200", "Metal-enclosed, 3-phase indoor", "Lisensi resmi Siemens"],
+    img: "/img/panel-listrik-simosec.webp",
+    alt: "Panel SIMOSEC Simetri – Air-Insulated Medium-Voltage Switchgear Jakarta",
+    badge: "Lisensi Siemens"
+  },
+  {
+    id: "panel-matrix",
+    name: "PANEL MATRIX",
+    tagline: "Low Voltage Panel – Type Tested",
+    desc: "Panel tegangan rendah unggulan Simetri yang telah melalui serangkaian uji tipe (type-tested) berstandar internasional. Dirancang untuk sistem distribusi daya utama pada gedung bertingkat dan industri berat.",
+    features: ["Type-tested bersertifikasi", "Kapasitas hingga 6300A", "Busbar system optimal", "Produk flagship Simetri"],
+    img: "/img/Panel-matrix-simetri.webp",
+    alt: "Panel Matrix Simetri – Low Voltage Type Tested Panel Jakarta",
+    badge: "By Simetri"
+  },
   {
     id: "panel-lvmdp",
     name: "PANEL LVMDP",
@@ -10,7 +29,8 @@ const products = [
     desc: "Sistem proteksi dan distribusi daya listrik utama. Beberapa fitur utama kami: Sistem interlock dan interlock dengan coupler.",
     features: ["Interlock otomatis", "Kapasitas hingga 6300A", "Interlock dengan coupler"],
     img: "/img/Panel-LVMDP-Simetri.webp",
-    alt: "Panel LVMDP Simetri Jakarta"
+    alt: "Panel LVMDP Simetri Jakarta",
+    badge: null
   },
   {
     id: "panel-genset",
@@ -19,16 +39,8 @@ const products = [
     desc: "Sinkronisasi genset dan PLN. Simetri dapat melakukan sinkronisasi hingga 6 genset dan juga dapat melakukan sinkronisasi antara genset dan PLN ('Back and Forward Synchron').",
     features: ["Sinkronisasi 6 Genset", "ATS otomatis", "Back & Forward Synchron"],
     img: "/img/panel-kontrol-genset-simetri.webp",
-    alt: "Panel Genset PKG Simetri"
-  },
-  {
-    id: "panel-distribusi",
-    name: "PANEL DISTRIBUSI",
-    tagline: "Sub Distribution Panel",
-    desc: "Sistem Control dan Proteksi distribusi tenaga listrik ke sub panel dan beban seperti hydrant, lighting, lift, dll.",
-    features: ["Sistem Kontrol Handal", "Proteksi Sub Panel", "Komponen Standar SNI"],
-    img: "/img/panel_listrik_distribusi_simetri.webp",
-    alt: "Panel Distribusi Simetri"
+    alt: "Panel Genset PKG Simetri",
+    badge: null
   },
   {
     id: "panel-kapasitor",
@@ -37,7 +49,18 @@ const products = [
     desc: "Panel Capasitor berfungsi untuk memperkecil daya reaktif, menghemat pemakaian listrik, dan menjaga kestabilan tegangan.",
     features: ["Memperkecil Daya Reaktif", "Menghemat Biaya Listrik", "Komponen Berkualitas"],
     img: "/img/panel_listrik_simetri_kapasitor.webp",
-    alt: "Panel Kapasitor Bank Simetri"
+    alt: "Panel Kapasitor Bank Simetri",
+    badge: null
+  },
+  {
+    id: "panel-distribusi",
+    name: "PANEL DISTRIBUSI",
+    tagline: "Sub Distribution Panel",
+    desc: "Sistem Control dan Proteksi distribusi tenaga listrik ke sub panel dan beban seperti hydrant, lighting, lift, dll.",
+    features: ["Sistem Kontrol Handal", "Proteksi Sub Panel", "Komponen Standar SNI"],
+    img: "/img/panel_listrik_distribusi_simetri.webp",
+    alt: "Panel Distribusi Simetri",
+    badge: null
   }
 ];
 
@@ -49,80 +72,59 @@ const stats = [
 ];
 
 const klienList = [
-  { img: "/img/klien/klien-1.webp", alt: "Logo Klien 1" },
-  { img: "/img/klien/klien-2.webp", alt: "Logo Klien 2" },
-  { img: "/img/klien/klien-3.webp", alt: "Logo Klien 3" },
-  { img: "/img/klien/klien-4.webp", alt: "Logo Klien 4" },
+  { img: "/img/klien/klien-1.webp", alt: "Klien Panel Simetri – Bandara Internasional" },
+  { img: "/img/klien/klien-2.webp", alt: "Klien Panel Simetri – Rumah Sakit" },
+  { img: "/img/klien/klien-3.webp", alt: "Klien Panel Simetri – Bank Indonesia" },
+  { img: "/img/klien/klien-4.webp", alt: "Klien Panel Simetri – Gedung Perkantoran" },
 ];
 ---
 
 <Layout
-  title="Panel Maker Simetri Jakarta - Solusi Panel Listrik"
-  description="Sales Panel Listrik Simetri Jakarta untuk gedung, industri, dan proyek besar nasional oleh Tri Yudhi Sales Manager SMP."
+  title="Jual Panel Listrik Jakarta | SIMOSEC, Matrix, LVMDP, Genset – Simetri"
+  description="Sales Panel Listrik Simetri Jakarta – SIMOSEC, Panel Matrix, LVMDP, Panel Genset PKG, Kapasitor Bank, Panel Distribusi. Tri Yudhi Sales Manager SMP 18+ tahun pengalaman."
 >
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-bg">
-    <img
-      src="/img/Panel-matrix-simetri.webp"
-      alt="Panel Matrix Simetri"
-      class="hero-img"
-      loading="eager"
-    />
+    <img src="/img/Panel-matrix-simetri.webp" alt="Panel Matrix Simetri" class="hero-img" loading="eager" fetchpriority="high" />
     <div class="hero-overlay"></div>
-    <div class="hero-noise"></div>
   </div>
-
   <div class="hero-ticker">
     <div class="hero-ticker__inner">
+      <span>SIMOSEC</span><span class="sep">—</span>
+      <span>PANEL MATRIX</span><span class="sep">—</span>
       <span>PANEL LVMDP</span><span class="sep">—</span>
       <span>PANEL GENSET</span><span class="sep">—</span>
       <span>PANEL DISTRIBUSI</span><span class="sep">—</span>
       <span>CAPASITOR BANK</span><span class="sep">—</span>
+      <span>SIMOSEC</span><span class="sep">—</span>
+      <span>PANEL MATRIX</span><span class="sep">—</span>
       <span>PANEL LVMDP</span><span class="sep">—</span>
       <span>PANEL GENSET</span><span class="sep">—</span>
       <span>PANEL DISTRIBUSI</span><span class="sep">—</span>
       <span>CAPASITOR BANK</span><span class="sep">—</span>
     </div>
   </div>
-
   <div class="container hero-content">
-    <div class="hero-eyebrow">
-      <span class="dot"></span>
-      PT Sinar Metrindo Perkasa
-    </div>
-
+    <div class="hero-eyebrow"><span class="dot"></span>PT Sinar Metrindo Perkasa</div>
     <h1 class="hero-title">
       <span class="line line-1">PANEL</span>
       <span class="line line-2">MAKER</span>
       <span class="line line-3">SIMETRI</span>
     </h1>
-
     <div class="hero-bottom">
-      <p class="hero-desc">
-        Tri Yudhi — Sales Manager SMP sejak 2007. Panel Maker terbaik yang masih eksis dan terpercaya di Indonesia. Segera hubungi team sales Simetri untuk konsultasi gratis.
-      </p>
+      <p class="hero-desc">Tri Yudhi — Sales Manager SMP sejak 2007. Panel Maker terbaik yang masih eksis dan terpercaya di Indonesia. Segera hubungi team sales Simetri untuk konsultasi gratis.</p>
       <div class="hero-actions">
-        <a href="https://wa.me/6281213351911" class="btn-primary" target="_blank">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.116 1.523 5.845L.057 23.882l6.218-1.433A11.944 11.944 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.003-1.369l-.36-.214-3.7.853.887-3.613-.234-.372A9.79 9.79 0 012.182 12C2.182 6.58 6.58 2.182 12 2.182S21.818 6.58 21.818 12 17.42 21.818 12 21.818z"/></svg>
+        <a href="https://wa.me/6281213351911?text=Halo%20Pak%20Yudhi%2C%20saya%20ingin%20konsultasi%20panel%20listrik" class="btn-primary" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           WhatsApp Sekarang
         </a>
-        <a href="#produk" class="btn-ghost">
-          Lihat Produk
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
+        <a href="#produk" class="btn-ghost">Lihat Produk <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
       </div>
-    </div>
-
-    <div class="hero-scroll-hint">
-      <div class="scroll-line"></div>
-      <span>Scroll</span>
     </div>
   </div>
 </section>
 
-<!-- STATS BAR -->
 <section class="stats-bar">
   <div class="container stats-grid">
     {stats.map((stat, i) => (
@@ -135,48 +137,31 @@ const klienList = [
   </div>
 </section>
 
-<!-- PRODUK / SERVICES -->
 <section id="produk" class="section-products">
   <div class="container">
     <div class="section-header">
-      <div class="section-label">
-        <span class="label-num">01</span>
-        <span>Product Services</span>
-      </div>
+      <div class="section-label"><span class="label-num">01</span><span>Product Services</span></div>
       <div class="section-heading-wrap">
         <h2 class="section-title-main">PRODUK<br /><em>UNGGULAN</em></h2>
-        <p class="section-subtitle-main">
-          Selain panel Matrix, panel Sivacon S8 dan panel Typetest, Simetri juga memiliki produk panel lokal berkualitas tinggi.
-        </p>
+        <p class="section-subtitle-main">Panel SIMOSEC (lisensi Siemens), Panel Matrix (type-tested), serta lini panel lokal berkualitas tinggi untuk setiap kebutuhan proyek.</p>
       </div>
     </div>
-
     <div class="products-grid">
       {products.map((product, i) => (
-        <article class="product-card" style={`--delay:${i * 80}ms`}>
+        <article class="product-card" id={product.id}>
           <div class="product-num">0{i + 1}</div>
+          {product.badge && <div class="product-badge">{product.badge}</div>}
           <div class="product-image-wrap">
-            <img
-              src={product.img}
-              alt={product.alt}
-              class="product-img"
-              loading="lazy"
-            />
-            <div class="product-img-overlay"></div>
+            <img src={product.img} alt={product.alt} class="product-img" loading={i < 2 ? 'eager' : 'lazy'} />
           </div>
           <div class="product-body">
             <span class="product-tagline">{product.tagline}</span>
             <h3>{product.name}</h3>
-            <p>{product.desc}</p>
+            <p class="product-desc-text">{product.desc}</p>
             <ul class="product-features">
-              {product.features.map((f) => (
-                <li>
-                  <span class="feat-icon">✦</span>
-                  {f}
-                </li>
-              ))}
+              {product.features.map((f) => <li><span class="feat-icon">✦</span>{f}</li>)}
             </ul>
-            <a href="https://wa.me/6281213351911" class="read-more-btn" target="_blank">
+            <a href={`https://wa.me/6281213351911?text=Halo%20Pak%20Yudhi%2C%20saya%20ingin%20informasi%20${encodeURIComponent(product.name)}`} class="read-more-btn" target="_blank" rel="noopener">
               Minta Penawaran
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
@@ -187,55 +172,36 @@ const klienList = [
   </div>
 </section>
 
-<!-- KONTAK / HUBUNGI SEGERA -->
 <section id="kontak" class="section-cta-v2">
   <div class="cta-bg-text" aria-hidden="true">KONTAK</div>
   <div class="container cta-grid">
     <div class="cta-image-wrap">
       <div class="cta-img-frame">
-        <img src="/img/yudi-sales-simetri.webp" alt="Kontak Sales Panel Listrik Simetri" class="cta-img" loading="lazy" />
+        <img src="/img/yudi-sales-simetri.webp" alt="Tri Yudhi Sales Manager Panel Listrik Simetri" class="cta-img" loading="lazy" />
       </div>
-      <div class="cta-badge">
-        <span class="badge-dot"></span>
-        Siap Konsultasi
-      </div>
+      <div class="cta-badge"><span class="badge-dot"></span>Siap Konsultasi</div>
     </div>
-    <div class="cta-text">
-      <div class="section-label">
-        <span class="label-num">02</span>
-        <span>Hubungi Kami</span>
-      </div>
+    <div class="cta-text-col">
+      <div class="section-label"><span class="label-num">02</span><span>Hubungi Kami</span></div>
       <h2>Dapatkan<br /><em>Penawaran</em><br />Terbaik</h2>
-      <p>
-        Kunjungi kantor pusat kami di:<br />
-        <strong>Aries Niaga Blok A1 No. 3A-3B, Jalan Taman Aries, Meruya Utara, Kembangan, Jakarta Barat, DKI 11620</strong>
-      </p>
-      <a href="https://wa.me/6281213351911" class="btn-primary" target="_blank">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.116 1.523 5.845L.057 23.882l6.218-1.433A11.944 11.944 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.003-1.369l-.36-.214-3.7.853.887-3.613-.234-.372A9.79 9.79 0 012.182 12C2.182 6.58 6.58 2.182 12 2.182S21.818 6.58 21.818 12 17.42 21.818 12 21.818z"/></svg>
+      <p>Kunjungi kantor pusat kami di:<br /><strong>Aries Niaga Blok A1 No. 3A-3B, Jalan Taman Aries, Meruya Utara, Kembangan, Jakarta Barat, DKI 11620</strong></p>
+      <a href="https://wa.me/6281213351911?text=Halo%20Pak%20Yudhi%2C%20saya%20ingin%20konsultasi%20panel%20listrik" class="btn-primary" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         Hubungi via WhatsApp
       </a>
     </div>
   </div>
 </section>
 
-<!-- KLIEN -->
 <section id="project" class="section-klien">
   <div class="container klien-header">
-    <div class="section-label">
-      <span class="label-num">03</span>
-      <span>Kepercayaan</span>
-    </div>
+    <div class="section-label"><span class="label-num">03</span><span>Kepercayaan</span></div>
     <h2 class="section-title-main">KLIEN <em>KAMI</em></h2>
   </div>
-
   <div class="logo-scroller">
     <div class="logo-scroller__inner">
-      {klienList.map((klien) => (
-        <img src={klien.img} alt={klien.alt} loading="lazy" />
-      ))}
-      {klienList.map((klien) => (
-        <img src={klien.img} alt={klien.alt} loading="lazy" />
-      ))}
+      {klienList.map((k) => <img src={k.img} alt={k.alt} loading="lazy" />)}
+      {klienList.map((k) => <img src={k.img} alt={k.alt} loading="lazy" aria-hidden="true" />)}
     </div>
   </div>
 </section>
@@ -243,715 +209,151 @@ const klienList = [
 </Layout>
 
 <style>
-  /* ============================
-     GLOBAL RESETS & TOKENS
-  ============================ */
   :root {
     --c-accent: #E8401A;
     --c-dark: #0A0C0E;
     --c-mid: #161A1E;
     --c-border: rgba(255,255,255,0.07);
-    --c-text-muted: rgba(255,255,255,0.5);
+    --c-muted: rgba(255,255,255,0.5);
   }
 
-  /* ============================
-     HERO
-  ============================ */
-  .hero {
-    position: relative;
-    min-height: 100vh;
-    background: var(--c-dark);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  .hero-bg {
-    position: absolute;
-    inset: 0;
-  }
-
-  .hero-img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    z-index: 1;
-    filter: saturate(0.6) brightness(0.6);
-  }
-
-  .hero-overlay {
-    position: absolute;
-    inset: 0;
-    z-index: 2;
-    background:
-      linear-gradient(to right, rgba(10,12,14,0.78) 45%, rgba(10,12,14,0.25) 100%),
-      linear-gradient(to top, rgba(10,12,14,0.9) 0%, transparent 40%);
-  }
-
-  .hero-noise {
-    position: absolute;
-    inset: 0;
-    z-index: 3;
-    opacity: 0.035;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-    background-size: 200px 200px;
-  }
-
-  /* Ticker tape */
-  .hero-ticker {
-    position: absolute;
-    bottom: 60px;
-    left: 0;
-    right: 0;
-    z-index: 10;
-    overflow: hidden;
-    border-top: 1px solid var(--c-border);
-    border-bottom: 1px solid var(--c-border);
-    padding: 10px 0;
-    background: rgba(255,255,255,0.02);
-  }
-  .hero-ticker__inner {
-    display: flex;
-    gap: 2.5rem;
-    width: fit-content;
-    animation: ticker 20s linear infinite;
-    white-space: nowrap;
-  }
-  .hero-ticker__inner span {
-    font-family: var(--font-display);
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    color: var(--c-text-muted);
-    text-transform: uppercase;
-  }
-  .hero-ticker__inner .sep {
-    color: var(--c-accent);
-  }
-  @keyframes ticker {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-  }
-
-  /* Hero content */
-  .hero-content {
-    position: relative;
-    z-index: 10;
-    color: white;
-    padding-top: 140px;
-    padding-bottom: 130px;
-  }
-
-  .hero-eyebrow {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--c-text-muted);
-    margin-bottom: 28px;
-  }
-  .hero-eyebrow .dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--c-accent);
-    animation: pulse 2s ease-in-out infinite;
-  }
-  @keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.5; transform: scale(0.7); }
-  }
-
-  .hero-title {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 60px;
-  }
-  .hero-title .line {
-    font-family: var(--font-display);
-    font-size: clamp(4rem, 10vw, 8.5rem);
-    font-weight: 800;
-    line-height: 0.92;
-    letter-spacing: -0.03em;
-    display: block;
-  }
+  /* HERO */
+  .hero { position: relative; min-height: 100svh; background: var(--c-dark); overflow: hidden; display: flex; flex-direction: column; justify-content: center; }
+  .hero-bg { position: absolute; inset: 0; }
+  .hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; filter: saturate(0.8) brightness(0.85); }
+  .hero-overlay { position: absolute; inset: 0; z-index: 2; background: linear-gradient(to right, rgba(10,12,14,0.8) 40%, rgba(10,12,14,0.2) 100%), linear-gradient(to top, rgba(10,12,14,0.95) 0%, transparent 45%); }
+  .hero-ticker { position: absolute; bottom: 56px; left: 0; right: 0; z-index: 10; overflow: hidden; border-top: 1px solid var(--c-border); border-bottom: 1px solid var(--c-border); padding: 9px 0; background: rgba(255,255,255,0.02); }
+  .hero-ticker__inner { display: flex; gap: 2rem; width: fit-content; animation: ticker 22s linear infinite; white-space: nowrap; }
+  .hero-ticker__inner span { font-family: var(--font-display); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; color: var(--c-muted); text-transform: uppercase; }
+  .hero-ticker__inner .sep { color: var(--c-accent); }
+  @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .hero-content { position: relative; z-index: 10; color: white; padding-top: 120px; padding-bottom: 120px; }
+  .hero-eyebrow { display: flex; align-items: center; gap: 8px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--c-muted); margin-bottom: 24px; }
+  .hero-eyebrow .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--c-accent); animation: blink 2s ease-in-out infinite; }
+  @keyframes blink { 0%,100% { opacity:1; } 50% { opacity:0.4; } }
+  .hero-title { display: flex; flex-direction: column; margin-bottom: 48px; }
+  .hero-title .line { font-family: var(--font-display); font-size: clamp(3.2rem, 9vw, 8rem); font-weight: 800; line-height: 0.92; letter-spacing: -0.03em; display: block; }
   .hero-title .line-1 { color: white; }
-  .hero-title .line-2 {
-    color: white;
-    -webkit-text-stroke: 1px rgba(255,255,255,0.25);
-  }
-  .hero-title .line-3 {
-    color: var(--c-accent);
-  }
+  .hero-title .line-2 { color: white; -webkit-text-stroke: 1px rgba(255,255,255,0.2); }
+  .hero-title .line-3 { color: var(--c-accent); }
+  .hero-bottom { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: end; max-width: 860px; }
+  .hero-desc { font-size: 0.95rem; line-height: 1.8; color: var(--c-muted); }
+  .hero-actions { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
 
-  .hero-bottom {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    align-items: end;
-    max-width: 900px;
-  }
+  /* BUTTONS */
+  .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--c-accent); color: white; padding: 13px 24px; border-radius: 6px; font-weight: 700; font-size: 0.88rem; transition: transform 0.2s ease, box-shadow 0.2s ease; white-space: nowrap; }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(232,64,26,0.4); }
+  .btn-ghost { display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(255,255,255,0.18); color: rgba(255,255,255,0.7); padding: 13px 24px; border-radius: 6px; font-weight: 600; font-size: 0.88rem; transition: border-color 0.2s, color 0.2s; white-space: nowrap; }
+  .btn-ghost:hover { border-color: rgba(255,255,255,0.5); color: white; }
 
-  .hero-desc {
-    font-size: 1rem;
-    line-height: 1.8;
-    color: var(--c-text-muted);
-  }
+  /* STATS */
+  .stats-bar { background: var(--c-mid); border-top: 1px solid var(--c-border); border-bottom: 1px solid var(--c-border); }
+  .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+  .stat-item { position: relative; text-align: center; padding: 32px 16px; }
+  .stat-item strong { display: block; font-family: var(--font-display); font-size: 2.5rem; font-weight: 800; color: white; line-height: 1; margin-bottom: 6px; }
+  .stat-item strong::first-letter { color: var(--c-accent); }
+  .stat-item span { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--c-muted); }
+  .stat-divider { position: absolute; right: 0; top: 25%; height: 50%; width: 1px; background: var(--c-border); }
 
-  .hero-actions {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    align-items: flex-start;
-  }
+  /* SECTION SHARED */
+  .section-label { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+  .label-num { font-family: var(--font-display); font-size: 0.65rem; font-weight: 800; color: var(--c-accent); background: rgba(232,64,26,0.1); border: 1px solid rgba(232,64,26,0.2); padding: 3px 8px; border-radius: 3px; }
+  .section-label > span:last-child { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #888; }
 
-  .hero-scroll-hint {
-    position: absolute;
-    right: 40px;
-    bottom: 80px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    color: var(--c-text-muted);
-    font-size: 0.65rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    z-index: 10;
-  }
-  .scroll-line {
-    width: 1px;
-    height: 50px;
-    background: linear-gradient(to bottom, var(--c-accent), transparent);
-    animation: scrollLine 2s ease-in-out infinite;
-  }
-  @keyframes scrollLine {
-    0% { transform: scaleY(0); transform-origin: top; }
-    50% { transform: scaleY(1); transform-origin: top; }
-    51% { transform: scaleY(1); transform-origin: bottom; }
-    100% { transform: scaleY(0); transform-origin: bottom; }
-  }
+  /* PRODUCTS */
+  .section-products { padding: 80px 0; background: #F7F7F5; }
+  .section-header { display: grid; grid-template-columns: auto 1fr; gap: 48px; align-items: start; margin-bottom: 48px; }
+  .section-heading-wrap { display: flex; flex-direction: column; gap: 12px; }
+  .section-title-main { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 800; color: var(--c-dark); line-height: 1; letter-spacing: -0.06em; }
+  .section-title-main em { font-style: normal; color: var(--c-accent); }
+  .section-subtitle-main { max-width: 480px; color: #666; line-height: 1.7; font-size: 0.92rem; }
 
-  /* ============================
-     BUTTONS
-  ============================ */
-  .btn-primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--c-accent);
-    color: white;
-    padding: 14px 26px;
-    border-radius: 6px;
-    font-weight: 700;
-    font-size: 0.9rem;
-    letter-spacing: 0.02em;
-    transition: all 0.25s ease;
-    position: relative;
-    overflow: hidden;
-  }
-  .btn-primary::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: white;
-    opacity: 0;
-    transition: opacity 0.25s ease;
-  }
-  .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 30px rgba(232,64,26,0.4);
-  }
-  .btn-primary:hover::after {
-    opacity: 0.08;
-  }
-
-  .btn-ghost {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    border: 1px solid rgba(255,255,255,0.15);
-    color: rgba(255,255,255,0.7);
-    padding: 14px 26px;
-    border-radius: 6px;
-    font-weight: 600;
-    font-size: 0.9rem;
-    transition: all 0.25s ease;
-  }
-  .btn-ghost:hover {
-    border-color: rgba(255,255,255,0.4);
-    color: white;
-    transform: translateX(4px);
-  }
-
-  /* ============================
-     STATS BAR
-  ============================ */
-  .stats-bar {
-    background: var(--c-mid);
-    border-top: 1px solid var(--c-border);
-    border-bottom: 1px solid var(--c-border);
-    padding: 0;
-  }
-  .stats-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-  }
-  .stat-item {
-    position: relative;
-    text-align: center;
-    padding: 36px 20px;
-  }
-  .stat-item strong {
-    display: block;
-    font-family: var(--font-display);
-    font-size: 2.8rem;
-    font-weight: 800;
-    color: white;
-    line-height: 1;
-    margin-bottom: 6px;
-  }
-  .stat-item strong::first-letter {
-    color: var(--c-accent);
-  }
-  .stat-item span {
-    font-size: 0.75rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--c-text-muted);
-  }
-  .stat-divider {
-    position: absolute;
-    right: 0;
-    top: 25%;
-    height: 50%;
-    width: 1px;
-    background: var(--c-border);
-  }
-
-  /* ============================
-     SECTION SHARED
-  ============================ */
-  .section-label {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 20px;
-  }
-  .label-num {
-    font-family: var(--font-display);
-    font-size: 0.7rem;
-    font-weight: 800;
-    color: var(--c-accent);
-    background: rgba(232,64,26,0.1);
-    border: 1px solid rgba(232,64,26,0.2);
-    padding: 3px 8px;
-    border-radius: 3px;
-    letter-spacing: 0.05em;
-  }
-  .section-label > span:last-child {
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: #888;
-  }
-
-  /* ============================
-     PRODUCTS
-  ============================ */
-  .section-products {
-    padding: 100px 0;
-    background: #F7F7F5;
-  }
-
-  .section-header {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 60px;
-    align-items: start;
-    margin-bottom: 60px;
-  }
-
-  .section-heading-wrap {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .section-title-main {
-    font-family: var(--font-display);
-    font-size: clamp(2.4rem, 5vw, 3.6rem);
-    font-weight: 800;
-    color: var(--c-dark);
-    line-height: 1;
-    letter-spacing: -0.02em;
-  }
-  .section-title-main em {
-    font-style: normal;
-    color: var(--c-accent);
-  }
-
-  .section-subtitle-main {
-    max-width: 480px;
-    color: #666;
-    line-height: 1.7;
-    font-size: 0.95rem;
-  }
-
+  /* ============================================
+     PRODUCTS GRID
+     Desktop (>768px)  : 2 kolom
+     Mobile  (<=768px) : 1 kolom
+  ============================================ */
   .products-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr); /* DESKTOP: 2 kolom */
     gap: 2px;
-    background: #E0E0DC;
-    border: 2px solid #E0E0DC;
-    border-radius: 16px;
+    background: #D8D8D4;
+    border: 2px solid #D8D8D4;
+    border-radius: 14px;
     overflow: hidden;
   }
 
-  .product-card {
-    position: relative;
-    background: white;
-    display: flex;
-    flex-direction: column;
-    transition: background 0.3s ease;
-    overflow: hidden;
-  }
-  .product-card:hover {
-    background: #FAFAF8;
-    z-index: 2;
+  .product-card { position: relative; background: white; display: flex; flex-direction: column; transition: background 0.25s ease; overflow: hidden; min-width: 0; }
+  .product-card:hover { background: #FAFAF8; }
+  .product-num { position: absolute; top: 16px; right: 18px; font-family: var(--font-display); font-size: 0.6rem; font-weight: 800; letter-spacing: 0.1em; color: rgba(0,0,0,0.1); z-index: 2; }
+  .product-badge { position: absolute; top: 14px; left: 14px; z-index: 3; background: var(--c-accent); color: white; font-size: 0.58rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 9px; border-radius: 4px; }
+  .product-image-wrap { height: 220px; background: #F2F2EF; display: flex; align-items: center; justify-content: center; padding: 24px; overflow: hidden; }
+  .product-img { max-width: 100%; max-height: 100%; object-fit: contain; transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+  .product-card:hover .product-img { transform: scale(1.05); }
+  .product-body { padding: 22px 22px 26px; flex-grow: 1; display: flex; flex-direction: column; border-top: 1px solid rgba(0,0,0,0.06); min-width: 0; }
+  .product-tagline { font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--c-accent); margin-bottom: 5px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .product-body h3 { font-family: var(--font-display); font-size: 1.05rem; font-weight: 800; color: var(--c-dark); margin-bottom: 8px; line-height: 1.2; }
+  .product-desc-text { color: #666; line-height: 1.6; font-size: 0.82rem;  margin-bottom: 12px; flex-grow: 1; }
+  .product-features { list-style: none; display: flex; flex-direction: column; gap: 4px; margin-bottom: 18px; }
+  .product-features li { display: flex; align-items: center; gap: 6px; font-size: 0.78rem; color: #444; }
+  .feat-icon { color: var(--c-accent); font-size: 0.48rem; flex-shrink: 0; }
+  .read-more-btn { display: inline-flex; align-items: center; gap: 6px; background: var(--c-dark); color: white; padding: 9px 16px; border-radius: 5px; font-size: 0.78rem; font-weight: 700; align-self: flex-start; transition: background 0.2s ease; white-space: nowrap; }
+  .read-more-btn:hover { background: var(--c-accent); }
+
+  /* CTA */
+  .section-cta-v2 { background: var(--c-dark); padding: 100px 0; position: relative; overflow: hidden; }
+  .cta-bg-text { position: absolute; font-family: var(--font-display); font-size: clamp(6rem, 16vw, 14rem); font-weight: 800; color: rgba(255,255,255,0.02); letter-spacing: -0.04em; top: 50%; left: 50%; transform: translate(-50%, -50%); white-space: nowrap; pointer-events: none; user-select: none; }
+  .cta-grid { position: relative; z-index: 2; display: grid; grid-template-columns: 1fr 1.1fr; gap: 70px; align-items: center; }
+  .cta-image-wrap { position: relative; }
+  .cta-img-frame { border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.06); }
+  .cta-img { width: 100%; height: 460px; object-fit: cover; display: block; }
+  .cta-badge { position: absolute; bottom: -14px; right: -14px; background: var(--c-accent); color: white; padding: 11px 16px; border-radius: 8px; font-size: 0.75rem; font-weight: 700; display: flex; align-items: center; gap: 8px; box-shadow: 0 8px 24px rgba(232,64,26,0.4); z-index: 3; }
+  .badge-dot { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,0.8); animation: blink 1.5s ease-in-out infinite; }
+  .cta-text-col { color: white; }
+  .cta-text-col h2 { font-family: var(--font-display); font-size: clamp(2rem, 4.5vw, 3.5rem); letter-spacing: -0.04em; font-weight: 800; line-height: 1.0; letter-spacing: -0.025em; margin-bottom: 24px; }
+  .cta-text-col h2 em { font-style: normal; color: var(--c-accent); }
+  .cta-text-col p { font-size: 0.92rem; line-height: 1.8; color: var(--c-muted); margin-bottom: 32px; }
+  .cta-text-col p strong { color: rgba(255,255,255,0.7); font-weight: 500; }
+
+  /* KLIEN */
+  .section-klien { padding: 80px 0; background: #F7F7F5; }
+  .klien-header { margin-bottom: 44px; }
+  .logo-scroller { overflow: hidden; -webkit-mask: linear-gradient(90deg, transparent, black 12%, black 88%, transparent); mask: linear-gradient(90deg, transparent, black 12%, black 88%, transparent); }
+  .logo-scroller__inner { display: flex; gap: 3rem; width: fit-content; animation: scrollX 25s linear infinite; align-items: center; }
+  .logo-scroller:hover .logo-scroller__inner { animation-play-state: paused; }
+  .logo-scroller img { height: 110px; width: auto; object-fit: contain; flex-shrink: 0; filter: none; opacity: 1; transition: transform 0.3s ease; }
+  .logo-scroller img:hover { transform: scale(1.06); }
+  @keyframes scrollX { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 900px) {
+    .cta-grid { grid-template-columns: 1fr; gap: 50px; }
+    .cta-image-wrap { max-width: 440px; }
+    .cta-img { height: 380px; }
+    .cta-badge { right: -8px; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .stat-divider { display: none; }
+    .section-header { grid-template-columns: 1fr; gap: 16px; }
   }
 
-  .product-num {
-    position: absolute;
-    top: 20px;
-    right: 24px;
-    font-family: var(--font-display);
-    font-size: 0.65rem;
-    font-weight: 800;
-    letter-spacing: 0.1em;
-    color: rgba(0,0,0,0.12);
-    z-index: 2;
+  @media (max-width: 768px) {
+    /* MOBILE: 1 kolom */
+    .products-grid { grid-template-columns: 1fr; }
+    .hero-bottom { grid-template-columns: 1fr; gap: 24px; }
+    .section-products { padding: 60px 0; }
+    .section-cta-v2 { padding: 70px 0; }
+    .section-klien { padding: 60px 0; }
+    .logo-scroller img { height: 90px; }
   }
 
-  .product-image-wrap {
-    height: 260px;
-    background: #F2F2EF;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 30px;
-    position: relative;
-    overflow: hidden;
-  }
-  .product-image-wrap::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.04));
-  }
-  .product-img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-  .product-card:hover .product-img {
-    transform: scale(1.06);
-  }
-
-  .product-body {
-    padding: 28px 28px 32px;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    border-top: 1px solid rgba(0,0,0,0.06);
-  }
-
-  .product-tagline {
-    font-size: 0.65rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--c-accent);
-    margin-bottom: 6px;
-  }
-
-  .product-body h3 {
-    font-family: var(--font-display);
-    font-size: 1.25rem;
-    font-weight: 800;
-    color: var(--c-dark);
-    margin-bottom: 10px;
-    letter-spacing: -0.01em;
-  }
-
-  .product-body > p {
-    color: #666;
-    line-height: 1.7;
-    font-size: 0.88rem;
-    margin-bottom: 18px;
-    flex-grow: 1;
-  }
-
-  .product-features {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    margin-bottom: 24px;
-  }
-  .product-features li {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.82rem;
-    color: #444;
-  }
-  .feat-icon {
-    color: var(--c-accent);
-    font-size: 0.55rem;
-  }
-
-  .read-more-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--c-dark);
-    color: white;
-    padding: 10px 18px;
-    border-radius: 6px;
-    font-size: 0.82rem;
-    font-weight: 700;
-    letter-spacing: 0.02em;
-    align-self: flex-start;
-    transition: all 0.25s ease;
-  }
-  .read-more-btn:hover {
-    background: var(--c-accent);
-    transform: translateX(3px);
-  }
-
-  /* ============================
-     CTA / KONTAK
-  ============================ */
-  .section-cta-v2 {
-    background: var(--c-dark);
-    padding: 120px 0;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .cta-bg-text {
-    position: absolute;
-    font-family: var(--font-display);
-    font-size: clamp(8rem, 18vw, 16rem);
-    font-weight: 800;
-    color: rgba(255,255,255,0.02);
-    letter-spacing: -0.04em;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    white-space: nowrap;
-    pointer-events: none;
-    user-select: none;
-  }
-
-  .cta-grid {
-    position: relative;
-    z-index: 2;
-    display: grid;
-    grid-template-columns: 1fr 1.1fr;
-    gap: 80px;
-    align-items: center;
-  }
-
-  .cta-image-wrap {
-    position: relative;
-  }
-  .cta-img-frame {
-    position: relative;
-    border-radius: 12px;
-    overflow: hidden;
-  }
-  .cta-img-frame::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 12px;
-    z-index: 2;
-  }
-  .cta-img {
-    width: 100%;
-    height: 480px;
-    object-fit: cover;
-    display: block;
-    filter: saturate(0.7);
-    transition: filter 0.4s ease;
-  }
-  .cta-img-frame:hover .cta-img {
-    filter: saturate(1);
-  }
-
-  .cta-badge {
-    position: absolute;
-    bottom: -16px;
-    right: -16px;
-    background: var(--c-accent);
-    color: white;
-    padding: 12px 18px;
-    border-radius: 8px;
-    font-size: 0.78rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    box-shadow: 0 8px 24px rgba(232,64,26,0.4);
-    z-index: 3;
-  }
-  .badge-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.8);
-    animation: pulse 1.5s ease-in-out infinite;
-  }
-
-  .cta-text {
-    color: white;
-  }
-  .cta-text h2 {
-    font-family: var(--font-display);
-    font-size: clamp(2.4rem, 5vw, 3.8rem);
-    font-weight: 800;
-    line-height: 1.0;
-    letter-spacing: -0.02em;
-    margin-bottom: 28px;
-  }
-  .cta-text h2 em {
-    font-style: normal;
-    color: var(--c-accent);
-  }
-  .cta-text p {
-    font-size: 0.95rem;
-    line-height: 1.8;
-    color: var(--c-text-muted);
-    margin-bottom: 36px;
-  }
-  .cta-text p strong {
-    color: rgba(255,255,255,0.75);
-    font-weight: 500;
-  }
-
-  /* ============================
-     KLIEN CAROUSEL
-  ============================ */
-  .section-klien {
-    padding: 90px 0;
-    background: #F7F7F5;
-  }
-
-  .klien-header {
-    margin-bottom: 50px;
-  }
-
-  .logo-scroller {
-    overflow: hidden;
-    -webkit-mask: linear-gradient(90deg, transparent, black 15%, black 85%, transparent);
-    mask: linear-gradient(90deg, transparent, black 15%, black 85%, transparent);
-  }
-  .logo-scroller__inner {
-    display: flex;
-    gap: 5rem;
-    width: fit-content;
-    animation: scroll 25s linear infinite;
-    align-items: center;
-  }
-  .logo-scroller:hover .logo-scroller__inner {
-    animation-play-state: paused;
-  }
-  .logo-scroller img {
-    height: 100px;
-    width: auto;
-    object-fit: contain;
-    filter: grayscale(100%);
-    opacity: 0.45;
-    transition: all 0.35s ease;
-  }
-  .logo-scroller img:hover {
-    filter: grayscale(0%);
-    opacity: 1;
-    transform: scale(1.08);
-  }
-  @keyframes scroll {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-  }
-
-  /* ============================
-     RESPONSIVE
-  ============================ */
-  @media (max-width: 992px) {
-    .hero-bottom {
-      grid-template-columns: 1fr;
-    }
-    .section-header {
-      grid-template-columns: 1fr;
-      gap: 20px;
-    }
-    .products-grid,
-    .cta-grid {
-      grid-template-columns: 1fr;
-    }
-    .stats-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-    .cta-grid {
-      gap: 60px;
-    }
-    .cta-image-wrap {
-      max-width: 480px;
-      margin: 0 auto;
-    }
-    .hero-scroll-hint {
-      display: none;
-    }
-  }
-
-  @media (max-width: 600px) {
-    .hero-title .line {
-      font-size: 3.5rem;
-    }
-    .stats-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-    .stat-item {
-      padding: 28px 16px;
-    }
-    .product-image-wrap {
-      height: 200px;
-    }
-    .cta-img {
-      height: 320px;
-    }
-    .logo-scroller img {
-      height: 70px;
-    }
-    .logo-scroller__inner {
-      gap: 3rem;
-    }
-    .cta-badge {
-      bottom: -12px;
-      right: -8px;
-    }
+  @media (max-width: 480px) {
+    .hero-title .line { font-size: clamp(2.8rem, 11vw, 3.8rem); }
+    .hero-content { padding-top: 100px; padding-bottom: 110px; }
+    .stat-item { padding: 24px 12px; }
+    .stat-item strong { font-size: 2rem; }
+    .logo-scroller img { height: 75px; }
+    .logo-scroller__inner { gap: 2rem; }
+    .cta-img { height: 260px; }
+    .hero-ticker { bottom: 48px; }
   }
 </style>
