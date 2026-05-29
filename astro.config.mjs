@@ -12,7 +12,8 @@ export default defineConfig({
   ],
   image: {
     service: {
-      entrypoint: 'astro/assets/services/sharp',
+      // Menggunakan passthrough agar Cloudflare tidak macet memproses gambar lewat Sharp
+      entrypoint: 'astro/assets/services/passthrough',
     },
   },
   compressHTML: true,
