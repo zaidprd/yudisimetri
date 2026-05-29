@@ -20,11 +20,30 @@ const career = [
     <div class="hero-bg">
       <img src="/img/Panel-matrix-simetri.webp" alt="Panel Listrik Simetri" loading="eager" class="hero-img" />
       <div class="hero-overlay"></div>
+      <div class="hero-noise"></div>
+    </div>
+    <div class="hero-ticker" aria-hidden="true">
+      <div class="hero-ticker__inner">
+        <span>TENTANG KAMI</span><span class="sep">—</span>
+        <span>18+ TAHUN PENGALAMAN</span><span class="sep">—</span>
+        <span>TOP SALES SIMETRI</span><span class="sep">—</span>
+        <span>JAKARTA BARAT</span><span class="sep">—</span>
+        <span>TENTANG KAMI</span><span class="sep">—</span>
+        <span>18+ TAHUN PENGALAMAN</span><span class="sep">—</span>
+        <span>TOP SALES SIMETRI</span><span class="sep">—</span>
+        <span>JAKARTA BARAT</span><span class="sep">—</span>
+      </div>
     </div>
     <div class="container hero-content">
-      <span class="section-label" style="color: var(--c-accent); animation: fadeUp 0.7s ease 0.2s both; display:inline-block">Tentang Kami</span>
-      <h1 class="hero-title" style="animation: fadeUp 0.7s ease 0.35s both">Tri Yudhi<br/><em>Sales Manager Simetri</em></h1>
-      <p class="hero-desc" style="animation: fadeUp 0.7s ease 0.5s both">18+ tahun membangun kepercayaan klien melalui panel listrik berkualitas tinggi dari PT Sinar Metrindo Perkasa.</p>
+      <div class="hero-eyebrow">
+        <span class="dot"></span>
+        PT Sinar Metrindo Perkasa
+      </div>
+      <h1 class="hero-title">
+        <span>Tri Yudhi</span>
+        <em>Sales Manager</em>
+      </h1>
+      <p class="hero-desc">18+ tahun membangun kepercayaan klien melalui panel listrik berkualitas tinggi.</p>
     </div>
   </section>
 
@@ -32,13 +51,13 @@ const career = [
   <section class="section-intro">
     <div class="container intro-grid">
 
-      <div class="intro-image reveal">
+      <div class="intro-image">
         <div class="image-frame">
           <img src="/img/sales-simetri-dapat.webp" alt="Tri Yudhi menerima penghargaan Top Sales PT Sinar Metrindo Perkasa Simetri" loading="lazy" />
         </div>
         <div class="award-badge">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="var(--c-accent)" stroke="var(--c-accent)" stroke-width="1" stroke-linejoin="round"/>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#E8401A" stroke="#E8401A" stroke-width="1" stroke-linejoin="round"/>
           </svg>
           <div>
             <strong>Top Sales</strong>
@@ -47,9 +66,12 @@ const career = [
         </div>
       </div>
 
-      <div class="intro-text reveal reveal-delay-2">
-        <span class="section-label">Perjalanan Saya</span>
-        <h2 class="section-title">Dari Estimator<br/>Menjadi Sales Manager</h2>
+      <div class="intro-text">
+        <div class="section-label-row">
+          <span class="label-num">01</span>
+          <span>Perjalanan Saya</span>
+        </div>
+        <h2 class="section-title">Dari Estimator<br/><em>Menjadi Sales Manager</em></h2>
         <div class="divider"></div>
         <p>Saya bergabung dengan Simetri (PT. Sinar Metrindo Perkasa) sejak tahun 2007. Memulai karir sebagai staf estimator selama 3 tahun memberi saya pemahaman mendalam tentang teknis dan harga panel listrik.</p>
         <p>Bekal ilmu estimasi inilah yang menjadi keunggulan saya sebagai sales – mampu memberikan explanation teknis yang akurat kepada klien, bukan sekadar menjual produk.</p>
@@ -60,10 +82,12 @@ const career = [
             <strong>18+</strong>
             <span>Tahun di Simetri</span>
           </div>
+          <div class="trust-divider"></div>
           <div class="trust-item">
             <strong>500+</strong>
             <span>Proyek Selesai</span>
           </div>
+          <div class="trust-divider"></div>
           <div class="trust-item">
             <strong>#1</strong>
             <span>Top Sales Tahunan</span>
@@ -71,7 +95,7 @@ const career = [
         </div>
 
         <a href="https://wa.me/628121342383?text=Halo%20Pak%20Yudhi%2C%20saya%20ingin%20konsultasi%20panel%20listrik" class="btn-primary" target="_blank" rel="noopener">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           Hubungi Sekarang
         </a>
       </div>
@@ -81,18 +105,20 @@ const career = [
   <!-- TIMELINE KARIR -->
   <section class="section-career" aria-label="Timeline karir">
     <div class="container">
-      <div class="section-header reveal" style="text-align:center">
-        <span class="section-label">Perjalanan Karir</span>
-        <h2 class="section-title" style="margin:0 auto">Pengalaman yang Terus<br/>Berkembang</h2>
+      <div class="career-header">
+        <div class="section-label-row">
+          <span class="label-num">02</span>
+          <span>Perjalanan Karir</span>
+        </div>
+        <h2 class="section-title">Pengalaman yang<br/><em>Terus Berkembang</em></h2>
       </div>
 
       <div class="timeline">
         {career.map((item, i) => (
-          <div class={`timeline-item reveal reveal-delay-${(i % 3) + 1}`}>
+          <div class="timeline-item">
             <div class="timeline-year">{item.year}</div>
-            <div class="timeline-connector">
+            <div class="timeline-dot-wrap">
               <div class="timeline-dot"></div>
-              {i < career.length - 1 && <div class="timeline-line"></div>}
             </div>
             <div class="timeline-content">
               <h3>{item.role}</h3>
@@ -107,21 +133,37 @@ const career = [
   <!-- TENTANG SIMETRI -->
   <section class="section-company" aria-label="Tentang PT Sinar Metrindo Perkasa">
     <div class="container company-grid">
-      <div class="company-text reveal">
-        <span class="section-label">PT Sinar Metrindo Perkasa</span>
-        <h2 class="section-title">Panel Maker Terpercaya<br/>di Indonesia</h2>
+      <div class="company-text">
+        <div class="section-label-row">
+          <span class="label-num">03</span>
+          <span>PT Sinar Metrindo Perkasa</span>
+        </div>
+        <h2 class="section-title">Panel Maker Terpercaya<br/><em>di Indonesia</em></h2>
         <div class="divider"></div>
         <p>Simetri adalah perusahaan panel maker lokal terkemuka yang telah berdiri lebih dari dua dekade. Dengan fasilitas produksi modern di Jakarta, Simetri mampu memproduksi panel listrik berstandar nasional dan internasional.</p>
-        <p>Produk unggulan meliputi Panel Matrix (flagship product), Panel Sivacon S8 (lisensi Siemens), and berbagai panel lokal berkualitas tinggi untuk proyek komersial, industri, dan infrastruktur.</p>
+        <p>Produk unggulan meliputi Panel Matrix (flagship product), Panel Sivacon S8 (lisensi Siemens), dan berbagai panel lokal berkualitas tinggi untuk proyek komersial, industri, dan infrastruktur.</p>
         <ul class="company-certs">
-          <li>✓ Panel Matrix – Typetest bersertifikasi</li>
-          <li>✓ Panel Sivacon S8 – Lisensi Siemens</li>
-          <li>✓ SNI & IEC compliant</li>
-          <li>✓ Garansi & purna jual terjamin</li>
+          <li>
+            <span class="cert-icon">✦</span>
+            Panel Matrix – Typetest bersertifikasi
+          </li>
+          <li>
+            <span class="cert-icon">✦</span>
+            Panel Sivacon S8 – Lisensi Siemens
+          </li>
+          <li>
+            <span class="cert-icon">✦</span>
+            SNI & IEC compliant
+          </li>
+          <li>
+            <span class="cert-icon">✦</span>
+            Garansi & purna jual terjamin
+          </li>
         </ul>
       </div>
-      <div class="company-image reveal reveal-delay-2">
+      <div class="company-image">
         <img src="/img/Panel-matrix-simetri.webp" alt="Panel Matrix Simetri – Produk Unggulan PT Sinar Metrindo Perkasa" loading="lazy" />
+        <div class="company-img-tag">Panel Matrix — Flagship Product</div>
       </div>
     </div>
   </section>
@@ -129,205 +171,469 @@ const career = [
 </Layout>
 
 <style>
-  /* HERO */
+  /* ============================
+     SHARED TOKENS
+  ============================ */
+  .section-label-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .label-num {
+    font-family: var(--font-display);
+    font-size: 0.65rem;
+    font-weight: 800;
+    color: #E8401A;
+    background: rgba(232,64,26,0.1);
+    border: 1px solid rgba(232,64,26,0.2);
+    padding: 3px 8px;
+    border-radius: 3px;
+    letter-spacing: 0.05em;
+  }
+  .section-label-row > span:last-child {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #888;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    color: var(--c-dark);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 0;
+  }
+  .section-title em {
+    font-style: normal;
+    color: #E8401A;
+  }
+
+  .divider {
+    width: 40px;
+    height: 2px;
+    background: #E8401A;
+    border-radius: 1px;
+    margin: 20px 0;
+  }
+
+  /* ============================
+     HERO
+  ============================ */
   .about-hero {
     position: relative;
-    height: 55vh;
-    min-height: 420px;
+    height: 60vh;
+    min-height: 440px;
     display: flex;
-    align-items: flex-end;
+    flex-direction: column;
+    justify-content: flex-end;
     overflow: hidden;
-    margin-top: -80px;
   }
   .hero-bg { position: absolute; inset: 0; }
-  .hero-img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
-  .hero-overlay {
-    position: absolute; inset: 0;
-    background: linear-gradient(to top, rgba(15,19,24,0.9) 0%, rgba(15,19,24,0.4) 60%);
+  .hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: saturate(0.3) brightness(0.3);
   }
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to top, rgba(10,12,14,0.95) 0%, rgba(10,12,14,0.3) 60%),
+      linear-gradient(to right, rgba(10,12,14,0.6) 0%, transparent 70%);
+  }
+  .hero-noise {
+    position: absolute;
+    inset: 0;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-size: 200px 200px;
+  }
+
+  /* Ticker */
+  .hero-ticker {
+    position: absolute;
+    bottom: 60px;
+    left: 0;
+    right: 0;
+    z-index: 5;
+    overflow: hidden;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    padding: 9px 0;
+    background: rgba(255,255,255,0.02);
+  }
+  .hero-ticker__inner {
+    display: flex;
+    gap: 2.5rem;
+    width: fit-content;
+    animation: ticker 18s linear infinite;
+    white-space: nowrap;
+  }
+  .hero-ticker__inner span {
+    font-family: var(--font-display);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: rgba(255,255,255,0.35);
+    text-transform: uppercase;
+  }
+  .hero-ticker__inner .sep { color: #E8401A; }
+  @keyframes ticker {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
   .hero-content {
-    position: relative; z-index: 2;
-    padding-bottom: 4rem;
+    position: relative;
+    z-index: 10;
+    color: white;
+    padding-bottom: 80px;
     padding-top: 80px;
   }
-  .hero-title {
-    font-family: var(--font-display);
-    font-size: clamp(2.2rem, 5vw, 3.8rem);
-    font-weight: 800;
-    color: white;
-    line-height: 1.1;
-    margin: 0.5rem 0 1rem;
-  }
-  .hero-title em { font-style: normal; color: var(--c-primary); }
-  .hero-desc { font-size: 1rem; color: rgba(255,255,255,0.7); max-width: 500px; }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: none; }
-  }
-
-  /* INTRO */
-  .section-intro { padding: 6rem 0; background: white; }
-  .intro-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 5rem;
-    align-items: center;
-  }
-  .intro-image { position: relative; }
-  .image-frame {
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    box-shadow: var(--shadow-lg);
-    position: relative;
-  }
-  .image-frame img { width: 100%; height: auto; }
-  .award-badge {
-    position: absolute;
-    bottom: -1.5rem;
-    right: 1.5rem;
-    background: var(--c-dark);
-    color: white;
-    padding: 0.85rem 1.25rem;
-    border-radius: 8px;
-    box-shadow: var(--shadow);
+  .hero-eyebrow {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    border: 1px solid rgba(255,255,255,0.1);
+    gap: 8px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 16px;
   }
-  .award-badge strong { display: block; font-weight: 700; font-size: 0.95rem; }
-  .award-badge span { display: block; font-size: 0.75rem; color: rgba(255,255,255,0.55); }
+  .hero-eyebrow .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #E8401A;
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.6); }
+  }
 
-  .divider { width: 48px; height: 3px; background: var(--c-primary); border-radius: 2px; margin: 1.5rem 0; }
-  .intro-text p { font-size: 0.95rem; line-height: 1.8; color: var(--c-text-muted); margin-bottom: 1.25rem; }
+  .hero-title {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 16px;
+  }
+  .hero-title span {
+    font-family: var(--font-display);
+    font-size: clamp(2.8rem, 7vw, 5.5rem);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: white;
+    display: block;
+  }
+  .hero-title em {
+    font-style: normal;
+    font-family: var(--font-display);
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    font-weight: 700;
+    color: #E8401A;
+    letter-spacing: 0.01em;
+    display: block;
+  }
+  .hero-desc {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.5);
+    max-width: 420px;
+    line-height: 1.7;
+  }
+
+  /* ============================
+     INTRO SECTION
+  ============================ */
+  .section-intro {
+    padding: 100px 0;
+    background: #F7F7F5;
+  }
+  .intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.15fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .intro-image { position: relative; }
+  .image-frame {
+    border-radius: 14px;
+    overflow: hidden;
+    position: relative;
+  }
+  .image-frame::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 14px;
+  }
+  .image-frame img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .award-badge {
+    position: absolute;
+    bottom: -18px;
+    right: 20px;
+    background: #0A0C0E;
+    color: white;
+    padding: 14px 18px;
+    border-radius: 10px;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.25);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid rgba(255,255,255,0.07);
+  }
+  .award-badge strong { display: block; font-weight: 700; font-size: 0.9rem; }
+  .award-badge span { display: block; font-size: 0.72rem; color: rgba(255,255,255,0.45); margin-top: 2px; }
+
+  .intro-text { padding-top: 24px; }
+  .intro-text p {
+    font-size: 0.92rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 1.1rem;
+  }
 
   .trust-metrics {
     display: flex;
-    gap: 2rem;
-    margin: 2rem 0;
-    padding: 1.5rem;
-    background: var(--c-light);
-    border-radius: 8px;
+    align-items: center;
+    gap: 0;
+    margin: 28px 0 32px;
+    background: white;
+    border: 1px solid #E8E8E4;
+    border-radius: 10px;
+    overflow: hidden;
   }
-  .trust-item { text-align: center; flex: 1; }
-  .trust-item strong { display: block; font-family: var(--font-display); font-size: 1.8rem; font-weight: 800; color: var(--c-primary); }
-  .trust-item span { font-size: 0.78rem; color: var(--c-text-muted); font-weight: 500; }
+  .trust-item {
+    flex: 1;
+    text-align: center;
+    padding: 20px 16px;
+  }
+  .trust-item strong {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.9rem;
+    font-weight: 800;
+    color: #0A0C0E;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .trust-item strong::first-letter { color: #E8401A; }
+  .trust-item span { font-size: 0.7rem; font-weight: 600; color: #999; letter-spacing: 0.08em; text-transform: uppercase; }
+  .trust-divider { width: 1px; height: 40px; background: #E8E8E4; flex-shrink: 0; }
 
   .btn-primary {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    background: var(--c-primary);
+    gap: 8px;
+    background: #E8401A;
     color: white;
-    padding: 0.85rem 1.75rem;
-    border-radius: 8px;
-    font-size: 0.95rem;
-    font-weight: 600;
-    transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
-    box-shadow: 0 4px 20px rgba(232,64,26,0.35);
+    padding: 13px 24px;
+    border-radius: 6px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
   }
   .btn-primary:hover {
-    background: var(--c-primary-dark);
+    background: #c93414;
     transform: translateY(-2px);
-    box-shadow: 0 8px 28px rgba(232,64,26,0.45);
+    box-shadow: 0 10px 28px rgba(232,64,26,0.35);
   }
 
-  /* TIMELINE */
+  /* ============================
+     CAREER TIMELINE
+  ============================ */
   .section-career {
-    padding: 6rem 0;
-    background: var(--c-light);
+    padding: 100px 0;
+    background: #0A0C0E;
   }
-  .section-header { margin-bottom: 4rem; }
+  .section-career .section-title {
+    color: white;
+  }
+  .section-career .section-label-row > span:last-child {
+    color: rgba(255,255,255,0.35);
+  }
+
+  .career-header {
+    margin-bottom: 60px;
+  }
+
   .timeline {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
     position: relative;
-    margin-top: 3rem;
   }
+
+  /* horizontal connector line */
+  .timeline::before {
+    content: '';
+    position: absolute;
+    top: 52px;
+    left: calc(12.5%);
+    right: calc(12.5%);
+    height: 1px;
+    background: rgba(255,255,255,0.08);
+  }
+
   .timeline-item {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 1rem;
-  }
-  .timeline-year {
-    font-family: var(--font-display);
-    font-size: 0.8rem;
-    font-weight: 800;
-    letter-spacing: 0.1em;
-    color: var(--c-primary);
-    background: rgba(232,64,26,0.08);
-    padding: 0.35rem 0.85rem;
-    border-radius: 50px;
-    border: 1px solid rgba(232,64,26,0.2);
-  }
-  .timeline-connector {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    width: 100%;
+    padding: 0 16px;
     position: relative;
   }
-  .timeline-dot {
-    width: 12px; height: 12px;
-    background: var(--c-primary);
-    border-radius: 50%;
-    flex-shrink: 0;
-    box-shadow: 0 0 0 4px rgba(232,64,26,0.15);
-    margin: 0 auto;
+
+  .timeline-year {
+    font-family: var(--font-display);
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    color: #E8401A;
+    background: rgba(232,64,26,0.1);
+    border: 1px solid rgba(232,64,26,0.2);
+    padding: 4px 10px;
+    border-radius: 3px;
+    margin-bottom: 20px;
+    display: inline-block;
   }
+
+  .timeline-dot-wrap {
+    position: relative;
+    margin-bottom: 24px;
+  }
+  .timeline-dot {
+    width: 10px;
+    height: 10px;
+    background: #E8401A;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(232,64,26,0.15), 0 0 0 8px rgba(232,64,26,0.05);
+  }
+
   .timeline-content h3 {
     font-family: var(--font-display);
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 800;
-    color: var(--c-dark);
-    margin-bottom: 0.5rem;
+    color: white;
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
   }
-  .timeline-content p { font-size: 0.85rem; color: var(--c-text-muted); line-height: 1.6; }
+  .timeline-content p {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.7;
+  }
 
-  /* COMPANY */
+  /* ============================
+     COMPANY SECTION
+  ============================ */
   .section-company {
-    padding: 6rem 0;
+    padding: 100px 0;
     background: white;
   }
   .company-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 5rem;
+    gap: 80px;
     align-items: center;
   }
-  .company-text p { font-size: 0.95rem; line-height: 1.8; color: var(--c-text-muted); margin-bottom: 1rem; }
+  .company-text p {
+    font-size: 0.92rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 1rem;
+  }
+
   .company-certs {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 0.6rem;
-    margin-top: 1.5rem;
+    gap: 0;
+    margin-top: 20px;
+    border: 1px solid #E8E8E4;
+    border-radius: 10px;
+    overflow: hidden;
   }
   .company-certs li {
-    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.88rem;
     font-weight: 500;
-    color: var(--c-text);
-    padding: 0.5rem 0;
-    border-bottom: 1px solid #f0f0f0;
+    color: #333;
+    padding: 14px 18px;
+    border-bottom: 1px solid #F0F0EC;
+    transition: background 0.2s;
   }
-  .company-image {
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    box-shadow: var(--shadow-lg);
-  }
-  .company-image img { width: 100%; height: auto; }
+  .company-certs li:last-child { border-bottom: none; }
+  .company-certs li:hover { background: #FAFAF7; }
+  .cert-icon { color: #E8401A; font-size: 0.55rem; flex-shrink: 0; }
 
+  .company-image {
+    position: relative;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+  }
+  .company-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: saturate(0.8);
+    transition: filter 0.4s ease;
+  }
+  .company-image:hover img { filter: saturate(1); }
+  .company-img-tag {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 16px 20px;
+    background: linear-gradient(to top, rgba(10,12,14,0.85), transparent);
+    color: rgba(255,255,255,0.7);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* ============================
+     RESPONSIVE
+  ============================ */
   @media (max-width: 900px) {
-    .intro-grid, .company-grid { grid-template-columns: 1fr; gap: 3rem; }
-    .timeline { grid-template-columns: 1fr 1fr; }
+    .intro-grid, .company-grid {
+      grid-template-columns: 1fr;
+      gap: 50px;
+    }
+    .timeline {
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+    .timeline::before { display: none; }
     .company-image { display: none; }
   }
+
   @media (max-width: 560px) {
     .timeline { grid-template-columns: 1fr; }
-    .trust-metrics { gap: 1rem; }
+    .trust-metrics { flex-direction: column; gap: 0; }
+    .trust-divider { width: 100%; height: 1px; }
+    .award-badge { right: 12px; bottom: -14px; }
   }
 </style>
