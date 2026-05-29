@@ -111,6 +111,9 @@ function isActive(href: string): boolean {
   let initialized = false;
 
   function initHeader() {
+    // PENGAMAN: Pastikan kode ini HANYA berjalan di browser (Client-side)
+    if (typeof window === 'undefined' || typeof document === 'undefined') return;
+
     if (initialized) return;
     initialized = true;
 
@@ -132,76 +135,47 @@ function isActive(href: string): boolean {
 
     toggle.addEventListener('click', () => {
       const isOpen = menu.classList.toggle('open');
-
       toggle.classList.toggle('active', isOpen);
-
-      toggle.setAttribute(
-        'aria-expanded',
-        String(isOpen)
-      );
-
-      menu.setAttribute(
-        'aria-hidden',
-        String(!isOpen)
-      );
+      toggle.setAttribute('aria-expanded', String(isOpen));
+      menu.setAttribute('aria-hidden', String(!isOpen));
     });
 
     menu.querySelectorAll('a').forEach((link) => {
       link.addEventListener('click', () => {
         menu.classList.remove('open');
         toggle.classList.remove('active');
-
-        toggle.setAttribute(
-          'aria-expanded',
-          'false'
-        );
-
-        menu.setAttribute(
-          'aria-hidden',
-          'true'
-        );
+        toggle.setAttribute('aria-expanded', 'false');
+        menu.setAttribute('aria-hidden', 'true');
       });
     });
 
+    // Amankan pengecekan lokasi halaman utama
     if (window.location.pathname === '/') {
-
       const sections = ['produk', 'kontak'];
-      const navItems =
-        document.querySelectorAll('.nav-link');
+      const navItems = document.querySelectorAll('.nav-link');
 
       const updateActiveSection = () => {
         let current = '';
 
         sections.forEach((id) => {
-          const section =
-            document.getElementById(id);
-
+          const section = document.getElementById(id);
           if (
             section &&
-            window.scrollY >=
-              section.offsetTop - 140
+            window.scrollY >= section.offsetTop - 140
           ) {
             current = id;
           }
         });
 
         navItems.forEach((item) => {
-          const href =
-            item.getAttribute('href') || '';
-
+          const href = item.getAttribute('href') || '';
           item.classList.remove('active');
 
-          if (
-            current &&
-            href === `/#${current}`
-          ) {
+          if (current && href === `/#${current}`) {
             item.classList.add('active');
           }
 
-          if (
-            !current &&
-            href === '/'
-          ) {
+          if (!current && href === '/') {
             item.classList.add('active');
           }
         });
@@ -209,20 +183,17 @@ function isActive(href: string): boolean {
 
       updateActiveSection();
 
-      window.addEventListener(
-        'scroll',
-        updateActiveSection,
-        { passive: true }
-      );
+      window.addEventListener('scroll', updateActiveSection, {
+        passive: true,
+      });
     }
   }
 
+  // Jalankan inisialisasi pertama kali
   initHeader();
 
-  document.addEventListener(
-    'astro:page-load',
-    initHeader
-  );
+  // Dukungan untuk Astro View Transitions jika diaktifkan
+  document.addEventListener('astro:page-load', initHeader);
 </script>
 
 <style>
