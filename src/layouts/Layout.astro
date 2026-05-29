@@ -1,9 +1,6 @@
 ---
 import Header from '../components/Header.astro';
 import { ViewTransitions } from 'astro:transitions';
-import { Image } from 'astro:assets';
-
-import imgLogo from '../assets/img/logosales.webp';
 
 interface Props {
   title: string;
@@ -16,7 +13,7 @@ interface Props {
 const {
   title,
   description = "Sales Panel Listrik Simetri Jakarta",
-  image = imgLogo.src,
+  image = "/img/logosales.webp", // Menggunakan path langsung dari folder public
   url = Astro.url.href,
   type = "website"
 } = Astro.props;
@@ -152,10 +149,12 @@ const metaImageUrl = image.startsWith('http')
 
       <div>
 
-        <Image
-          src={imgLogo}
+        <!-- Menggunakan tag img standar dengan path public -->
+        <img
+          src="/img/logosales.webp"
           alt="Logo Simetri"
           class="footer-logo"
+          loading="lazy"
         />
 
         <p class="footer-text">
