@@ -1,19 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { Image } from 'astro:assets';
 
-// Import semua gambar lokal
-import imgHero from '../assets/img/Panel-matrix-simetri.webp';
-import imgLVMDP from '../assets/img/Panel-LVMDP-Simetri.webp';
-import imgGenset from '../assets/img/panel-kontrol-genset-simetri.webp';
-import imgDistribusi from '../assets/img/panel_listrik_distribusi_simetri.webp';
-import imgKapasitor from '../assets/img/panel_listrik_simetri_kapasitor.webp';
-import imgYudi from '../assets/img/yudi-sales-simetri.webp';
-import imgKlien1 from '../assets/img/klien/klien-1.webp';
-import imgKlien2 from '../assets/img/klien/klien-2.webp';
-import imgKlien3 from '../assets/img/klien/klien-3.webp';
-import imgKlien4 from '../assets/img/klien/klien-4.webp';
-
+// Menggunakan string path langsung ke folder public/img/
 const products = [
   {
     id: "panel-lvmdp",
@@ -21,7 +9,7 @@ const products = [
     tagline: "Low Voltage Main Distribution Panel",
     desc: "Sistem proteksi dan distribusi daya listrik utama.",
     features: ["Interlock otomatis", "Kapasitas hingga 6300A"],
-    img: imgLVMDP,
+    img: "/img/Panel-LVMDP-Simetri.webp",
     alt: "Panel LVMDP Simetri Jakarta"
   },
   {
@@ -30,7 +18,7 @@ const products = [
     tagline: "Panel Kontrol Genset",
     desc: "Sinkronisasi genset dan PLN.",
     features: ["Sinkronisasi genset", "ATS otomatis"],
-    img: imgGenset,
+    img: "/img/panel-kontrol-genset-simetri.webp",
     alt: "Panel Genset PKG Simetri"
   }
 ];
@@ -43,10 +31,10 @@ const stats = [
 ];
 
 const klienList = [
-  { img: imgKlien1, alt: "Klien 1" },
-  { img: imgKlien2, alt: "Klien 2" },
-  { img: imgKlien3, alt: "Klien 3" },
-  { img: imgKlien4, alt: "Klien 4" },
+  { img: "/img/klien/klien-1.webp", alt: "Klien 1" },
+  { img: "/img/klien/klien-2.webp", alt: "Klien 2" },
+  { img: "/img/klien/klien-3.webp", alt: "Klien 3" },
+  { img: "/img/klien/klien-4.webp", alt: "Klien 4" },
 ];
 ---
 
@@ -55,28 +43,22 @@ const klienList = [
   description="Sales Panel Listrik Simetri Jakarta"
 >
 
-<!-- HERO -->
 <section class="hero">
 
-  <!-- BACKGROUND -->
   <div class="hero-bg">
 
-    <Image
-      src={imgHero}
+    <img
+      src="/img/Panel-matrix-simetri.webp"
       alt="Panel Matrix Simetri"
       class="hero-img"
       loading="eager"
       fetchpriority="high"
-      widths={[768, 1280, 1920]}
-      sizes="100vw"
-      format="webp"
     />
 
     <div class="hero-overlay"></div>
 
   </div>
 
-  <!-- CONTENT -->
   <div class="container hero-content">
 
     <div class="hero-badge">
@@ -114,7 +96,6 @@ const klienList = [
 
 </section>
 
-<!-- STATS -->
 <section class="stats-bar">
   <div class="container stats-grid">
 
@@ -128,7 +109,6 @@ const klienList = [
   </div>
 </section>
 
-<!-- PRODUK -->
 <section id="produk" class="section-products">
 
   <div class="container">
@@ -141,7 +121,7 @@ const klienList = [
 
           <div class="product-image-wrap">
 
-            <Image
+            <img
               src={product.img}
               alt={product.alt}
               class="product-img"
