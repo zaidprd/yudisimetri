@@ -144,12 +144,12 @@ const metaImageUrl = image.startsWith('http')
 
   <!-- FOOTER -->
   <footer class="footer">
+    <div class="footer-top-line"></div>
 
     <div class="container footer-grid">
 
-      <div>
+      <div class="footer-brand">
 
-        <!-- Menggunakan tag img standar dengan path public -->
         <img
           src="/img/logosales.webp"
           alt="Logo Simetri"
@@ -161,35 +161,36 @@ const metaImageUrl = image.startsWith('http')
           Solusi panel listrik terpercaya untuk industri dan gedung di seluruh Indonesia.
         </p>
 
+        <a href="https://wa.me/628121342383" class="footer-wa" target="_blank">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.116 1.523 5.845L.057 23.882l6.218-1.433A11.944 11.944 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.003-1.369l-.36-.214-3.7.853.887-3.613-.234-.372A9.79 9.79 0 012.182 12C2.182 6.58 6.58 2.182 12 2.182S21.818 6.58 21.818 12 17.42 21.818 12 21.818z"/></svg>
+          +62 812-1342-383
+        </a>
+
       </div>
 
       <div>
-
         <h4>Menu</h4>
-
         <ul>
           <li><a href="/">Home</a></li>
           <li><a href="/about">Tentang</a></li>
           <li><a href="/blog">Blog</a></li>
         </ul>
-
       </div>
 
       <div>
-
         <h4>Kontak</h4>
-
         <ul>
           <li>+62 812-1342-383</li>
-          <li>Jakarta Barat</li>
+          <li>Jakarta Barat, DKI Jakarta</li>
+          <li style="color:rgba(255,255,255,0.35); font-size:0.82rem; line-height:1.6;">Aries Niaga Blok A1 No. 3A-3B,<br/>Jalan Taman Aries, Meruya Utara</li>
         </ul>
-
       </div>
 
     </div>
 
     <div class="footer-bottom">
-      © {currentYear} Sales Panel Simetri
+      <span>© {currentYear} Sales Panel Simetri — PT Sinar Metrindo Perkasa</span>
+      <span class="footer-bottom-accent">Jakarta, Indonesia</span>
     </div>
 
   </footer>
@@ -197,60 +198,116 @@ const metaImageUrl = image.startsWith('http')
   <style>
 
     .footer{
-      background:#111;
+      background:#0A0C0E;
       color:white;
-      padding-top:70px;
-      margin-top:80px;
+      padding-top: 0;
+      margin-top: 0;
+    }
+
+    .footer-top-line {
+      height: 3px;
+      background: linear-gradient(to right, #E8401A, #ff6a45, #E8401A);
+      background-size: 200% 100%;
+      animation: shimmer 3s linear infinite;
+    }
+    @keyframes shimmer {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
     }
 
     .footer-grid{
       display:grid;
       grid-template-columns:2fr 1fr 1fr;
-      gap:40px;
-      padding-bottom:50px;
+      gap:60px;
+      padding: 70px 0 60px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
     }
 
     .footer-logo{
-      width:180px;
-      margin-bottom:20px;
+      width:160px;
       filter:brightness(0) invert(1);
+      opacity: 0.9;
     }
 
     .footer-text{
-      color:rgba(255,255,255,.7);
+      color:rgba(255,255,255,.45);
       line-height:1.8;
-      max-width:400px;
+      font-size: 0.88rem;
+      max-width:320px;
     }
 
+    .footer-wa {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #E8401A;
+      font-weight: 700;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+    .footer-wa:hover { color: #ff6a45; }
+
     .footer h4{
-      margin-bottom:16px;
-      font-size:1rem;
+      margin-bottom:20px;
+      font-size:0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
     }
 
     .footer ul{
       list-style:none;
       display:flex;
       flex-direction:column;
-      gap:10px;
+      gap:12px;
     }
 
     .footer li,
     .footer a{
-      color:rgba(255,255,255,.7);
+      color:rgba(255,255,255,.55);
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+    .footer a:hover {
+      color: white;
     }
 
     .footer-bottom{
-      border-top:1px solid rgba(255,255,255,.08);
-      text-align:center;
-      padding:24px;
-      color:rgba(255,255,255,.5);
-      font-size:.9rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 0;
+      color:rgba(255,255,255,.25);
+      font-size:.8rem;
+    }
+
+    .footer-bottom-accent {
+      color: rgba(232,64,26,0.5);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      font-size: 0.75rem;
+      text-transform: uppercase;
     }
 
     @media(max-width:768px){
 
       .footer-grid{
         grid-template-columns:1fr;
+        gap: 40px;
+        padding: 50px 0 40px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
       }
 
     }
