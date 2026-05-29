@@ -1,11 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { Image } from 'astro:assets';
 
-import imgHero from '../assets/img/Panel-matrix-simetri.webp';
-import imgAward from '../assets/img/sales-simetri-dapat.webp';
-import imgCompany from '../assets/img/Panel-matrix-simetri.webp';
-
+// Menggunakan string path langsung ke folder public/img/
 const career = [
   { year: "2007", role: "Staf Estimator", desc: "Memulai karir di PT Sinar Metrindo Perkasa (Simetri) sebagai estimator, membangun fondasi teknis yang kuat tentang panel listrik." },
   { year: "2010", role: "Sales Engineer", desc: "Terjun ke dunia sales dengan bekal ilmu estimasi. Berhasil menembus pasar proyek swasta skala menengah ke atas." },
@@ -22,7 +18,7 @@ const career = [
   <!-- HERO -->
   <section class="about-hero" aria-label="Header halaman about">
     <div class="hero-bg">
-      <Image src={imgHero} alt="Panel Listrik Simetri" loading="eager" class="hero-img" />
+      <img src="/img/Panel-matrix-simetri.webp" alt="Panel Listrik Simetri" loading="eager" class="hero-img" />
       <div class="hero-overlay"></div>
     </div>
     <div class="container hero-content">
@@ -38,7 +34,7 @@ const career = [
 
       <div class="intro-image reveal">
         <div class="image-frame">
-          <Image src={imgAward} alt="Tri Yudhi menerima penghargaan Top Sales PT Sinar Metrindo Perkasa Simetri" loading="lazy" />
+          <img src="/img/sales-simetri-dapat.webp" alt="Tri Yudhi menerima penghargaan Top Sales PT Sinar Metrindo Perkasa Simetri" loading="lazy" />
         </div>
         <div class="award-badge">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -56,7 +52,7 @@ const career = [
         <h2 class="section-title">Dari Estimator<br/>Menjadi Sales Manager</h2>
         <div class="divider"></div>
         <p>Saya bergabung dengan Simetri (PT. Sinar Metrindo Perkasa) sejak tahun 2007. Memulai karir sebagai staf estimator selama 3 tahun memberi saya pemahaman mendalam tentang teknis dan harga panel listrik.</p>
-        <p>Bekal ilmu estimasi inilah yang menjadi keunggulan saya sebagai sales – mampu memberikan penjelasan teknis yang akurat kepada klien, bukan sekadar menjual produk.</p>
+        <p>Bekal ilmu estimasi inilah yang menjadi keunggulan saya sebagai sales – mampu memberikan explanation teknis yang akurat kepada klien, bukan sekadar menjual produk.</p>
         <p>Selama 18+ tahun, saya telah menangani ratusan proyek panel listrik untuk gedung bertingkat, industri, bandara, rumah sakit, hingga bank sentral di seluruh Indonesia.</p>
 
         <div class="trust-metrics">
@@ -116,7 +112,7 @@ const career = [
         <h2 class="section-title">Panel Maker Terpercaya<br/>di Indonesia</h2>
         <div class="divider"></div>
         <p>Simetri adalah perusahaan panel maker lokal terkemuka yang telah berdiri lebih dari dua dekade. Dengan fasilitas produksi modern di Jakarta, Simetri mampu memproduksi panel listrik berstandar nasional dan internasional.</p>
-        <p>Produk unggulan meliputi Panel Matrix (flagship product), Panel Sivacon S8 (lisensi Siemens), dan berbagai panel lokal berkualitas tinggi untuk proyek komersial, industri, dan infrastruktur.</p>
+        <p>Produk unggulan meliputi Panel Matrix (flagship product), Panel Sivacon S8 (lisensi Siemens), and berbagai panel lokal berkualitas tinggi untuk proyek komersial, industri, dan infrastruktur.</p>
         <ul class="company-certs">
           <li>✓ Panel Matrix – Typetest bersertifikasi</li>
           <li>✓ Panel Sivacon S8 – Lisensi Siemens</li>
@@ -125,7 +121,7 @@ const career = [
         </ul>
       </div>
       <div class="company-image reveal reveal-delay-2">
-        <Image src={imgCompany} alt="Panel Matrix Simetri – Produk Unggulan PT Sinar Metrindo Perkasa" loading="lazy" />
+        <img src="/img/Panel-matrix-simetri.webp" alt="Panel Matrix Simetri – Produk Unggulan PT Sinar Metrindo Perkasa" loading="lazy" />
       </div>
     </div>
   </section>
