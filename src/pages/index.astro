@@ -63,8 +63,6 @@ const klienList = [
 
 <!-- HERO -->
 <section class="hero">
-
-  <!-- BACKGROUND -->
   <div class="hero-bg">
     <img
       src="/img/Panel-matrix-simetri.webp"
@@ -73,51 +71,65 @@ const klienList = [
       loading="eager"
     />
     <div class="hero-overlay"></div>
+    <div class="hero-noise"></div>
   </div>
 
-  <!-- CONTENT -->
-  <div class="container hero-content">
+  <div class="hero-ticker">
+    <div class="hero-ticker__inner">
+      <span>PANEL LVMDP</span><span class="sep">—</span>
+      <span>PANEL GENSET</span><span class="sep">—</span>
+      <span>PANEL DISTRIBUSI</span><span class="sep">—</span>
+      <span>CAPASITOR BANK</span><span class="sep">—</span>
+      <span>PANEL LVMDP</span><span class="sep">—</span>
+      <span>PANEL GENSET</span><span class="sep">—</span>
+      <span>PANEL DISTRIBUSI</span><span class="sep">—</span>
+      <span>CAPASITOR BANK</span><span class="sep">—</span>
+    </div>
+  </div>
 
-    <div class="hero-badge">
+  <div class="container hero-content">
+    <div class="hero-eyebrow">
+      <span class="dot"></span>
       PT Sinar Metrindo Perkasa
     </div>
 
     <h1 class="hero-title">
-      PANEL MAKER<br />
-      SIMETRI JAKARTA
+      <span class="line line-1">PANEL</span>
+      <span class="line line-2">MAKER</span>
+      <span class="line line-3">SIMETRI</span>
     </h1>
 
-    <p class="hero-desc">
-      Tri Yudhi merupakan sales panel listrik PT Sinar Metrindo Perkasa yang sudah bergabung sejak tahun 2007. Panel Maker terbaik saat ini yang masih tetap eksis adalah Simetri. Segera Hubungi Team Sales Simetri...
-    </p>
-
-    <div class="hero-actions">
-      <a
-        href="https://wa.me/628121342383"
-        class="btn-primary"
-        target="_blank"
-      >
-        WhatsApp Sekarang
-      </a>
-      <a
-        href="#produk"
-        class="btn-outline"
-      >
-        Lihat Produk
-      </a>
+    <div class="hero-bottom">
+      <p class="hero-desc">
+        Tri Yudhi — Sales Manager SMP sejak 2007. Panel Maker terbaik yang masih eksis dan terpercaya di Indonesia. Segera hubungi team sales Simetri untuk konsultasi gratis.
+      </p>
+      <div class="hero-actions">
+        <a href="https://wa.me/628121342383" class="btn-primary" target="_blank">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.116 1.523 5.845L.057 23.882l6.218-1.433A11.944 11.944 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.003-1.369l-.36-.214-3.7.853.887-3.613-.234-.372A9.79 9.79 0 012.182 12C2.182 6.58 6.58 2.182 12 2.182S21.818 6.58 21.818 12 17.42 21.818 12 21.818z"/></svg>
+          WhatsApp Sekarang
+        </a>
+        <a href="#produk" class="btn-ghost">
+          Lihat Produk
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
     </div>
 
+    <div class="hero-scroll-hint">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
   </div>
-
 </section>
 
 <!-- STATS BAR -->
 <section class="stats-bar">
   <div class="container stats-grid">
-    {stats.map((stat) => (
+    {stats.map((stat, i) => (
       <div class="stat-item">
         <strong>{stat.value}</strong>
         <span>{stat.label}</span>
+        {i < stats.length - 1 && <div class="stat-divider"></div>}
       </div>
     ))}
   </div>
@@ -126,17 +138,23 @@ const klienList = [
 <!-- PRODUK / SERVICES -->
 <section id="produk" class="section-products">
   <div class="container">
-    
-    <div class="section-intro-text">
-      <h2 class="section-title-main">PRODUCT SERVICES</h2>
-      <p class="section-subtitle-main">
-        Selain panel Matrix, panel Sivacon S8 dan panel Typetest, Simetri juga memiliki produk panel lokal seperti terlihat dibawah ini;
-      </p>
+    <div class="section-header">
+      <div class="section-label">
+        <span class="label-num">01</span>
+        <span>Product Services</span>
+      </div>
+      <div class="section-heading-wrap">
+        <h2 class="section-title-main">PRODUK<br /><em>UNGGULAN</em></h2>
+        <p class="section-subtitle-main">
+          Selain panel Matrix, panel Sivacon S8 dan panel Typetest, Simetri juga memiliki produk panel lokal berkualitas tinggi.
+        </p>
+      </div>
     </div>
 
     <div class="products-grid">
-      {products.map((product) => (
-        <article class="product-card">
+      {products.map((product, i) => (
+        <article class="product-card" style={`--delay:${i * 80}ms`}>
+          <div class="product-num">0{i + 1}</div>
           <div class="product-image-wrap">
             <img
               src={product.img}
@@ -144,52 +162,77 @@ const klienList = [
               class="product-img"
               loading="lazy"
             />
+            <div class="product-img-overlay"></div>
           </div>
           <div class="product-body">
             <span class="product-tagline">{product.tagline}</span>
             <h3>{product.name}</h3>
             <p>{product.desc}</p>
-            <a href="https://wa.me/628121342383" class="read-more-btn" target="_blank">Minta Penawaran</a>
+            <ul class="product-features">
+              {product.features.map((f) => (
+                <li>
+                  <span class="feat-icon">✦</span>
+                  {f}
+                </li>
+              ))}
+            </ul>
+            <a href="https://wa.me/628121342383" class="read-more-btn" target="_blank">
+              Minta Penawaran
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
           </div>
         </article>
       ))}
     </div>
-
   </div>
 </section>
 
-<!-- KONTAK / HUBUNGI SEGERA (Style UI Baru dengan Data Alamat Lengkap Lama) -->
+<!-- KONTAK / HUBUNGI SEGERA -->
 <section id="kontak" class="section-cta-v2">
+  <div class="cta-bg-text" aria-hidden="true">KONTAK</div>
   <div class="container cta-grid">
-    <div class="cta-text">
-      <h2>Hubungi Segera</h2>
-      <div class="divider"></div>
-      <p>
-        Hubungi kami segera, atau silahkan datang langsung ke kantor pusat simetri dengan alamat:<br />
-        <strong>Aries Niaga Blok A1 No. 3A-3B, Jalan Taman Aries, Meruya Utara, Kembangan, Jakarta Barat, DKI 11620, Indonesia</strong>
-      </p>
-      <a href="https://wa.me/628121342383" class="btn-primary" target="_blank">Contact Us</a>
-    </div>
     <div class="cta-image-wrap">
-      <img src="/img/yudi-sales-simetri.webp" alt="Kontak Sales Panel Listrik Simetri" class="cta-img" loading="lazy" />
-      <div class="dots-pattern"></div>
+      <div class="cta-img-frame">
+        <img src="/img/yudi-sales-simetri.webp" alt="Kontak Sales Panel Listrik Simetri" class="cta-img" loading="lazy" />
+      </div>
+      <div class="cta-badge">
+        <span class="badge-dot"></span>
+        Siap Konsultasi
+      </div>
+    </div>
+    <div class="cta-text">
+      <div class="section-label">
+        <span class="label-num">02</span>
+        <span>Hubungi Kami</span>
+      </div>
+      <h2>Dapatkan<br /><em>Penawaran</em><br />Terbaik</h2>
+      <p>
+        Kunjungi kantor pusat kami di:<br />
+        <strong>Aries Niaga Blok A1 No. 3A-3B, Jalan Taman Aries, Meruya Utara, Kembangan, Jakarta Barat, DKI 11620</strong>
+      </p>
+      <a href="https://wa.me/628121342383" class="btn-primary" target="_blank">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.116 1.523 5.845L.057 23.882l6.218-1.433A11.944 11.944 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.003-1.369l-.36-.214-3.7.853.887-3.613-.234-.372A9.79 9.79 0 012.182 12C2.182 6.58 6.58 2.182 12 2.182S21.818 6.58 21.818 12 17.42 21.818 12 21.818z"/></svg>
+        Hubungi via WhatsApp
+      </a>
     </div>
   </div>
 </section>
 
-<!-- PROJECT / KLIEN (Style UI Baru Terintegrasi Fitur Hover Pause) -->
+<!-- KLIEN -->
 <section id="project" class="section-klien">
-  <div class="container">
-    <h2 class="section-title-main">KLIEN KAMI</h2>
+  <div class="container klien-header">
+    <div class="section-label">
+      <span class="label-num">03</span>
+      <span>Kepercayaan</span>
+    </div>
+    <h2 class="section-title-main">KLIEN <em>KAMI</em></h2>
   </div>
-  
+
   <div class="logo-scroller">
     <div class="logo-scroller__inner">
-      {/* Loop Pertama */}
       {klienList.map((klien) => (
         <img src={klien.img} alt={klien.alt} loading="lazy" />
       ))}
-      {/* Duplikasi Loop Kedua untuk Efek Infinite Carousel CSS */}
       {klienList.map((klien) => (
         <img src={klien.img} alt={klien.alt} loading="lazy" />
       ))}
@@ -200,357 +243,715 @@ const klienList = [
 </Layout>
 
 <style>
-  /* HERO STYLE */
+  /* ============================
+     GLOBAL RESETS & TOKENS
+  ============================ */
+  :root {
+    --c-accent: #E8401A;
+    --c-dark: #0A0C0E;
+    --c-mid: #161A1E;
+    --c-border: rgba(255,255,255,0.07);
+    --c-text-muted: rgba(255,255,255,0.5);
+  }
+
+  /* ============================
+     HERO
+  ============================ */
   .hero {
     position: relative;
     min-height: 100vh;
+    background: var(--c-dark);
     overflow: hidden;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
   }
+
   .hero-bg {
     position: absolute;
     inset: 0;
-    width: 100%;
-    height: 100%;
   }
+
   .hero-img {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center center;
+    object-position: center;
     z-index: 1;
+    filter: saturate(0.4) brightness(0.35);
   }
+
   .hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-      to right,
-      rgba(0,0,0,.85),
-      rgba(0,0,0,.5)
-    );
     z-index: 2;
-  }
-  .hero-content {
-    position: relative;
-    z-index: 5;
-    color: white;
-    padding-top: 120px;
-    padding-bottom: 80px;
-  }
-  .hero-badge {
-    display: inline-block;
-    padding: 10px 18px;
-    background: rgba(255,255,255,.1);
-    backdrop-filter: blur(8px);
-    border-radius: 999px;
-    margin-bottom: 20px;
-    font-size: 0.9rem;
-    font-weight: 600;
-  }
-  .hero-title {
-    font-family: var(--font-display);
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
-    line-height: 1.1;
-    font-weight: 800;
-    margin-bottom: 20px;
-    letter-spacing: -0.02em;
-  }
-  .hero-desc {
-    max-width: 680px;
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: rgba(255,255,255,.8);
-    margin-bottom: 35px;
-  }
-  .hero-actions {
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
+    background:
+      linear-gradient(to right, rgba(10,12,14,0.96) 45%, rgba(10,12,14,0.5) 100%),
+      linear-gradient(to top, rgba(10,12,14,0.9) 0%, transparent 40%);
   }
 
-  /* BUTTONS */
+  .hero-noise {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-size: 200px 200px;
+  }
+
+  /* Ticker tape */
+  .hero-ticker {
+    position: absolute;
+    bottom: 60px;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    overflow: hidden;
+    border-top: 1px solid var(--c-border);
+    border-bottom: 1px solid var(--c-border);
+    padding: 10px 0;
+    background: rgba(255,255,255,0.02);
+  }
+  .hero-ticker__inner {
+    display: flex;
+    gap: 2.5rem;
+    width: fit-content;
+    animation: ticker 20s linear infinite;
+    white-space: nowrap;
+  }
+  .hero-ticker__inner span {
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: var(--c-text-muted);
+    text-transform: uppercase;
+  }
+  .hero-ticker__inner .sep {
+    color: var(--c-accent);
+  }
+  @keyframes ticker {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* Hero content */
+  .hero-content {
+    position: relative;
+    z-index: 10;
+    color: white;
+    padding-top: 140px;
+    padding-bottom: 130px;
+  }
+
+  .hero-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--c-text-muted);
+    margin-bottom: 28px;
+  }
+  .hero-eyebrow .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--c-accent);
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.7); }
+  }
+
+  .hero-title {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 60px;
+  }
+  .hero-title .line {
+    font-family: var(--font-display);
+    font-size: clamp(4rem, 10vw, 8.5rem);
+    font-weight: 800;
+    line-height: 0.92;
+    letter-spacing: -0.03em;
+    display: block;
+  }
+  .hero-title .line-1 { color: white; }
+  .hero-title .line-2 {
+    color: white;
+    -webkit-text-stroke: 1px rgba(255,255,255,0.25);
+  }
+  .hero-title .line-3 {
+    color: var(--c-accent);
+  }
+
+  .hero-bottom {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: end;
+    max-width: 900px;
+  }
+
+  .hero-desc {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--c-text-muted);
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .hero-scroll-hint {
+    position: absolute;
+    right: 40px;
+    bottom: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    color: var(--c-text-muted);
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    z-index: 10;
+  }
+  .scroll-line {
+    width: 1px;
+    height: 50px;
+    background: linear-gradient(to bottom, var(--c-accent), transparent);
+    animation: scrollLine 2s ease-in-out infinite;
+  }
+  @keyframes scrollLine {
+    0% { transform: scaleY(0); transform-origin: top; }
+    50% { transform: scaleY(1); transform-origin: top; }
+    51% { transform: scaleY(1); transform-origin: bottom; }
+    100% { transform: scaleY(0); transform-origin: bottom; }
+  }
+
+  /* ============================
+     BUTTONS
+  ============================ */
   .btn-primary {
     display: inline-flex;
     align-items: center;
-    background: #E8401A;
+    gap: 8px;
+    background: var(--c-accent);
     color: white;
-    padding: 14px 28px;
-    border-radius: 10px;
+    padding: 14px 26px;
+    border-radius: 6px;
     font-weight: 700;
-    transition: background 0.3s ease, transform 0.3s ease;
+    font-size: 0.9rem;
+    letter-spacing: 0.02em;
+    transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-primary::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: white;
+    opacity: 0;
+    transition: opacity 0.25s ease;
   }
   .btn-primary:hover {
-    background: #c93414;
     transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(232,64,26,0.4);
   }
-  .btn-outline {
-    display: inline-flex;
-    align-items: center;
-    border: 1px solid rgba(255,255,255,.4);
-    color: white;
-    padding: 14px 28px;
-    border-radius: 10px;
-    font-weight: 600;
-    transition: background 0.3s ease, color 0.3s ease;
-  }
-  .btn-outline:hover {
-    background: white;
-    color: var(--c-dark);
+  .btn-primary:hover::after {
+    opacity: 0.08;
   }
 
-  /* STATS BAR */
-  .stats-bar {
-    background: #111;
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.7);
+    padding: 14px 26px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.25s ease;
+  }
+  .btn-ghost:hover {
+    border-color: rgba(255,255,255,0.4);
     color: white;
-    padding: 40px 0;
+    transform: translateX(4px);
+  }
+
+  /* ============================
+     STATS BAR
+  ============================ */
+  .stats-bar {
+    background: var(--c-mid);
+    border-top: 1px solid var(--c-border);
+    border-bottom: 1px solid var(--c-border);
+    padding: 0;
   }
   .stats-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
   }
   .stat-item {
+    position: relative;
     text-align: center;
+    padding: 36px 20px;
   }
   .stat-item strong {
     display: block;
-    font-size: 2.2rem;
-    color: #E8401A;
     font-family: var(--font-display);
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: white;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat-item strong::first-letter {
+    color: var(--c-accent);
   }
   .stat-item span {
-    font-size: 0.9rem;
-    color: rgba(255,255,255,0.7);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--c-text-muted);
+  }
+  .stat-divider {
+    position: absolute;
+    right: 0;
+    top: 25%;
+    height: 50%;
+    width: 1px;
+    background: var(--c-border);
   }
 
-  /* PRODUCT SECTION INTRO */
+  /* ============================
+     SECTION SHARED
+  ============================ */
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .label-num {
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: var(--c-accent);
+    background: rgba(232,64,26,0.1);
+    border: 1px solid rgba(232,64,26,0.2);
+    padding: 3px 8px;
+    border-radius: 3px;
+    letter-spacing: 0.05em;
+  }
+  .section-label > span:last-child {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #888;
+  }
+
+  /* ============================
+     PRODUCTS
+  ============================ */
   .section-products {
-    padding: 80px 0;
-    background: #fdfdfd;
+    padding: 100px 0;
+    background: #F7F7F5;
   }
-  .section-intro-text {
-    text-align: center;
-    margin-bottom: 50px;
+
+  .section-header {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 60px;
+    align-items: start;
+    margin-bottom: 60px;
   }
+
+  .section-heading-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
   .section-title-main {
     font-family: var(--font-display);
-    font-size: 2.2rem;
+    font-size: clamp(2.4rem, 5vw, 3.6rem);
     font-weight: 800;
     color: var(--c-dark);
-    margin-bottom: 12px;
+    line-height: 1;
+    letter-spacing: -0.02em;
   }
-  .section-subtitle-main {
-    max-width: 750px;
-    margin: 0 auto;
-    color: #555;
-    line-height: 1.7;
-    font-size: 1.05rem;
+  .section-title-main em {
+    font-style: normal;
+    color: var(--c-accent);
   }
 
-  /* PRODUCT GRID & CARDS (2 Column Modern UI Layout) */
+  .section-subtitle-main {
+    max-width: 480px;
+    color: #666;
+    line-height: 1.7;
+    font-size: 0.95rem;
+  }
+
   .products-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-  }
-  .product-card {
-    background: white;
+    gap: 2px;
+    background: #E0E0DC;
+    border: 2px solid #E0E0DC;
     border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,.05);
-    border: 1px solid #f0f0f0;
+  }
+
+  .product-card {
+    position: relative;
+    background: white;
     display: flex;
     flex-direction: column;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: background 0.3s ease;
+    overflow: hidden;
   }
   .product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0,0,0,.1);
+    background: #FAFAF8;
+    z-index: 2;
   }
+
+  .product-num {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    font-family: var(--font-display);
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    color: rgba(0,0,0,0.12);
+    z-index: 2;
+  }
+
   .product-image-wrap {
-    height: 280px;
-    background: #fafafa;
+    height: 260px;
+    background: #F2F2EF;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px;
-    border-bottom: 1px solid #f5f5f5;
+    padding: 30px;
+    position: relative;
+    overflow: hidden;
+  }
+  .product-image-wrap::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.04));
   }
   .product-img {
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   }
+  .product-card:hover .product-img {
+    transform: scale(1.06);
+  }
+
   .product-body {
-    padding: 30px;
+    padding: 28px 28px 32px;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-  }
-  .product-tagline {
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: #E8401A;
-    letter-spacing: 0.05em;
-    margin-bottom: 8px;
-  }
-  .product-body h3 {
-    font-family: var(--font-display);
-    font-size: 1.4rem;
-    font-weight: 800;
-    color: var(--c-dark);
-    margin-bottom: 12px;
-  }
-  .product-body p {
-    color: #555;
-    line-height: 1.7;
-    font-size: 0.95rem;
-    margin-bottom: 24px;
-    flex-grow: 1;
-  }
-  .read-more-btn {
-    align-self: flex-start;
-    background: var(--c-dark);
-    color: white;
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-size: 0.9rem;
-    font-weight: 700;
-    transition: background 0.3s ease;
-  }
-  .read-more-btn:hover {
-    background: #E8401A;
+    border-top: 1px solid rgba(0,0,0,0.06);
   }
 
-  /* KONTAK / CTA SECTION V2 STYLE */
-  .section-cta-v2 {
-    background: #f4f6f8;
-    padding: 90px 0;
+  .product-tagline {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--c-accent);
+    margin-bottom: 6px;
   }
-  .cta-grid {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    align-items: center;
-    gap: 60px;
-  }
-  .cta-text h2 {
+
+  .product-body h3 {
     font-family: var(--font-display);
-    font-size: 2.5rem;
+    font-size: 1.25rem;
     font-weight: 800;
     color: var(--c-dark);
-    margin-bottom: 15px;
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
   }
-  .divider {
-    width: 60px;
-    height: 4px;
-    background: #E8401A;
-    border-radius: 2px;
-    margin-bottom: 25px;
+
+  .product-body > p {
+    color: #666;
+    line-height: 1.7;
+    font-size: 0.88rem;
+    margin-bottom: 18px;
+    flex-grow: 1;
   }
-  .cta-text p {
-    font-size: 1.1rem;
-    line-height: 1.8;
+
+  .product-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 24px;
+  }
+  .product-features li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.82rem;
     color: #444;
-    margin-bottom: 30px;
   }
+  .feat-icon {
+    color: var(--c-accent);
+    font-size: 0.55rem;
+  }
+
+  .read-more-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--c-dark);
+    color: white;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    align-self: flex-start;
+    transition: all 0.25s ease;
+  }
+  .read-more-btn:hover {
+    background: var(--c-accent);
+    transform: translateX(3px);
+  }
+
+  /* ============================
+     CTA / KONTAK
+  ============================ */
+  .section-cta-v2 {
+    background: var(--c-dark);
+    padding: 120px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-bg-text {
+    position: absolute;
+    font-family: var(--font-display);
+    font-size: clamp(8rem, 18vw, 16rem);
+    font-weight: 800;
+    color: rgba(255,255,255,0.02);
+    letter-spacing: -0.04em;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .cta-grid {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
   .cta-image-wrap {
     position: relative;
-    z-index: 5;
+  }
+  .cta-img-frame {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .cta-img-frame::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    z-index: 2;
   }
   .cta-img {
     width: 100%;
-    height: auto;
+    height: 480px;
+    object-fit: cover;
     display: block;
-    border-radius: 16px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+    filter: saturate(0.7);
+    transition: filter 0.4s ease;
   }
-  .dots-pattern {
-    position: absolute;
-    bottom: -20px;
-    right: -20px;
-    width: 120px;
-    height: 120px;
-    background-image: radial-gradient(#E8401A 2px, transparent 2px);
-    background-size: 12px 12px;
-    z-index: -1;
-    opacity: 0.4;
+  .cta-img-frame:hover .cta-img {
+    filter: saturate(1);
   }
 
-  /* KLIEN CAROUSEL WITH PAUSE EFFECT */
-  .section-klien {
-    padding: 80px 0;
-    background: white;
+  .cta-badge {
+    position: absolute;
+    bottom: -16px;
+    right: -16px;
+    background: var(--c-accent);
+    color: white;
+    padding: 12px 18px;
+    border-radius: 8px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 8px 24px rgba(232,64,26,0.4);
+    z-index: 3;
   }
+  .badge-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.8);
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+
+  .cta-text {
+    color: white;
+  }
+  .cta-text h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    font-weight: 800;
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+    margin-bottom: 28px;
+  }
+  .cta-text h2 em {
+    font-style: normal;
+    color: var(--c-accent);
+  }
+  .cta-text p {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: var(--c-text-muted);
+    margin-bottom: 36px;
+  }
+  .cta-text p strong {
+    color: rgba(255,255,255,0.75);
+    font-weight: 500;
+  }
+
+  /* ============================
+     KLIEN CAROUSEL
+  ============================ */
+  .section-klien {
+    padding: 90px 0;
+    background: #F7F7F5;
+  }
+
+  .klien-header {
+    margin-bottom: 50px;
+  }
+
   .logo-scroller {
-    max-width: 100%;
     overflow: hidden;
-    margin-top: 35px;
-    -webkit-mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
-    mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+    -webkit-mask: linear-gradient(90deg, transparent, black 15%, black 85%, transparent);
+    mask: linear-gradient(90deg, transparent, black 15%, black 85%, transparent);
   }
   .logo-scroller__inner {
     display: flex;
     gap: 5rem;
     width: fit-content;
     animation: scroll 25s linear infinite;
+    align-items: center;
   }
   .logo-scroller:hover .logo-scroller__inner {
     animation-play-state: paused;
   }
   .logo-scroller img {
-    height: 120px;
+    height: 100px;
     width: auto;
     object-fit: contain;
     filter: grayscale(100%);
-    opacity: 0.6;
-    transition: all 0.3s ease;
+    opacity: 0.45;
+    transition: all 0.35s ease;
   }
   .logo-scroller img:hover {
     filter: grayscale(0%);
     opacity: 1;
-    transform: scale(1.05);
+    transform: scale(1.08);
   }
   @keyframes scroll {
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }
   }
 
-  /* RESPONSIVE LAYOUT */
+  /* ============================
+     RESPONSIVE
+  ============================ */
   @media (max-width: 992px) {
-    .products-grid,
-    .cta-grid {
+    .hero-bottom {
       grid-template-columns: 1fr;
-      gap: 40px;
     }
-    .stats-grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 30px;
-    }
-    .cta-image-wrap {
-      max-width: 500px;
-      margin: 0 auto;
-    }
-  }
-  @media (max-width: 600px) {
-    .hero-title {
-      font-size: 2.2rem;
-    }
-    .stats-grid {
+    .section-header {
       grid-template-columns: 1fr;
       gap: 20px;
     }
+    .products-grid,
+    .cta-grid {
+      grid-template-columns: 1fr;
+    }
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .cta-grid {
+      gap: 60px;
+    }
+    .cta-image-wrap {
+      max-width: 480px;
+      margin: 0 auto;
+    }
+    .hero-scroll-hint {
+      display: none;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .hero-title .line {
+      font-size: 3.5rem;
+    }
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .stat-item {
+      padding: 28px 16px;
+    }
     .product-image-wrap {
-      height: 220px;
+      height: 200px;
+    }
+    .cta-img {
+      height: 320px;
+    }
+    .logo-scroller img {
+      height: 70px;
     }
     .logo-scroller__inner {
       gap: 3rem;
     }
-    .logo-scroller img {
-      height: 80px;
+    .cta-badge {
+      bottom: -12px;
+      right: -8px;
     }
   }
 </style>
