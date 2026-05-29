@@ -1,9 +1,8 @@
 ---
-// Menghapus import Image dan import logo lokal lama
 const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'Tentang Kami' },
-  { href: '/#kontak', label: 'Kontak' },
+  { href: '/#kontak', label: 'Kontak', id: 'kontak-link' },
   { href: '/blog', label: 'Blog' },
 ];
 
@@ -11,23 +10,17 @@ const currentPath = Astro.url.pathname;
 
 function isActive(href: string): boolean {
   if (href.includes('#')) return false;
-
   if (href === '/') {
     return currentPath === '/';
   }
-
   return currentPath === href || currentPath.startsWith(href + '/');
 }
 ---
 
 <header id="site-header">
   <div class="container header-inner">
-
     <a href="/" class="header-logo" aria-label="Beranda Simetri Panel">
-      <img
-        src="/img/logosales.webp"
-        alt="Logo Tri Yudhi Sales Panel Simetri"
-      />
+      <img src="/img/logosales.webp" alt="Logo Tri Yudhi Sales Panel Simetri" />
     </a>
 
     <nav class="main-nav" role="navigation" aria-label="Menu Utama">
@@ -35,6 +28,7 @@ function isActive(href: string): boolean {
         <a
           href={link.href}
           class={`nav-link ${isActive(link.href) ? 'active' : ''}`}
+          data-nav={link.id}
         >
           {link.label}
         </a>
@@ -48,56 +42,26 @@ function isActive(href: string): boolean {
       rel="noopener"
       aria-label="Hubungi via WhatsApp"
     >
-      <svg
-        width="15"
-        height="15"
-        viewBox="0 0 24 24"
-        fill="currentColor"
-        aria-hidden="true"
-      >
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
       </svg>
       <span class="cta-text">Minta Penawaran</span>
     </a>
 
-    <button
-      class="hamburger"
-      id="menu-toggle"
-      aria-label="Toggle menu"
-      aria-expanded="false"
-    >
-      <span></span>
-      <span></span>
-      <span></span>
+    <button class="hamburger" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
     </button>
-
   </div>
 
-  <div
-    class="mobile-menu"
-    id="mobile-menu"
-    aria-hidden="true"
-  >
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
     <nav>
       {navLinks.map((link) => (
-        <a
-          href={link.href}
-          class="mobile-nav-link"
-        >
-          {link.label}
-        </a>
+        <a href={link.href} class="mobile-nav-link" data-nav={link.id}>{link.label}</a>
       ))}
-
-      <a
-        href="https://wa.me/628121342383"
-        class="mobile-wa-btn"
-        target="_blank"
-        rel="noopener"
-      >
+      <a href="https://wa.me/628121342383" class="mobile-wa-btn" target="_blank" rel="noopener">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         Hubungi via WhatsApp
       </a>
-
     </nav>
   </div>
 </header>
@@ -105,12 +69,85 @@ function isActive(href: string): boolean {
 <script>
   let initialized = false;
 
-  function initHeader() {
-    // PENGAMAN: Pastikan kode ini HANYA berjalan di browser (Client-side)
-    if (typeof window === 'undefined' || typeof document === 'undefined') return;
+  // Helper: scroll ke section + hapus hash dari URL
+  function cleanScrollToSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    if (!section) return;
+    
+    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    
+    setTimeout(() => {
+      if (window.history?.replaceState) {
+        window.history.replaceState(
+          null,
+          document.title,
+          window.location.pathname + window.location.search
+        );
+      }
+    }, 800);
+  }
 
+  // Fungsi utama: handle klik link Kontak (dari halaman mana pun)
+  function setupKontakLinkHandler() {
+    const handleKontakClick = (e) => {
+      const link = e.target.closest('[data-nav="kontak-link"]');
+      if (!link) return;
+      
+      e.preventDefault();
+      
+      // Tutup mobile menu jika terbuka
+      const menu = document.getElementById('mobile-menu');
+      const toggle = document.getElementById('menu-toggle');
+      if (menu?.classList.contains('open')) {
+        menu.classList.remove('open');
+        toggle?.classList.remove('active');
+        toggle?.setAttribute('aria-expanded', 'false');
+        menu.setAttribute('aria-hidden', 'true');
+      }
+
+      // Jika sudah di homepage, langsung scroll
+      if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
+        cleanScrollToSection('kontak');
+      } else {
+        // Jika di halaman lain: set flag + redirect ke home
+        sessionStorage.setItem('scrollToKontak', 'true');
+        window.location.href = '/';
+      }
+    };
+
+    // Pasang listener ke semua link Kontak (desktop & mobile)
+    document.querySelectorAll('[data-nav="kontak-link"]').forEach((link) => {
+      link.addEventListener('click', handleKontakClick);
+    });
+  }
+
+  // Fungsi: cek & eksekusi scroll jika ada flag dari redirect
+  function handleRedirectedScroll() {
+    if (sessionStorage.getItem('scrollToKontak') === 'true') {
+      sessionStorage.removeItem('scrollToKontak');
+      
+      // Tunggu DOM siap
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => {
+          setTimeout(() => cleanScrollToSection('kontak'), 100);
+        });
+      } else {
+        setTimeout(() => cleanScrollToSection('kontak'), 100);
+      }
+      return true;
+    }
+    return false;
+  }
+
+  function initHeader() {
+    if (typeof window === 'undefined' || typeof document === 'undefined') return;
     if (initialized) return;
     initialized = true;
+
+    // ✅ Handle redirect scroll DULUAN (prioritas tertinggi)
+    if (handleRedirectedScroll()) {
+      // Jika sudah handle scroll, tetap lanjut inisialisasi header lainnya
+    }
 
     const header = document.getElementById('site-header');
     const toggle = document.getElementById('menu-toggle');
@@ -121,12 +158,8 @@ function isActive(href: string): boolean {
     const updateHeader = () => {
       header.classList.toggle('scrolled', window.scrollY > 60);
     };
-
     updateHeader();
-
-    window.addEventListener('scroll', updateHeader, {
-      passive: true,
-    });
+    window.addEventListener('scroll', updateHeader, { passive: true });
 
     toggle.addEventListener('click', () => {
       const isOpen = menu.classList.toggle('open');
@@ -144,20 +177,19 @@ function isActive(href: string): boolean {
       });
     });
 
-    // Amankan pengecekan lokasi halaman utama
+    // ✅ Setup handler link Kontak
+    setupKontakLinkHandler();
+
+    // Active state logic untuk homepage
     if (window.location.pathname === '/') {
       const sections = ['produk', 'kontak'];
       const navItems = document.querySelectorAll('.nav-link');
 
       const updateActiveSection = () => {
         let current = '';
-
         sections.forEach((id) => {
           const section = document.getElementById(id);
-          if (
-            section &&
-            window.scrollY >= section.offsetTop - 140
-          ) {
+          if (section && window.scrollY >= section.offsetTop - 140) {
             current = id;
           }
         });
@@ -165,11 +197,9 @@ function isActive(href: string): boolean {
         navItems.forEach((item) => {
           const href = item.getAttribute('href') || '';
           item.classList.remove('active');
-
           if (current && href === `/#${current}`) {
             item.classList.add('active');
           }
-
           if (!current && href === '/') {
             item.classList.add('active');
           }
@@ -177,300 +207,55 @@ function isActive(href: string): boolean {
       };
 
       updateActiveSection();
-
-      window.addEventListener('scroll', updateActiveSection, {
-        passive: true,
-      });
+      window.addEventListener('scroll', updateActiveSection, { passive: true });
     }
   }
 
-  // Jalankan inisialisasi pertama kali
-  initHeader();
-
-  // Dukungan untuk Astro View Transitions jika diaktifkan
-  document.addEventListener('astro:page-load', initHeader);
+  // ✅ Jalankan: langsung cek redirect scroll, lalu init header
+  if (typeof window !== 'undefined') {
+    handleRedirectedScroll(); // Cek dulu sebelum DOM ready
+    initHeader();
+    document.addEventListener('astro:page-load', initHeader);
+  }
 </script>
 
 <style>
-  :root {
-    --transition: 0.3s ease;
-    --c-primary-dark: #c93414;
-  }
-
-  #site-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    transition:
-      background var(--transition),
-      box-shadow var(--transition),
-      border-color var(--transition);
-  }
-
-  .header-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 76px;
-    gap: 2rem;
-  }
-
-  /* ── Transparent state (top of page) ── */
-  #site-header:not(.scrolled) {
-    background: linear-gradient(
-      180deg,
-      rgba(10,12,14,0.88) 0%,
-      rgba(10,12,14,0) 100%
-    );
-    border-bottom: 1px solid transparent;
-  }
-
-  #site-header:not(.scrolled) .header-logo img {
-    filter: brightness(0) invert(1);
-  }
-
-  #site-header:not(.scrolled) .nav-link {
-    color: rgba(255,255,255,0.75);
-  }
-
-  #site-header:not(.scrolled) .hamburger span {
-    background: rgba(255,255,255,0.85);
-  }
-
-  /* ── Scrolled state ── */
-  #site-header.scrolled {
-    background: rgba(10,12,14,0.97);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-    box-shadow: 0 4px 24px rgba(0,0,0,0.3);
-  }
-
-  #site-header.scrolled .nav-link {
-    color: rgba(255,255,255,0.65);
-  }
-
-  #site-header.scrolled .hamburger span {
-    background: rgba(255,255,255,0.8);
-  }
-
-  /* ── Logo ── */
-  .header-logo img {
-    width: auto;
-    height: 34px;
-    transition: filter var(--transition), opacity var(--transition);
-  }
-  .header-logo:hover img {
-    opacity: 0.8;
-  }
-
-  /* ── Nav links ── */
-  .main-nav {
-    display: flex;
-    align-items: center;
-    gap: 0;
-    margin-left: auto;
-  }
-
-  .nav-link {
-    position: relative;
-    padding: 0.45rem 0.9rem;
-    border-radius: 5px;
-    font-size: 0.825rem;
-    font-weight: 500;
-    letter-spacing: 0.01em;
-    transition: color var(--transition);
-  }
-
-  .nav-link::after {
-    content: '';
-    position: absolute;
-    left: 0.9rem;
-    right: 0.9rem;
-    bottom: 0px;
-    height: 1.5px;
-    background: #E8401A;
-    border-radius: 1px;
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .nav-link:hover {
-    color: rgba(255,255,255,0.95) !important;
-  }
-
-  .nav-link:hover::after,
-  .nav-link.active::after {
-    transform: scaleX(1);
-  }
-
-  .nav-link.active {
-    color: white !important;
-  }
-
-  /* ── CTA Button ── */
-  .header-cta {
-    display: flex;
-    align-items: center;
-    gap: 7px;
-    padding: 0.5rem 1.1rem;
-    border-radius: 6px;
-    background: #E8401A;
-    color: white;
-    font-size: 0.82rem;
-    font-weight: 700;
-    letter-spacing: 0.02em;
-    white-space: nowrap;
-    transition:
-      background var(--transition),
-      transform var(--transition),
-      box-shadow var(--transition);
-    position: relative;
-    overflow: hidden;
-  }
-  .header-cta::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: white;
-    opacity: 0;
-    transition: opacity 0.2s ease;
-  }
-  .header-cta:hover {
-    background: #c93414;
-    transform: translateY(-1px);
-    box-shadow: 0 6px 18px rgba(232,64,26,0.4);
-  }
-  .header-cta:hover::after {
-    opacity: 0.06;
-  }
-
-  /* ── Hamburger ── */
-  .hamburger {
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    gap: 5px;
-    width: 36px;
-    height: 36px;
-    padding: 0;
-    border: none;
-    background: none;
-    cursor: pointer;
-  }
-
-  .hamburger span {
-    width: 22px;
-    height: 1.5px;
-    border-radius: 999px;
-    transition:
-      transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-      opacity 0.25s ease;
-    display: block;
-  }
-
-  .hamburger.active span:nth-child(1) {
-    transform: translateY(6.5px) rotate(45deg);
-  }
-  .hamburger.active span:nth-child(2) {
-    opacity: 0;
-    transform: scaleX(0);
-  }
-  .hamburger.active span:nth-child(3) {
-    transform: translateY(-6.5px) rotate(-45deg);
-  }
-
-  /* ── Mobile Menu ── */
-  .mobile-menu {
-    display: none;
-    position: fixed;
-    top: 76px;
-    left: 0;
-    right: 0;
-    padding: 1rem 1.5rem 1.5rem;
-    background: rgba(10,12,14,0.98);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-    opacity: 0;
-    transform: translateY(-8px);
-    pointer-events: none;
-    transition:
-      opacity 0.25s ease,
-      transform 0.25s ease;
-  }
-
-  .mobile-menu.open {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: all;
-  }
-
-  .mobile-menu nav {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
-
-  .mobile-nav-link {
-    padding: 0.75rem 0.75rem;
-    border-radius: 6px;
-    color: rgba(255,255,255,0.7);
-    font-size: 0.9rem;
-    font-weight: 500;
-    transition: color 0.2s, background 0.2s;
-    border-bottom: 1px solid rgba(255,255,255,0.04);
-  }
-  .mobile-nav-link:last-of-type {
-    border-bottom: none;
-  }
-  .mobile-nav-link:hover {
-    color: white;
-    background: rgba(255,255,255,0.05);
-  }
-
-  .mobile-wa-btn {
-    margin-top: 1rem;
-    padding: 0.85rem;
-    border-radius: 7px;
-    background: #E8401A;
-    color: white;
-    text-align: center;
-    font-weight: 700;
-    font-size: 0.88rem;
-    letter-spacing: 0.02em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    transition: background 0.2s, transform 0.2s;
-  }
-  .mobile-wa-btn:hover {
-    background: #c93414;
-    transform: translateY(-1px);
-  }
-
-  @media (max-width: 900px) {
-    .main-nav,
-    .header-cta {
-      display: none;
-    }
-
-    .hamburger {
-      display: flex;
-    }
-
-    .mobile-menu {
-      display: block;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .cta-text {
-      display: none;
-    }
-  }
+  /* ... (CSS sama persis seperti sebelumnya, tidak ada perubahan) ... */
+  :root { --transition: 0.3s ease; --c-primary-dark: #c93414; }
+  #site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; transition: background var(--transition), box-shadow var(--transition), border-color var(--transition); }
+  .header-inner { display: flex; align-items: center; justify-content: space-between; height: 76px; gap: 2rem; }
+  #site-header:not(.scrolled) { background: linear-gradient(180deg, rgba(10,12,14,0.88) 0%, rgba(10,12,14,0) 100%); border-bottom: 1px solid transparent; }
+  #site-header:not(.scrolled) .header-logo img { filter: brightness(0) invert(1); }
+  #site-header:not(.scrolled) .nav-link { color: rgba(255,255,255,0.75); }
+  #site-header:not(.scrolled) .hamburger span { background: rgba(255,255,255,0.85); }
+  #site-header.scrolled { background: rgba(10,12,14,0.97); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,0.06); box-shadow: 0 4px 24px rgba(0,0,0,0.3); }
+  #site-header.scrolled .nav-link { color: rgba(255,255,255,0.65); }
+  #site-header.scrolled .hamburger span { background: rgba(255,255,255,0.8); }
+  .header-logo img { width: auto; height: 34px; transition: filter var(--transition), opacity var(--transition); }
+  .header-logo:hover img { opacity: 0.8; }
+  .main-nav { display: flex; align-items: center; gap: 0; margin-left: auto; }
+  .nav-link { position: relative; padding: 0.45rem 0.9rem; border-radius: 5px; font-size: 0.825rem; font-weight: 500; letter-spacing: 0.01em; transition: color var(--transition); }
+  .nav-link::after { content: ''; position: absolute; left: 0.9rem; right: 0.9rem; bottom: 0px; height: 1.5px; background: #E8401A; border-radius: 1px; transform: scaleX(0); transform-origin: left; transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+  .nav-link:hover { color: rgba(255,255,255,0.95) !important; }
+  .nav-link:hover::after, .nav-link.active::after { transform: scaleX(1); }
+  .nav-link.active { color: white !important; }
+  .header-cta { display: flex; align-items: center; gap: 7px; padding: 0.5rem 1.1rem; border-radius: 6px; background: #E8401A; color: white; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.02em; white-space: nowrap; transition: background var(--transition), transform var(--transition), box-shadow var(--transition); position: relative; overflow: hidden; }
+  .header-cta::after { content: ''; position: absolute; inset: 0; background: white; opacity: 0; transition: opacity 0.2s ease; }
+  .header-cta:hover { background: #c93414; transform: translateY(-1px); box-shadow: 0 6px 18px rgba(232,64,26,0.4); }
+  .header-cta:hover::after { opacity: 0.06; }
+  .hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 36px; height: 36px; padding: 0; border: none; background: none; cursor: pointer; }
+  .hamburger span { width: 22px; height: 1.5px; border-radius: 999px; transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease; display: block; }
+  .hamburger.active span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+  .hamburger.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  .hamburger.active span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+  .mobile-menu { display: none; position: fixed; top: 76px; left: 0; right: 0; padding: 1rem 1.5rem 1.5rem; background: rgba(10,12,14,0.98); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.06); opacity: 0; transform: translateY(-8px); pointer-events: none; transition: opacity 0.25s ease, transform 0.25s ease; }
+  .mobile-menu.open { opacity: 1; transform: translateY(0); pointer-events: all; }
+  .mobile-menu nav { display: flex; flex-direction: column; gap: 2px; }
+  .mobile-nav-link { padding: 0.75rem 0.75rem; border-radius: 6px; color: rgba(255,255,255,0.7); font-size: 0.9rem; font-weight: 500; transition: color 0.2s, background 0.2s; border-bottom: 1px solid rgba(255,255,255,0.04); }
+  .mobile-nav-link:last-of-type { border-bottom: none; }
+  .mobile-nav-link:hover { color: white; background: rgba(255,255,255,0.05); }
+  .mobile-wa-btn { margin-top: 1rem; padding: 0.85rem; border-radius: 7px; background: #E8401A; color: white; text-align: center; font-weight: 700; font-size: 0.88rem; letter-spacing: 0.02em; display: flex; align-items: center; justify-content: center; gap: 8px; transition: background 0.2s, transform 0.2s; }
+  .mobile-wa-btn:hover { background: #c93414; transform: translateY(-1px); }
+  @media (max-width: 900px) { .main-nav, .header-cta { display: none; } .hamburger { display: flex; } .mobile-menu { display: block; } }
+  @media (max-width: 480px) { .cta-text { display: none; } }
 </style>
