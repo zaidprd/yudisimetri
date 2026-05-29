@@ -10,11 +10,5 @@ export default defineConfig({
       priority: 0.7,
     }),
   ],
-  image: {
-    service: {
-      // Menggunakan passthrough agar Cloudflare tidak macet memproses gambar lewat Sharp
-      entrypoint: 'astro/assets/services/passthrough',
-    },
-  },
   compressHTML: true,
 });
