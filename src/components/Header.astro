@@ -1,7 +1,5 @@
 ---
-import { Image } from 'astro:assets';
-import imgLogo from '../assets/img/logosales.webp';
-
+// Menghapus import Image dan import logo lokal lama
 const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'Tentang Kami' },
@@ -26,8 +24,9 @@ function isActive(href: string): boolean {
   <div class="container header-inner">
 
     <a href="/" class="header-logo" aria-label="Beranda Simetri Panel">
-      <Image
-        src={imgLogo}
+      <!-- Menggunakan tag img standar dengan path public -->
+      <img
+        src="/img/logosales.webp"
         alt="Logo Tri Yudhi Sales Panel Simetri"
       />
     </a>
