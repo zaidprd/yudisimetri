@@ -19,7 +19,6 @@
     "astro": "^5.15.3",
     "astro-portabletext": "^0.11.3",
     "astro-sanity": "^1.1.7",
-    "framer-motion": "^12.40.0",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "tailwindcss": "^4.3.0"
