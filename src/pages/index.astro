@@ -219,7 +219,7 @@ const klienList = [
   /* HERO OVERLAY */
   .hero-wrapper { position: relative; }
 
-  /* Sits on top of the sticky animated background, covers only the first viewport */
+  /* Covers only the first viewport — stacks above the animated background */
   .hero-text-layer {
     position: absolute;
     top: 0;
@@ -229,16 +229,16 @@ const klienList = [
     z-index: 20;
     display: flex;
     align-items: center;
-    pointer-events: none; /* let scroll pass through the layer itself */
+    pointer-events: none;
   }
 
-  /* Dark gradient so white text is readable over the panel image */
+  /* Dark gradient so white text stays readable over any image */
   .hero-readability-overlay {
     position: absolute;
     inset: 0;
     background:
-      linear-gradient(to right, rgba(10,12,14,0.82) 38%, rgba(10,12,14,0.15) 100%),
-      linear-gradient(to top,   rgba(10,12,14,0.90) 0%,  transparent 50%);
+      linear-gradient(to right, rgba(10,12,14,0.88) 40%, rgba(10,12,14,0.35) 100%),
+      linear-gradient(to top,   rgba(10,12,14,0.92) 0%,  transparent 55%);
     pointer-events: none;
   }
 
@@ -246,22 +246,33 @@ const klienList = [
     position: relative;
     z-index: 1;
     color: white;
-    padding-top: 100px;
-    pointer-events: auto; /* re-enable clicks on buttons */
+    padding-top: 96px;
+    /* Horizontal breathing room — critical on narrow viewports */
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    width: 100%;
+    pointer-events: auto;
   }
 
-  .hero-eyebrow { display: flex; align-items: center; gap: 8px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 24px; }
+  .hero-eyebrow { display: flex; align-items: center; gap: 8px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 20px; }
   .hero-eyebrow .dot { width: 6px; height: 6px; border-radius: 50%; background: #E8401A; animation: blink 2s ease-in-out infinite; flex-shrink: 0; }
   @keyframes blink { 0%,100% { opacity:1; } 50% { opacity:0.4; } }
 
-  .hero-title { display: flex; flex-direction: column; margin-bottom: 40px; }
-  .hero-title .line { font-family: var(--font-display); font-size: clamp(3.2rem, 9vw, 8rem); font-weight: 800; line-height: 0.92; letter-spacing: -0.03em; display: block; }
+  .hero-title { display: flex; flex-direction: column; margin-bottom: 32px; }
+  .hero-title .line {
+    font-family: var(--font-display);
+    font-size: clamp(2.6rem, 8vw, 8rem);
+    font-weight: 800;
+    line-height: 0.92;
+    letter-spacing: -0.03em;
+    display: block;
+  }
   .hero-title .line-1 { color: white; }
   .hero-title .line-2 { color: white; }
   .hero-title .line-3 { color: #E8401A; }
 
   .hero-bottom { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: end; max-width: 860px; }
-  .hero-desc { font-size: 0.95rem; line-height: 1.8; color: rgba(255,255,255,0.55); }
+  .hero-desc { font-size: 0.93rem; line-height: 1.8; color: rgba(255,255,255,0.55); }
   .hero-actions { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
 
   /* BUTTONS */
@@ -360,18 +371,37 @@ const klienList = [
     .section-header { grid-template-columns: 1fr; gap: 16px; }
   }
 
+  /* ── Tablet ── */
+  @media (max-width: 1023px) {
+    /* On tablet/mobile the hero is plain 100vh — text layer must match */
+    .hero-text-layer { height: 100vh; }
+    .hero-bottom { grid-template-columns: 1fr; gap: 20px; }
+    /* Slightly stronger overlay so text pops on a cover-size image */
+    .hero-readability-overlay {
+      background:
+        linear-gradient(to bottom, rgba(10,12,14,0.65) 0%, rgba(10,12,14,0.82) 100%);
+    }
+  }
+
+  /* ── Small tablet / large phone ── */
   @media (max-width: 768px) {
     .products-grid { grid-template-columns: 1fr; }
-    .hero-bottom { grid-template-columns: 1fr; gap: 24px; }
     .section-products { padding: 60px 0; }
     .section-cta-v2 { padding: 70px 0; }
     .section-klien { padding: 60px 0; }
     .logo-scroller img { height: 90px; }
+    /* Collapse hero text to single column */
+    .hero-bottom { grid-template-columns: 1fr; gap: 20px; }
+    .hero-actions { flex-direction: row; flex-wrap: wrap; }
   }
 
+  /* ── Phone ── */
   @media (max-width: 480px) {
-    .hero-title .line { font-size: clamp(2.8rem, 11vw, 3.8rem); }
-    .hero-content { padding-top: 100px; }
+    .hero-content { padding-top: 88px; padding-left: 1.25rem; padding-right: 1.25rem; }
+    .hero-title .line { font-size: clamp(2.4rem, 10.5vw, 3.4rem); }
+    .hero-title { margin-bottom: 24px; }
+    .hero-actions { flex-direction: column; align-items: flex-start; }
+    .btn-primary, .btn-ghost { width: 100%; justify-content: center; }
     .stat-item { padding: 24px 12px; }
     .stat-item strong { font-size: 2rem; }
     .logo-scroller img { height: 75px; }
