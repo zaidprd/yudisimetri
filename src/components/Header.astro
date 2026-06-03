@@ -42,7 +42,7 @@ function isActive(href: string): boolean {
 
 <!-- Overlay & Drawer di LUAR header — langsung di body level -->
 <div class="mobile-overlay" id="mobile-overlay" aria-hidden="true"></div>
-<div class="mobile-drawer" id="mobile-menu" aria-hidden="true" role="dialog" aria-label="Menu navigasi">
+<div class="mobile-drawer" id="mobile-menu" aria-hidden="true" inert role="dialog" aria-label="Menu navigasi">
   <div class="drawer-header">
     <img src="/img/logosales.webp" alt="Logo Simetri" width="120" height="30" loading="lazy" class="drawer-logo" />
     <button class="drawer-close" id="drawer-close" aria-label="Tutup menu">
@@ -93,6 +93,7 @@ function isActive(href: string): boolean {
       toggle.classList.add('active');
       toggle.setAttribute('aria-expanded', 'true');
       drawer.setAttribute('aria-hidden', 'false');
+      drawer.removeAttribute('inert');          // biarkan fokus masuk
       document.body.style.overflow = 'hidden';
     }
 
@@ -102,6 +103,7 @@ function isActive(href: string): boolean {
       toggle.classList.remove('active');
       toggle.setAttribute('aria-expanded', 'false');
       drawer.setAttribute('aria-hidden', 'true');
+      drawer.setAttribute('inert', '');         // blokir fokus & klik
       document.body.style.overflow = '';
     }
 

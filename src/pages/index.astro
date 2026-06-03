@@ -151,7 +151,15 @@ const klienList = [
           <div class="product-num">0{i + 1}</div>
           {product.badge && <div class="product-badge">{product.badge}</div>}
           <div class="product-image-wrap">
-            <img src={product.img} alt={product.alt} class="product-img" loading={i < 2 ? 'eager' : 'lazy'} />
+            <img
+              src={product.img}
+              alt={product.alt}
+              class="product-img"
+              width="400"
+              height="300"
+              loading={i < 2 ? 'eager' : 'lazy'}
+              decoding={i < 2 ? 'sync' : 'async'}
+            />
           </div>
           <div class="product-body">
             <span class="product-tagline">{product.tagline}</span>

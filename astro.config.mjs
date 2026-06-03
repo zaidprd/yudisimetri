@@ -16,6 +16,11 @@ export default defineConfig({
 
   compressHTML: true,
 
+  // Inline semua CSS ke dalam <style> tag — eliminasi render-blocking CSS files
+  build: {
+    inlineStylesheets: 'always',
+  },
+
   vite: {
     plugins: [tailwindcss()],
   },
