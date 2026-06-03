@@ -1,6 +1,7 @@
 ---
 import Header from '../components/Header.astro';
 import { ViewTransitions } from 'astro:transitions';
+import '../styles/global.css';
 
 interface Props {
   title: string;
@@ -46,7 +47,10 @@ const metaImageUrl = image.startsWith('http')
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content={metaImageUrl} />
   <link rel="icon" href="/favicon.ico" />
-  <link rel="preconnect" <link href="https://fonts.googleapis.com/css2?family=Oswald&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
+  <slot name="head" />
   <ViewTransitions />
   <style is:global>
     :root {
