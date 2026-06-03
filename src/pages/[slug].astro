@@ -34,8 +34,8 @@ try {
     mainImage,
     body,
     publishedAt,
-    excerpt,
-    "authorName": author->name,
+    "excerpt": coalesce(excerpt, pt::text(body)),
+    "authorName": coalesce(author->name, "Tri Yudhi"),
     "categories": categories[]->title
   }`;
   post = await client.fetch(detailQuery, { slug });
@@ -45,11 +45,11 @@ try {
     mainImage,
     "slug": slug.current,
     publishedAt,
-    excerpt
+    "excerpt": coalesce(excerpt, pt::text(body))
   }`;
   recentPosts = await client.fetch(recentQuery, { slug });
 } catch(e) {
-  console.log("Gagal mengambil detail artikel dari Sanity.");
+  console.error("[slug] Gagal fetch dari Sanity:", e);
 }
 
 // Fallback data agar halaman tidak crash jika data kosong saat build
@@ -64,6 +64,9 @@ if (!post) {
   };
 }
 
+const siteUrl   = "https://salespanelsimetri.com";
+const pageUrl   = `${siteUrl}/${slug}`;
+
 const formatDate = (dateStr: string) => {
   if (!dateStr) return '';
   return new Date(dateStr).toLocaleDateString('id-ID', {
@@ -71,34 +74,64 @@ const formatDate = (dateStr: string) => {
   });
 };
 
+// Trim excerpt untuk meta description (max 160 karakter)
+const trimExcerpt = (text: string | null | undefined, max = 160) => {
+  if (!text) return '';
+  const clean = text.replace(/\s+/g, ' ').trim();
+  return clean.length <= max ? clean : clean.slice(0, max).trimEnd() + '…';
+};
+
+const metaDescription = trimExcerpt(post.excerpt)
+  || `Artikel tentang ${post.title} dari Tri Yudhi, Sales Manager Panel Listrik PT Sinar Metrindo Perkasa.`;
+
+const heroImageUrl = post.mainImage
+  ? urlFor(post.mainImage).width(1200).height(630).url()
+  : `${siteUrl}/img/Panel-matrix-simetri.webp`;
+
 const articleSchema = {
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": post.title,
+  "description": metaDescription,
+  "url": pageUrl,
+  "mainEntityOfPage": { "@type": "WebPage", "@id": pageUrl },
   "datePublished": post.publishedAt,
+  "dateModified": post.publishedAt,
+  "image": heroImageUrl,
   "author": {
     "@type": "Person",
     "name": post.authorName || "Tri Yudhi",
-    "jobTitle": "Sales Manager – Panel Listrik",
+    "jobTitle": "Sales Manager",
     "worksFor": { "@type": "Organization", "name": "PT Sinar Metrindo Perkasa" }
   },
   "publisher": {
     "@type": "Organization",
     "name": "Sales Panel Simetri",
-    "url": "https://salespanelsimetri.com"
-  },
-  ...(post.mainImage && {
-    "image": urlFor(post.mainImage).width(1200).height(630).url()
-  })
+    "url": siteUrl,
+    "logo": { "@type": "ImageObject", "url": `${siteUrl}/img/logosales.webp` }
+  }
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",  "item": siteUrl },
+    { "@type": "ListItem", "position": 2, "name": "Blog",  "item": `${siteUrl}/blog` },
+    { "@type": "ListItem", "position": 3, "name": post.title, "item": pageUrl }
+  ]
 };
 ---
 
 <Layout
   title={`${post.title} | Blog Panel Listrik Simetri`}
-  description={post.excerpt || `Artikel tentang ${post.title} dari Tri Yudhi Sales Manager Panel Listrik Simetri.`}
+  description={metaDescription}
+  image={heroImageUrl}
+  url={pageUrl}
   type="article"
 >
   <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} slot="head" />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} slot="head" />
 
   <!-- HERO -->
   <section class="article-hero">

@@ -54,13 +54,31 @@ const metaImageUrl = image.startsWith('http')
   <ViewTransitions />
   <style is:global>
     :root {
-      --c-primary: #E8401A;
+      /* Brand colours */
+      --c-primary:    #E8401A;
       --c-primary-dark: #C0320E;
-      --c-dark: #0F1318;
-      --c-light: #F5F5F5;
-      --c-text: #2A2A2A;
+      --c-accent:     #E8401A;   /* alias — used by blog/article pages */
+      --c-dark:       #0F1318;
+      --c-mid:        #161A1E;
+      --c-light:      #F5F5F5;
+      --c-text:       #2A2A2A;
+      --c-text-muted: #888888;   /* used by blog card dates, sidebar bio */
+
+      /* Typography */
       --font-display: 'Oswald', sans-serif;
-      --font-body: 'DM Sans', sans-serif;
+      --font-body:    'DM Sans', sans-serif;
+
+      /* Radius */
+      --radius-sm:  6px;
+      --radius-md:  10px;
+      --radius-lg:  14px;
+
+      /* Shadows */
+      --shadow:    0 2px 12px rgba(0,0,0,0.07);
+      --shadow-lg: 0 8px 32px rgba(0,0,0,0.13);
+
+      /* Transitions */
+      --transition: 0.25s ease;
     }
 
     *, *::before, *::after {
