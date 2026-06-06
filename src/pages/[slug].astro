@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import { client, urlFor } from '../lib/sanity';
 import { PortableText } from 'astro-portabletext';
+import ImageBlock from '../../components/portable/ImageBlock.astro';
 
 export async function getStaticPaths() {
   try {
@@ -17,7 +18,6 @@ export async function getStaticPaths() {
     console.log("Sanity fetch error pada getStaticPaths, menggunakan fallback.");
   }
 
-  // Fallback agar build Cloudflare tetap lolos jika API terkendala
   return [
     { params: { slug: 'panduan-memilih-panel-listrik' } }
   ];
@@ -52,7 +52,6 @@ try {
   console.error("[slug] Gagal fetch dari Sanity:", e);
 }
 
-// Fallback data agar halaman tidak crash jika data kosong saat build
 if (!post) {
   post = {
     title: "Panduan Memilih Panel Listrik Berkualitas",
@@ -64,6 +63,12 @@ if (!post) {
   };
 }
 
+const portableComponents = {
+  type: {
+    image: ImageBlock,
+  }
+};
+
 const siteUrl   = "https://salespanelsimetri.com";
 const pageUrl   = `${siteUrl}/${slug}`;
 
@@ -74,7 +79,6 @@ const formatDate = (dateStr: string) => {
   });
 };
 
-// Trim excerpt untuk meta description (max 160 karakter)
 const trimExcerpt = (text: string | null | undefined, max = 160) => {
   if (!text) return '';
   const clean = text.replace(/\s+/g, ' ').trim();
@@ -182,7 +186,7 @@ const breadcrumbSchema = {
       <article class="article-main reveal">
         <div class="article-body prose">
           {post.body
-            ? <PortableText value={post.body} />
+            ? <PortableText value={post.body} components={portableComponents} />
             : <p>Konten tidak tersedia.</p>
           }
         </div>
@@ -193,7 +197,7 @@ const breadcrumbSchema = {
             <strong>Butuh panel listrik untuk proyek Anda?</strong>
             <p>Konsultasi gratis dengan Tri Yudhi – Sales Manager Simetri berpengalaman 18 tahun.</p>
           </div>
-          <a
+          
             href="https://wa.me/6281213351911?text=Halo%20Pak%20Yudhi%2C%20saya%20baca%20artikel%20ini%20dan%20ingin%20konsultasi"
             class="btn-wa"
             target="_blank"
@@ -218,7 +222,7 @@ const breadcrumbSchema = {
           <h3>Tri Yudhi</h3>
           <p class="sidebar-role">Sales Manager – Simetri</p>
           <p class="sidebar-bio">18+ tahun pengalaman di industri panel listrik. Mulai dari estimator hingga Sales Manager PT Sinar Metrindo Perkasa.</p>
-          <a
+          
             href="https://wa.me/6281213351911"
             class="sidebar-wa"
             target="_blank"
@@ -344,12 +348,11 @@ const breadcrumbSchema = {
     align-items: start;
   }
 
-  /* PROSE — optimized for readability & SEO scanability */
+  /* PROSE */
   .article-body.prose {
     font-size: 1.05rem;
     line-height: 1.88;
     color: var(--c-text);
-    /* Ideal reading width: 60–75 characters */
     max-width: 68ch;
   }
   .prose :global(h2) {
@@ -357,7 +360,6 @@ const breadcrumbSchema = {
     font-size: clamp(1.35rem, 3vw, 1.65rem);
     font-weight: 800;
     color: var(--c-dark);
-    /* Generous vertical space before headings — aids scannability */
     margin: 3rem 0 0.9rem;
     padding-bottom: 0.6rem;
     border-bottom: 2px solid #EFEFED;
@@ -372,10 +374,8 @@ const breadcrumbSchema = {
     margin: 2.25rem 0 0.65rem;
     line-height: 1.25;
   }
-  /* Short paragraph blocks — ≤ 75 words per block enforced via spacing cue */
   .prose :global(p) {
     margin-bottom: 1.6rem;
-    /* Slightly looser tracking for body text legibility */
     letter-spacing: 0.01em;
   }
   .prose :global(a) {
