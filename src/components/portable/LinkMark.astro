@@ -1,0 +1,21 @@
+---
+import type { MarkProps } from 'astro-portabletext/types';
+
+type LinkDef = { _type: 'link'; href: string };
+
+export type Props = MarkProps<LinkDef>;
+
+const { node } = Astro.props;
+const href = node.markDef?.href ?? '#';
+const isExternal = href.startsWith('http');
+const isWa = href.includes('wa.me');
+---
+
+<a
+  href={href}
+  class:list={[{ 'prose-cta-link': isWa }]}
+  target={isExternal ? '_blank' : undefined}
+  rel={isExternal ? 'noopener noreferrer' : undefined}
+>
+  <slot />
+</a>
