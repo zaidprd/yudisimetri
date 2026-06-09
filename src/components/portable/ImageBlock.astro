@@ -1,7 +1,7 @@
 ---
 import { urlFor } from '../../lib/sanity';
 const { node } = Astro.props;
-const src = node?.asset ? urlFor(node.asset).width(800).url() : null;
+const src = node?.asset ? urlFor(node).width(1200).auto('format').url() : null;
 const alt = node?.alt || '';
 ---
 {src && (
