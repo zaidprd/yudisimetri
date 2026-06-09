@@ -1,419 +1,1237 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import SmoothScrollHero from '../components/ui/smooth-scroll-hero';
-
-const products = [
-  {
-    id: "panel-simosec",
-    name: "PANEL SIMOSEC",
-    tagline: "Air-Insulated Medium-Voltage Switchgear",
-    desc: "Panel tegangan menengah tipe-tested lisensi Siemens, factory-assembled sesuai IEC 62271-200. Menggabungkan teknologi air-insulated dengan gas-insulated switching untuk keandalan distribusi daya hingga 24 kV.",
-    features: ["Tegangan hingga 24 kV, 25 kA", "Tipe-tested IEC 62271-200", "Metal-enclosed, 3-phase indoor", "Lisensi resmi Siemens"],
-    img: "/img/panel-listrik-simosec.webp",
-    alt: "Panel SIMOSEC Simetri – Air-Insulated Medium-Voltage Switchgear Jakarta",
-    badge: "Lisensi Siemens"
-  },
-  {
-    id: "panel-matrix",
-    name: "PANEL MATRIX",
-    tagline: "Low Voltage Panel – Type Tested",
-    desc: "Panel tegangan rendah unggulan Simetri yang telah melalui serangkaian uji tipe (type-tested) berstandar internasional. Dirancang untuk sistem distribusi daya utama pada gedung bertingkat dan industri berat.",
-    features: ["Type-tested bersertifikasi", "Kapasitas hingga 6300A", "Busbar system optimal", "Produk flagship Simetri"],
-    img: "/img/Panel-matrix-simetri.webp",
-    alt: "Panel Matrix Simetri – Low Voltage Type Tested Panel Jakarta",
-    badge: "By Simetri"
-  },
-  {
-    id: "panel-lvmdp",
-    name: "PANEL LVMDP",
-    tagline: "Low Voltage Main Distribution Panel",
-    desc: "Sistem proteksi dan distribusi daya listrik utama. Beberapa fitur utama kami: Sistem interlock dan interlock dengan coupler.",
-    features: ["Interlock otomatis", "Kapasitas hingga 6300A", "Interlock dengan coupler"],
-    img: "/img/Panel-LVMDP-Simetri.webp",
-    alt: "Panel LVMDP Simetri Jakarta",
-    badge: null
-  },
-  {
-    id: "panel-genset",
-    name: "PANEL GENSET PKG",
-    tagline: "Panel Kontrol Genset",
-    desc: "Sinkronisasi genset dan PLN. Simetri dapat melakukan sinkronisasi hingga 6 genset dan juga dapat melakukan sinkronisasi antara genset dan PLN ('Back and Forward Synchron').",
-    features: ["Sinkronisasi 6 Genset", "ATS otomatis", "Back & Forward Synchron"],
-    img: "/img/panel-kontrol-genset-simetri.webp",
-    alt: "Panel Genset PKG Simetri",
-    badge: null
-  },
-  {
-    id: "panel-kapasitor",
-    name: "PANEL CAPASITOR BANK",
-    tagline: "Power Factor Correction",
-    desc: "Panel Capasitor berfungsi untuk memperkecil daya reaktif, menghemat pemakaian listrik, dan menjaga kestabilan tegangan.",
-    features: ["Memperkecil Daya Reaktif", "Menghemat Biaya Listrik", "Komponen Berkualitas"],
-    img: "/img/panel_listrik_simetri_kapasitor.webp",
-    alt: "Panel Kapasitor Bank Simetri",
-    badge: null
-  },
-  {
-    id: "panel-distribusi",
-    name: "PANEL DISTRIBUSI",
-    tagline: "Sub Distribution Panel",
-    desc: "Sistem Control dan Proteksi distribusi tenaga listrik ke sub panel dan beban seperti hydrant, lighting, lift, dll.",
-    features: ["Sistem Kontrol Handal", "Proteksi Sub Panel", "Komponen Standar SNI"],
-    img: "/img/panel_listrik_distribusi_simetri.webp",
-    alt: "Panel Distribusi Simetri",
-    badge: null
-  }
-];
-
-const stats = [
-  { value: "18+", label: "Tahun Pengalaman" },
-  { value: "500+", label: "Proyek" },
-  { value: "100%", label: "Support" },
-  { value: "24/7", label: "Konsultasi" },
-];
-
-const klienList = [
-  { img: "/img/klien/klien-1.webp", alt: "Klien Panel Simetri – Bandara Internasional" },
-  { img: "/img/klien/klien-2.webp", alt: "Klien Panel Simetri – Rumah Sakit" },
-  { img: "/img/klien/klien-3.webp", alt: "Klien Panel Simetri – Bank Indonesia" },
-  { img: "/img/klien/klien-4.webp", alt: "Klien Panel Simetri – Gedung Perkantoran" },
-];
 ---
 
 <Layout
   title="Jual Panel Listrik Jakarta | SIMOSEC, Matrix, LVMDP, Genset – Simetri"
   description="Sales Panel Listrik Simetri Jakarta – SIMOSEC, Panel Matrix, LVMDP, Panel Genset PKG, Kapasitor Bank, Panel Distribusi. Tri Yudhi Sales Manager SMP 18+ tahun pengalaman."
 >
-  <link
-    slot="head"
-    rel="preload"
-    as="image"
-    href="/img/Panel-matrix-simetri.webp"
-    fetchpriority="high"
-  />
 
-<section class="hero-wrapper" aria-label="Beranda Panel Maker Simetri">
-  <SmoothScrollHero
-    client:load
-    desktopImage="/img/Panel-matrix-simetri.webp"
-    mobileImage="/img/Panel-matrix-simetri.webp"
-    scrollHeight={1500}
-    initialClipPercentage={25}
-    finalClipPercentage={75}
-  />
-  <div class="hero-text-layer">
-    <div class="hero-readability-overlay"></div>
-    <div class="container hero-content">
-      <div class="hero-eyebrow"><span class="dot"></span>PT Sinar Metrindo Perkasa</div>
+  <!-- ═══════════════════════════════════════
+       1. HERO
+  ═══════════════════════════════════════ -->
+  <section class="hero">
+    <!-- Radial spotlight that follows cursor -->
+    <div class="hero-spotlight" id="hero-spotlight" aria-hidden="true"></div>
+    <!-- Background product image -->
+    <div class="hero-bg-img" aria-hidden="true"></div>
+    <!-- Gradient vignette -->
+    <div class="hero-gradient" aria-hidden="true"></div>
+    <!-- Subtle grid -->
+    <div class="hero-grid" aria-hidden="true"></div>
+
+    <div class="hero-container container">
+      <div class="hero-eyebrow">
+        <span class="eyebrow-dot"></span>
+        <span>Trusted Since 2007</span>
+      </div>
+
       <h1 class="hero-title">
-        <span class="line line-1">PANEL</span>
-        <span class="line line-2">MAKER</span>
-        <span class="line line-3">SIMETRI</span>
+        <span class="hero-title-line" data-delay="0">Panel Listrik</span>
+        <em class="hero-title-line hero-title-gold" data-delay="80">Premium</em>
+        <span class="hero-title-line" data-delay="160">untuk Industri Anda</span>
       </h1>
-      <div class="hero-bottom">
-        <p class="hero-desc">Tri Yudhi — Sales Manager SMP sejak 2007. Panel Maker terbaik yang masih eksis dan terpercaya di Indonesia. Segera hubungi team sales Simetri untuk konsultasi gratis.</p>
-        <div class="hero-actions">
-          <a href="https://wa.me/6281213351911?text=Halo%20Pak%20Yudhi%2C%20saya%20ingin%20konsultasi%20panel%20listrik" class="btn-primary" target="_blank" rel="noopener">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            WhatsApp Sekarang
-          </a>
-          <a href="#produk" class="btn-ghost">Lihat Produk <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+
+      <p class="hero-subtitle" data-delay="280">
+        PT Sinar Metrindo Perkasa (Simetri) — solusi panel listrik berkualitas tinggi
+        untuk distribusi, kontrol, dan proteksi tenaga listrik di seluruh Indonesia.
+      </p>
+
+      <div class="hero-actions" data-delay="380">
+        <a href="#kontak" class="btn-gold magnetic-btn">
+          <span>Hubungi Sales</span>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="#produk" class="btn-ghost">Lihat Produk</a>
+      </div>
+
+      <div class="hero-stats" data-delay="500">
+        <div class="stat-item">
+          <span class="stat-num">18+</span>
+          <span class="stat-lbl">Tahun Pengalaman</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-num">500+</span>
+          <span class="stat-lbl">Proyek Selesai</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-num">100%</span>
+          <span class="stat-lbl">Bergaransi</span>
         </div>
       </div>
     </div>
-  </div>
-</section>
 
-<section class="stats-bar">
-  <div class="container stats-grid">
-    {stats.map((stat, i) => (
-      <div class="stat-item">
-        <strong>{stat.value}</strong>
-        <span>{stat.label}</span>
-        {i < stats.length - 1 && <div class="stat-divider"></div>}
-      </div>
-    ))}
-  </div>
-</section>
+    <div class="hero-scroll-indicator" aria-hidden="true">
+      <div class="scroll-line"></div>
+    </div>
+  </section>
 
-<section id="produk" class="section-products">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-label"><span class="label-num">01</span><span>Product Services</span></div>
-      <div class="section-heading-wrap">
-        <h2 class="section-title-main">PRODUK<br /><em>UNGGULAN</em></h2>
-        <p class="section-subtitle-main">Panel SIMOSEC (lisensi Siemens), Panel Matrix (type-tested), serta lini panel lokal berkualitas tinggi untuk setiap kebutuhan proyek.</p>
+  <!-- ═══════════════════════════════════════
+       2. STATS / NUMBERS
+  ═══════════════════════════════════════ -->
+  <section class="stats-section">
+    <div class="container">
+      <div class="stats-grid stagger">
+        <div class="stats-card">
+          <div class="stats-card-accent"></div>
+          <span class="stats-number" data-target="18" data-suffix="+">0</span>
+          <span class="stats-unit">Tahun</span>
+          <p class="stats-desc">Berpengalaman melayani industri manufaktur, properti, dan infrastruktur.</p>
+        </div>
+        <div class="stats-card stats-card--featured">
+          <div class="stats-card-accent"></div>
+          <span class="stats-number" data-target="500" data-suffix="+">0</span>
+          <span class="stats-unit">Proyek</span>
+          <p class="stats-desc">Panel listrik yang telah kami rancang, produksi, dan instalasi di seluruh Indonesia.</p>
+        </div>
+        <div class="stats-card">
+          <div class="stats-card-accent"></div>
+          <span class="stats-number" data-target="100" data-suffix="%">0</span>
+          <span class="stats-unit">Bergaransi</span>
+          <p class="stats-desc">Setiap produk dilengkapi garansi penuh dan dukungan purna jual yang responsif.</p>
+        </div>
       </div>
     </div>
-    <div class="products-grid">
-      {products.map((product, i) => (
-        <article class="product-card" id={product.id}>
-          <div class="product-num">0{i + 1}</div>
-          {product.badge && <div class="product-badge">{product.badge}</div>}
-          <div class="product-image-wrap">
-            <img
-              src={product.img}
-              alt={product.alt}
-              class="product-img"
-              width="400"
-              height="300"
-              loading={i < 2 ? 'eager' : 'lazy'}
-              decoding={i < 2 ? 'sync' : 'async'}
-            />
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       3. PRODUCTS
+  ═══════════════════════════════════════ -->
+  <section id="produk" class="products-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Product Services</span>
+        <h2 class="section-heading products-heading">
+          Produk Panel<br/>
+          <em>Unggulan Kami</em>
+        </h2>
+        <p class="section-sub">
+          Panel SIMOSEC (lisensi Siemens), Panel Matrix type-tested, serta lini panel lokal berkualitas tinggi untuk setiap kebutuhan proyek.
+        </p>
+      </div>
+
+      <div class="products-grid">
+        <div class="product-card tilt-card reveal" style="transition-delay: 0ms">
+          <div class="product-card-img">
+            <img src="/img/panel-listrik-simosec.webp" alt="Panel SIMOSEC Simetri" loading="lazy" />
+            <div class="product-card-overlay"></div>
           </div>
-          <div class="product-body">
-            <span class="product-tagline">{product.tagline}</span>
-            <h3>{product.name}</h3>
-            <p class="product-desc-text">{product.desc}</p>
-            <ul class="product-features">
-              {product.features.map((f) => <li><span class="feat-icon">✦</span>{f}</li>)}
-            </ul>
-            <a href={`https://wa.me/6281213351911?text=Halo%20Pak%20Yudhi%2C%20saya%20ingin%20informasi%20${encodeURIComponent(product.name)}`} class="read-more-btn" target="_blank" rel="noopener">
-              Minta Penawaran
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <div class="product-card-body">
+            <span class="product-tag">Lisensi Siemens</span>
+            <h3 class="product-name">Panel SIMOSEC</h3>
+            <p class="product-desc">Panel tegangan menengah tipe-tested lisensi Siemens, factory-assembled sesuai IEC 62271-200 hingga 24 kV.</p>
+            <a href="https://wa.me/6281213351911?text=Halo%20Pak%20Yudhi%2C%20saya%20ingin%20informasi%20Panel%20SIMOSEC" class="product-link" target="_blank" rel="noopener">
+              <span>Minta Penawaran</span>
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
           </div>
-        </article>
-      ))}
-    </div>
-  </div>
-</section>
+          <div class="product-card-glow"></div>
+        </div>
 
-<section id="kontak" class="section-cta-v2">
-  <div class="cta-bg-text" aria-hidden="true">KONTAK</div>
-  <div class="container cta-grid">
-    <div class="cta-image-wrap">
-      <div class="cta-img-frame">
-        <img src="/img/yudi-sales-simetri.webp" alt="Tri Yudhi Sales Manager Panel Listrik Simetri" class="cta-img" loading="lazy" width="600" height="460" />
+        <div class="product-card tilt-card reveal" style="transition-delay: 40ms">
+          <div class="product-card-img">
+            <img src="/img/Panel-matrix-simetri.webp" alt="Panel Matrix Simetri" loading="lazy" />
+            <div class="product-card-overlay"></div>
+          </div>
+          <div class="product-card-body">
+            <span class="product-tag">Type Tested</span>
+            <h3 class="product-name">Panel Matrix</h3>
+            <p class="product-desc">Panel tegangan rendah unggulan Simetri yang telah melalui uji tipe berstandar internasional, kapasitas hingga 6300A.</p>
+            <a href="https://wa.me/6281213351911?text=Halo%20Pak%20Yudhi%2C%20saya%20ingin%20informasi%20Panel%20Matrix" class="product-link" target="_blank" rel="noopener">
+              <span>Minta Penawaran</span>
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+          <div class="product-card-glow"></div>
+        </div>
+
+        <div class="product-card tilt-card reveal" style="transition-delay: 80ms">
+          <div class="product-card-img">
+            <img src="/img/Panel-LVMDP-Simetri.webp" alt="Panel LVMDP Simetri" loading="lazy" />
+            <div class="product-card-overlay"></div>
+          </div>
+          <div class="product-card-body">
+            <span class="product-tag">Low Voltage</span>
+            <h3 class="product-name">Panel LVMDP</h3>
+            <p class="product-desc">Sistem interlock dan interlock dengan coupler. Dirancang untuk distribusi daya tegangan rendah yang andal dan aman.</p>
+            <a href="https://wa.me/6281213351911?text=Halo%20Pak%20Yudhi%2C%20saya%20ingin%20informasi%20Panel%20LVMDP" class="product-link" target="_blank" rel="noopener">
+              <span>Minta Penawaran</span>
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+          <div class="product-card-glow"></div>
+        </div>
+
+        <div class="product-card tilt-card reveal" style="transition-delay: 120ms">
+          <div class="product-card-img">
+            <img src="/img/panel-kontrol-genset-simetri.webp" alt="Panel Genset PKG" loading="lazy" />
+            <div class="product-card-overlay"></div>
+          </div>
+          <div class="product-card-body">
+            <span class="product-tag">Control System</span>
+            <h3 class="product-name">Panel Genset PKG</h3>
+            <p class="product-desc">Sinkronisasi hingga 6 genset dan sinkronisasi antara genset dan PLN. Kontrol otomatis yang presisi.</p>
+            <a href="https://wa.me/6281213351911?text=Halo%20Pak%20Yudhi%2C%20saya%20ingin%20informasi%20Panel%20Genset%20PKG" class="product-link" target="_blank" rel="noopener">
+              <span>Minta Penawaran</span>
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+          <div class="product-card-glow"></div>
+        </div>
+
+        <div class="product-card tilt-card reveal" style="transition-delay: 160ms">
+          <div class="product-card-img">
+            <img src="/img/panel_listrik_distribusi_simetri.webp" alt="Panel Distribusi" loading="lazy" />
+            <div class="product-card-overlay"></div>
+          </div>
+          <div class="product-card-body">
+            <span class="product-tag">Distribution</span>
+            <h3 class="product-name">Panel Distribusi</h3>
+            <p class="product-desc">Kontrol dan proteksi distribusi tenaga listrik ke sub panel dan beban: hydrant, lighting, lift, dan lainnya.</p>
+            <a href="https://wa.me/6281213351911?text=Halo%20Pak%20Yudhi%2C%20saya%20ingin%20informasi%20Panel%20Distribusi" class="product-link" target="_blank" rel="noopener">
+              <span>Minta Penawaran</span>
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+          <div class="product-card-glow"></div>
+        </div>
+
+        <div class="product-card tilt-card reveal" style="transition-delay: 200ms">
+          <div class="product-card-img">
+            <img src="/img/panel_listrik_simetri_kapasitor.webp" alt="Panel Kapasitor Bank" loading="lazy" />
+            <div class="product-card-overlay"></div>
+          </div>
+          <div class="product-card-body">
+            <span class="product-tag">Power Factor</span>
+            <h3 class="product-name">Panel Kapasitor Bank</h3>
+            <p class="product-desc">Memperkecil daya reaktif untuk efisiensi energi maksimal. Solusi hemat biaya listrik jangka panjang.</p>
+            <a href="https://wa.me/6281213351911?text=Halo%20Pak%20Yudhi%2C%20saya%20ingin%20informasi%20Panel%20Kapasitor%20Bank" class="product-link" target="_blank" rel="noopener">
+              <span>Minta Penawaran</span>
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+          <div class="product-card-glow"></div>
+        </div>
       </div>
-      <div class="cta-badge"><span class="badge-dot"></span>Siap Konsultasi</div>
     </div>
-    <div class="cta-text-col">
-      <div class="section-label"><span class="label-num">02</span><span>Hubungi Kami</span></div>
-      <h2>Dapatkan<br /><em>Penawaran</em><br />Terbaik</h2>
-      <p>Kunjungi kantor pusat kami di:<br /><strong>Aries Niaga Blok A1 No. 3A-3B, Jalan Taman Aries, Meruya Utara, Kembangan, Jakarta Barat, DKI 11620</strong></p>
-      <a href="https://wa.me/6281213351911?text=Halo%20Pak%20Yudhi%2C%20saya%20ingin%20konsultasi%20panel%20listrik" class="btn-primary" target="_blank" rel="noopener">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Hubungi via WhatsApp
-      </a>
-    </div>
-  </div>
-</section>
+  </section>
 
-<section id="project" class="section-klien">
-  <div class="container klien-header">
-    <div class="section-label"><span class="label-num">03</span><span>Kepercayaan</span></div>
-    <h2 class="section-title-main">KLIEN <em>KAMI</em></h2>
-  </div>
-  <div class="logo-scroller">
-    <div class="logo-scroller__inner">
-      {klienList.map((k) => <img src={k.img} alt={k.alt} loading="lazy" width="220" height="110" />)}
-      {klienList.map((k) => <img src={k.img} alt={k.alt} loading="lazy" width="220" height="110" aria-hidden="true" />)}
+  <!-- ═══════════════════════════════════════
+       4. TRUST / ABOUT
+  ═══════════════════════════════════════ -->
+  <section class="trust-section">
+    <div class="container trust-grid">
+      <div class="trust-content reveal-left">
+        <span class="section-label">Mengapa Simetri</span>
+        <h2 class="section-heading trust-heading">
+          Dipercaya Ribuan<br/>
+          <em>Klien Industri</em>
+        </h2>
+        <p class="trust-body">
+          Sejak 2007, Tri Yudhi dan tim Simetri telah membangun reputasi sebagai mitra panel listrik terpercaya
+          untuk proyek-proyek industri, gedung komersial, dan infrastruktur skala besar di seluruh Indonesia.
+        </p>
+        <ul class="trust-list">
+          <li>
+            <span class="trust-icon">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5L6.5 11.5L2.5 7.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span>Produk bersertifikat standar SNI & IEC internasional</span>
+          </li>
+          <li>
+            <span class="trust-icon">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5L6.5 11.5L2.5 7.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span>Engineer berpengalaman &amp; tim QC yang ketat</span>
+          </li>
+          <li>
+            <span class="trust-icon">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5L6.5 11.5L2.5 7.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span>After-sales support &amp; garansi penuh setiap produk</span>
+          </li>
+          <li>
+            <span class="trust-icon">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5L6.5 11.5L2.5 7.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span>Pengiriman ke seluruh wilayah Indonesia</span>
+          </li>
+        </ul>
+        <a href="/about" class="btn-gold magnetic-btn" style="align-self: flex-start;">
+          <span>Tentang Kami</span>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+
+      <div class="trust-image-wrap reveal-right">
+        <div class="trust-img-frame">
+          <img src="/img/sales-simetri-dapat.webp" alt="Tim Sales Simetri" loading="lazy" />
+          <div class="trust-img-badge">
+            <span class="badge-num">18+</span>
+            <span class="badge-txt">Tahun<br/>Pengalaman</span>
+          </div>
+        </div>
+        <div class="trust-img-glow"></div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       5. CLIENTS MARQUEE
+  ═══════════════════════════════════════ -->
+  <section id="project" class="clients-section">
+    <div class="container">
+      <div class="clients-header reveal">
+        <span class="section-label">Klien Kami</span>
+        <p class="clients-sub">Dipercaya oleh perusahaan-perusahaan terkemuka Indonesia</p>
+      </div>
+    </div>
+    <div class="marquee-track">
+      <div class="marquee-inner">
+        <img src="/img/klien/klien-1.webp" alt="Klien 1" />
+        <img src="/img/klien/klien-2.webp" alt="Klien 2" />
+        <img src="/img/klien/klien-3.webp" alt="Klien 3" />
+        <img src="/img/klien/klien-4.webp" alt="Klien 4" />
+        <!-- duplicate for seamless loop -->
+        <img src="/img/klien/klien-1.webp" alt="Klien 1" aria-hidden="true" />
+        <img src="/img/klien/klien-2.webp" alt="Klien 2" aria-hidden="true" />
+        <img src="/img/klien/klien-3.webp" alt="Klien 3" aria-hidden="true" />
+        <img src="/img/klien/klien-4.webp" alt="Klien 4" aria-hidden="true" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       6. CTA CONTACT
+  ═══════════════════════════════════════ -->
+  <section id="kontak" class="cta-section">
+    <div class="cta-bg-pattern" aria-hidden="true"></div>
+    <div class="cta-glow-orb" aria-hidden="true"></div>
+    <div class="container">
+      <div class="cta-inner reveal">
+        <span class="section-label">Hubungi Kami</span>
+        <h2 class="section-heading cta-heading">
+          Siap Berkonsultasi<br/>
+          <em>Tanpa Biaya?</em>
+        </h2>
+        <p class="cta-body">
+          Tim sales kami siap membantu menemukan solusi panel listrik yang tepat.
+          Konsultasi gratis, respons cepat.
+        </p>
+
+        <div class="cta-contact-row">
+          <div class="cta-address-box">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Aries Niaga Blok A1 No. 3A-3B, Meruya Utara,<br/>Kembangan, Jakarta Barat 11620</span>
+          </div>
+        </div>
+
+        <div class="cta-actions">
+          <a href="https://wa.me/6281213351911" class="btn-gold magnetic-btn" target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            <span>Chat WhatsApp</span>
+          </a>
+          <a href="tel:+6281213351911" class="btn-ghost">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>Telepon Sekarang</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="cta-image-wrap reveal-right">
+        <img src="/img/yudi-sales-simetri.webp" alt="Yudi Sales Manager Simetri" loading="lazy" />
+        <div class="cta-img-glow"></div>
+        <div class="cta-img-badge">
+          <span>Sales Manager</span>
+          <strong>Tri Yudhi</strong>
+        </div>
+      </div>
+    </div>
+  </section>
 
 </Layout>
 
-<style>
-  :root {
-    --c-accent: #E8401A;
-    --c-dark: #0A0C0E;
-    --c-mid: #161A1E;
-    --c-border: rgba(255,255,255,0.07);
-    --c-muted: rgba(255,255,255,0.5);
+<!-- ═══════════════════════════════════════
+     VANILLA JS EFFECTS
+═══════════════════════════════════════ -->
+<script>
+document.addEventListener('astro:page-load', () => {
+
+  /* ── 1. Hero staggered text reveal ── */
+  const heroItems = document.querySelectorAll<HTMLElement>('[data-delay]');
+  heroItems.forEach(el => {
+    const delay = parseInt(el.getAttribute('data-delay') || '0');
+    el.style.animationDelay = `${delay}ms`;
+    el.classList.add('hero-animate');
+  });
+
+  /* ── 2. Hero cursor spotlight ── */
+  const spotlight = document.getElementById('hero-spotlight');
+  const hero = document.querySelector('.hero') as HTMLElement | null;
+  if (spotlight && hero) {
+    hero.addEventListener('mousemove', (e: MouseEvent) => {
+      const rect = hero.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      spotlight.style.background = `radial-gradient(600px circle at ${x}px ${y}px, rgba(201,168,76,0.10) 0%, transparent 70%)`;
+    });
+    hero.addEventListener('mouseleave', () => {
+      spotlight.style.background = 'none';
+    });
   }
 
-  /* HERO OVERLAY */
-  .hero-wrapper { position: relative; }
+  /* ── 3. Counter animation ── */
+  const counters = document.querySelectorAll<HTMLElement>('.stats-number');
+  const counterObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target as HTMLElement;
+      const target = parseInt(el.getAttribute('data-target') || '0');
+      const suffix = el.getAttribute('data-suffix') || '';
+      const duration = 1600;
+      const start = performance.now();
 
-  /* Covers only the first viewport — stacks above the animated background */
-  .hero-text-layer {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 100vh;
-    z-index: 20;
+      function tick(now: number) {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        // ease out expo
+        const eased = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+        el.textContent = Math.floor(eased * target) + suffix;
+        if (progress < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+      counterObs.unobserve(el);
+    });
+  }, { threshold: 0.5 });
+
+  counters.forEach(c => counterObs.observe(c));
+
+  /* ── 4. 3D tilt on product cards ── */
+  const tiltCards = document.querySelectorAll<HTMLElement>('.tilt-card');
+  tiltCards.forEach(card => {
+    card.addEventListener('mousemove', (e: MouseEvent) => {
+      const rect = card.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+      const dx = (e.clientX - cx) / (rect.width / 2);
+      const dy = (e.clientY - cy) / (rect.height / 2);
+      card.style.transform = `perspective(900px) rotateY(${dx * 7}deg) rotateX(${-dy * 7}deg) translateZ(8px)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'perspective(900px) rotateY(0deg) rotateX(0deg) translateZ(0px)';
+    });
+  });
+
+  /* ── 5. Magnetic buttons ── */
+  const magnetics = document.querySelectorAll<HTMLElement>('.magnetic-btn');
+  magnetics.forEach(btn => {
+    btn.addEventListener('mousemove', (e: MouseEvent) => {
+      const rect = btn.getBoundingClientRect();
+      const dx = (e.clientX - (rect.left + rect.width / 2)) * 0.35;
+      const dy = (e.clientY - (rect.top + rect.height / 2)) * 0.35;
+      btn.style.transform = `translate(${dx}px, ${dy}px)`;
+    });
+    btn.addEventListener('mouseleave', () => {
+      btn.style.transform = '';
+    });
+  });
+
+});
+</script>
+
+<style>
+  /* ═══════════ HERO ═══════════ */
+  .hero {
+    position: relative;
+    min-height: 100vh;
     display: flex;
     align-items: center;
-    pointer-events: none;
+    overflow: hidden;
+    background: var(--bg-base);
   }
 
-  /* Dark gradient so white text stays readable over any image */
-  .hero-readability-overlay {
+  /* Grain texture via pseudo-element */
+  .hero::before {
+    content: '';
     position: absolute;
     inset: 0;
-    background:
-      linear-gradient(to right, rgba(10,12,14,0.88) 40%, rgba(10,12,14,0.35) 100%),
-      linear-gradient(to top,   rgba(10,12,14,0.92) 0%,  transparent 55%);
+    z-index: 2;
     pointer-events: none;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+    background-size: 200px 200px;
   }
 
-  .hero-content {
-    position: relative;
+  .hero-spotlight {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none;
+    transition: background 0.12s ease;
+  }
+
+  .hero-bg-img {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: url('/img/Panel-matrix-simetri.webp') center right / cover no-repeat;
+    opacity: 0.22;
+  }
+
+  .hero-gradient {
+    position: absolute;
+    inset: 0;
     z-index: 1;
-    color: white;
-    padding-top: 96px;
-    /* Horizontal breathing room — critical on narrow viewports */
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-    width: 100%;
-    pointer-events: auto;
+    background:
+      linear-gradient(to right, var(--bg-base) 40%, rgba(12,12,14,0.6) 75%, rgba(12,12,14,0.3) 100%),
+      linear-gradient(to bottom, rgba(12,12,14,0.5) 0%, transparent 20%, transparent 75%, var(--bg-base) 100%);
   }
 
-  .hero-eyebrow { display: flex; align-items: center; gap: 8px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 20px; }
-  .hero-eyebrow .dot { width: 6px; height: 6px; border-radius: 50%; background: #E8401A; animation: blink 2s ease-in-out infinite; flex-shrink: 0; }
-  @keyframes blink { 0%,100% { opacity:1; } 50% { opacity:0.4; } }
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background-image:
+      linear-gradient(rgba(245,240,232,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(245,240,232,0.04) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(ellipse 70% 60% at 30% 50%, black 0%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 30% 50%, black 0%, transparent 80%);
+  }
 
-  .hero-title { display: flex; flex-direction: column; margin-bottom: 32px; }
-  .hero-title .line {
+  .hero-container {
+    position: relative;
+    z-index: 4;
+    padding-top: 10rem;
+    padding-bottom: 6rem;
+  }
+
+  /* eyebrow badge — CSS animation, no JS needed */
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.35rem 0.9rem 0.35rem 0.5rem;
+    border: 1px solid var(--gold-border);
+    border-radius: var(--radius-full);
+    background: rgba(201,168,76,0.08);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    color: var(--gold-400);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: var(--space-xl);
+    animation: fadeUp 0.7s cubic-bezier(0.19,1,0.22,1) 0.1s both;
+  }
+
+  .eyebrow-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--gold-500);
+    animation: goldPulse 2.4s ease-in-out infinite;
+    flex-shrink: 0;
+  }
+
+  /* heading — CSS animation with delays, no JS dependency */
+  .hero-title {
     font-family: var(--font-display);
-    font-size: clamp(2.6rem, 8vw, 8rem);
+    font-size: clamp(2.8rem, 7vw, 5.5rem);
     font-weight: 800;
-    line-height: 0.92;
+    line-height: 1.05;
     letter-spacing: -0.03em;
-    display: block;
+    color: var(--cream);
+    margin-bottom: var(--space-xl);
+    display: flex;
+    flex-direction: column;
+    gap: 0.08em;
   }
-  .hero-title .line-1 { color: white; }
-  .hero-title .line-2 { color: white; }
-  .hero-title .line-3 { color: #E8401A; }
 
-  .hero-bottom { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: end; max-width: 860px; }
-  .hero-desc { font-size: 0.93rem; line-height: 1.8; color: rgba(255,255,255,0.55); }
-  .hero-actions { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
+  .hero-title-line {
+    display: block;
+    animation: fadeUp 0.8s cubic-bezier(0.19,1,0.22,1) 0.15s both;
+  }
 
-  /* BUTTONS */
-  .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--c-accent); color: white; padding: 13px 24px; border-radius: 6px; font-weight: 700; font-size: 0.88rem; transition: transform 0.2s ease, box-shadow 0.2s ease; white-space: nowrap; }
-  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(232,64,26,0.4); }
-  .btn-ghost { display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(255,255,255,0.18); color: rgba(255,255,255,0.7); padding: 13px 24px; border-radius: 6px; font-weight: 600; font-size: 0.88rem; transition: border-color 0.2s, color 0.2s; white-space: nowrap; }
-  .btn-ghost:hover { border-color: rgba(255,255,255,0.5); color: white; }
+  .hero-title-line:nth-child(2) { animation-delay: 0.25s; }
+  .hero-title-line:nth-child(3) { animation-delay: 0.35s; }
 
-  /* STATS */
-  .stats-bar { background: var(--c-mid); border-top: 1px solid var(--c-border); border-bottom: 1px solid var(--c-border); }
-  .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
-  .stat-item { position: relative; text-align: center; padding: 32px 16px; }
-  .stat-item strong { display: block; font-family: var(--font-display); font-size: 2.5rem; font-weight: 800; color: white; line-height: 1; margin-bottom: 6px; }
-  .stat-item strong::first-letter { color: var(--c-accent); }
-  .stat-item span { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--c-muted); }
-  .stat-divider { position: absolute; right: 0; top: 25%; height: 50%; width: 1px; background: var(--c-border); }
+  .hero-title-gold {
+    font-style: italic;
+    background: linear-gradient(135deg, var(--gold-300) 0%, var(--gold-500) 50%, var(--gold-400) 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: fadeUp 0.8s cubic-bezier(0.19,1,0.22,1) 0.25s both, shimmerGold 4s linear 1s infinite;
+  }
 
-  /* SECTION SHARED */
-  .section-label { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
-  .label-num { font-family: var(--font-display); font-size: 0.65rem; font-weight: 800; color: var(--c-accent); background: rgba(232,64,26,0.1); border: 1px solid rgba(232,64,26,0.2); padding: 3px 8px; border-radius: 3px; }
-  .section-label > span:last-child { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #888; }
+  .hero-subtitle {
+    font-size: clamp(1rem, 1.6vw, 1.18rem);
+    line-height: 1.75;
+    color: var(--cream-70);
+    max-width: 560px;
+    margin-bottom: var(--space-2xl);
+    animation: fadeUp 0.8s cubic-bezier(0.19,1,0.22,1) 0.45s both;
+  }
 
-  /* PRODUCTS */
-  .section-products { padding: 80px 0; background: #F7F7F5; }
-  .section-header { display: grid; grid-template-columns: auto 1fr; gap: 48px; align-items: start; margin-bottom: 48px; }
-  .section-heading-wrap { display: flex; flex-direction: column; gap: 12px; }
-  .section-title-main { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 800; color: var(--c-dark); line-height: 1; letter-spacing: -0.06em; }
-  .section-title-main em { font-style: normal; color: var(--c-accent); }
-  .section-subtitle-main { max-width: 480px; color: #666; line-height: 1.7; font-size: 0.92rem; }
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    margin-bottom: var(--space-3xl);
+    animation: fadeUp 0.8s cubic-bezier(0.19,1,0.22,1) 0.55s both;
+  }
 
-  /* ============================================
-     PRODUCTS GRID
-     Desktop (>768px)  : 2 kolom
-     Mobile  (<=768px) : 1 kolom
-  ============================================ */
-  .products-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* DESKTOP: 2 kolom */
+  .hero-stats {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xl);
+    animation: fadeUp 0.8s cubic-bezier(0.19,1,0.22,1) 0.65s both;
+  }
+
+  .stat-item {
+    display: flex;
+    flex-direction: column;
     gap: 2px;
-    background: #D8D8D4;
-    border: 2px solid #D8D8D4;
-    border-radius: 14px;
+  }
+
+  .stat-num {
+    font-family: var(--font-display);
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    color: var(--gold-400);
+    letter-spacing: -0.03em;
+  }
+
+  .stat-lbl {
+    font-size: var(--text-xs);
+    font-weight: 500;
+    color: var(--cream-50);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .stat-divider {
+    width: 1px;
+    height: 36px;
+    background: var(--cream-15);
+  }
+
+  .hero-scroll-indicator {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 48px;
+    background: linear-gradient(to bottom, var(--gold-500), transparent);
+    animation: scrollLine 2.2s ease-in-out infinite;
+  }
+
+  /* ═══════════ GLOBAL BUTTONS ═══════════ */
+  .btn-gold {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.6rem;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--bg-base);
+    background: var(--gold-500);
+    border-radius: var(--radius-full);
+    letter-spacing: 0.01em;
+    transition: background var(--duration-fast) ease, box-shadow var(--duration-fast) ease;
+    box-shadow: 0 0 28px var(--gold-glow);
+    will-change: transform;
+  }
+  .btn-gold:hover {
+    background: var(--gold-400);
+    box-shadow: 0 0 50px var(--gold-glow-strong);
+  }
+  .btn-gold svg { transition: transform var(--duration-fast) var(--ease-out); flex-shrink: 0; }
+  .btn-gold:hover svg { transform: translateX(3px); }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.6rem;
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--cream-70);
+    background: transparent;
+    border: 1px solid var(--cream-15);
+    border-radius: var(--radius-full);
+    transition: all var(--duration-fast) ease;
+  }
+  .btn-ghost:hover {
+    color: var(--cream);
+    border-color: var(--cream-30);
+    background: var(--cream-04);
+  }
+  .btn-ghost svg { flex-shrink: 0; }
+
+  /* ═══════════ STATS SECTION ═══════════ */
+  .stats-section {
+    padding: var(--space-5xl) 0;
+    background: var(--bg-surface);
+    border-top: 1px solid var(--bg-border);
+    border-bottom: 1px solid var(--bg-border);
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--bg-border);
+    border: 1px solid var(--bg-border);
+    border-radius: var(--radius-xl);
     overflow: hidden;
   }
 
-  .product-card { position: relative; background: white; display: flex; flex-direction: column; transition: background 0.25s ease; overflow: hidden; min-width: 0; }
-  .product-card:hover { background: #FAFAF8; }
-  .product-num { position: absolute; top: 16px; right: 18px; font-family: var(--font-display); font-size: 0.6rem; font-weight: 800; letter-spacing: 0.1em; color: rgba(0,0,0,0.1); z-index: 2; }
-  .product-badge { position: absolute; top: 14px; left: 14px; z-index: 3; background: var(--c-accent); color: white; font-size: 0.58rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 9px; border-radius: 4px; }
-  .product-image-wrap { height: 220px; background: #F2F2EF; display: flex; align-items: center; justify-content: center; padding: 24px; overflow: hidden; }
-  .product-img { max-width: 100%; max-height: 100%; object-fit: contain; transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
-  .product-card:hover .product-img { transform: scale(1.05); }
-  .product-body { padding: 22px 22px 26px; flex-grow: 1; display: flex; flex-direction: column; border-top: 1px solid rgba(0,0,0,0.06); min-width: 0; }
-  .product-tagline { font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--c-accent); margin-bottom: 5px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  .product-body h3 { font-family: var(--font-display); font-size: 1.05rem; font-weight: 800; color: var(--c-dark); margin-bottom: 8px; line-height: 1.2; }
-  .product-desc-text { color: #666; line-height: 1.6; font-size: 0.82rem;  margin-bottom: 12px; flex-grow: 1; }
-  .product-features { list-style: none; display: flex; flex-direction: column; gap: 4px; margin-bottom: 18px; }
-  .product-features li { display: flex; align-items: center; gap: 6px; font-size: 0.78rem; color: #444; }
-  .feat-icon { color: var(--c-accent); font-size: 0.48rem; flex-shrink: 0; }
-  .read-more-btn { display: inline-flex; align-items: center; gap: 6px; background: var(--c-dark); color: white; padding: 9px 16px; border-radius: 5px; font-size: 0.78rem; font-weight: 700; align-self: flex-start; transition: background 0.2s ease; white-space: nowrap; }
-  .read-more-btn:hover { background: var(--c-accent); }
+  .stats-card {
+    position: relative;
+    background: var(--bg-surface);
+    padding: var(--space-3xl) var(--space-2xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    overflow: hidden;
+    transition: background var(--duration-normal) ease;
+  }
+  .stats-card:hover { background: var(--bg-card); }
 
-  /* CTA */
-  .section-cta-v2 { background: var(--c-dark); padding: 100px 0; position: relative; overflow: hidden; }
-  .cta-bg-text { position: absolute; font-family: var(--font-display); font-size: clamp(6rem, 16vw, 14rem); font-weight: 800; color: rgba(255,255,255,0.02); letter-spacing: -0.04em; top: 50%; left: 50%; transform: translate(-50%, -50%); white-space: nowrap; pointer-events: none; user-select: none; }
-  .cta-grid { position: relative; z-index: 2; display: grid; grid-template-columns: 1fr 1.1fr; gap: 70px; align-items: center; }
-  .cta-image-wrap { position: relative; }
-  .cta-img-frame { border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.06); }
-  .cta-img { width: 100%; height: 460px; object-fit: cover; display: block; }
-  .cta-badge { position: absolute; bottom: -14px; right: -14px; background: var(--c-accent); color: white; padding: 11px 16px; border-radius: 8px; font-size: 0.75rem; font-weight: 700; display: flex; align-items: center; gap: 8px; box-shadow: 0 8px 24px rgba(232,64,26,0.4); z-index: 3; }
-  .badge-dot { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,0.8); animation: blink 1.5s ease-in-out infinite; }
-  .cta-text-col { color: white; }
-  .cta-text-col h2 { font-family: var(--font-display); font-size: clamp(2rem, 4.5vw, 3.5rem); letter-spacing: -0.04em; font-weight: 800; line-height: 1.0; letter-spacing: -0.025em; margin-bottom: 24px; }
-  .cta-text-col h2 em { font-style: normal; color: var(--c-accent); }
-  .cta-text-col p { font-size: 0.92rem; line-height: 1.8; color: var(--c-muted); margin-bottom: 32px; }
-  .cta-text-col p strong { color: rgba(255,255,255,0.7); font-weight: 500; }
+  .stats-card--featured { background: var(--bg-elevated); }
+  .stats-card--featured:hover { background: var(--bg-card); }
 
-  /* KLIEN */
-  .section-klien { padding: 80px 0; background: #F7F7F5; }
-  .klien-header { margin-bottom: 44px; }
-  .logo-scroller { overflow: hidden; -webkit-mask: linear-gradient(90deg, transparent, black 12%, black 88%, transparent); mask: linear-gradient(90deg, transparent, black 12%, black 88%, transparent); }
-  .logo-scroller__inner { display: flex; gap: 3rem; width: fit-content; animation: scrollX 25s linear infinite; align-items: center; }
-  .logo-scroller:hover .logo-scroller__inner { animation-play-state: paused; }
-  .logo-scroller img { height: 110px; width: auto; object-fit: contain; flex-shrink: 0; filter: none; opacity: 1; transition: transform 0.3s ease; }
-  .logo-scroller img:hover { transform: scale(1.06); }
-  @keyframes scrollX { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-
-  /* ===== RESPONSIVE ===== */
-  @media (max-width: 900px) {
-    .cta-grid { grid-template-columns: 1fr; gap: 50px; }
-    .cta-image-wrap { max-width: 440px; }
-    .cta-img { height: 380px; }
-    .cta-badge { right: -8px; }
-    .stats-grid { grid-template-columns: repeat(2, 1fr); }
-    .stat-divider { display: none; }
-    .section-header { grid-template-columns: 1fr; gap: 16px; }
+  .stats-card-accent {
+    position: absolute;
+    top: 0;
+    left: var(--space-2xl);
+    width: 40px;
+    height: 2px;
+    background: var(--gold-500);
   }
 
-  /* ── Tablet ── */
-  @media (max-width: 1023px) {
-    /* On tablet/mobile the hero is plain 100vh — text layer must match */
-    .hero-text-layer { height: 100vh; }
-    .hero-bottom { grid-template-columns: 1fr; gap: 20px; }
-    /* Slightly stronger overlay so text pops on a cover-size image */
-    .hero-readability-overlay {
-      background:
-        linear-gradient(to bottom, rgba(10,12,14,0.65) 0%, rgba(10,12,14,0.82) 100%);
+  .stats-number {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 5vw, 4.5rem);
+    font-weight: 800;
+    color: var(--gold-400);
+    letter-spacing: -0.04em;
+    line-height: 1;
+  }
+
+  .stats-unit {
+    font-size: var(--text-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--cream-50);
+  }
+
+  .stats-desc {
+    margin-top: var(--space-sm);
+    font-size: var(--text-sm);
+    color: var(--cream-50);
+    line-height: 1.7;
+    max-width: 240px;
+  }
+
+  /* ═══════════ PRODUCTS ═══════════ */
+  .products-section {
+    padding: var(--space-5xl) 0;
+    background: var(--bg-base);
+  }
+
+  .section-header {
+    margin-bottom: var(--space-3xl);
+  }
+
+  .products-heading {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    margin-bottom: var(--space-md);
+  }
+
+  .products-heading em {
+    font-style: italic;
+    color: var(--gold-400);
+  }
+
+  .section-sub {
+    font-size: var(--text-base);
+    color: var(--cream-50);
+    line-height: 1.75;
+    max-width: 600px;
+  }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  @media (min-width: 900px) {
+    .products-grid {
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 
-  /* ── Small tablet / large phone ── */
-  @media (max-width: 768px) {
-    .products-grid { grid-template-columns: 1fr; }
-    .section-products { padding: 60px 0; }
-    .section-cta-v2 { padding: 70px 0; }
-    .section-klien { padding: 60px 0; }
-    .logo-scroller img { height: 90px; }
-    /* Collapse hero text to single column */
-    .hero-bottom { grid-template-columns: 1fr; gap: 20px; }
-    .hero-actions { flex-direction: row; flex-wrap: wrap; }
+  .product-card {
+    position: relative;
+    background: var(--bg-surface);
+    border: 1px solid var(--bg-border);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    transition: border-color var(--duration-normal) ease,
+                box-shadow var(--duration-normal) ease,
+                transform var(--duration-normal) var(--ease-expo);
+    will-change: transform;
   }
 
-  /* ── Phone ── */
-  @media (max-width: 480px) {
-    .hero-content { padding-top: 88px; padding-left: 1.25rem; padding-right: 1.25rem; }
-    .hero-title .line { font-size: clamp(2.4rem, 10.5vw, 3.4rem); }
-    .hero-title { margin-bottom: 24px; }
-    .hero-actions { flex-direction: column; align-items: flex-start; }
-    .btn-primary, .btn-ghost { width: 100%; justify-content: center; }
-    .stat-item { padding: 24px 12px; }
-    .stat-item strong { font-size: 2rem; }
-    .logo-scroller img { height: 75px; }
-    .logo-scroller__inner { gap: 2rem; }
-    .cta-img { height: 260px; }
+  .product-card:hover {
+    border-color: var(--gold-border-hover);
+    box-shadow: 0 0 60px rgba(201,168,76,0.12), var(--shadow-card);
+  }
+
+  .product-card-img {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+  }
+
+  @media (min-width: 900px) {
+    .product-card-img { height: 220px; }
+  }
+
+  .product-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s var(--ease-expo);
+  }
+
+  .product-card:hover .product-card-img img {
+    transform: scale(1.06);
+  }
+
+  .product-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 30%, var(--bg-surface) 100%);
+  }
+
+  .product-card-body {
+    padding: var(--space-xl) var(--space-xl) var(--space-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .product-tag {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gold-500);
+    border: 1px solid var(--gold-border);
+    border-radius: var(--radius-full);
+    padding: 0.2rem 0.65rem;
+    align-self: flex-start;
+  }
+
+  .product-name {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: 700;
+    color: var(--cream);
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    margin-top: var(--space-xs);
+  }
+
+  .product-desc {
+    font-size: var(--text-sm);
+    color: var(--cream-50);
+    line-height: 1.7;
+    flex-grow: 1;
+  }
+
+  .product-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: var(--space-sm);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--gold-500);
+    transition: gap var(--duration-fast) ease, color var(--duration-fast) ease;
+  }
+  .product-link:hover { color: var(--gold-400); gap: 0.65rem; }
+
+  .product-card-glow {
+    position: absolute;
+    bottom: -30%;
+    left: 10%;
+    width: 80%;
+    height: 60%;
+    background: radial-gradient(ellipse, rgba(201,168,76,0.08) 0%, transparent 70%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity var(--duration-normal) ease;
+  }
+  .product-card:hover .product-card-glow { opacity: 1; }
+
+  /* ═══════════ TRUST SECTION ═══════════ */
+  .trust-section {
+    padding: var(--space-5xl) 0;
+    background: var(--bg-surface);
+    border-top: 1px solid var(--bg-border);
+  }
+
+  .trust-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4xl);
+    align-items: center;
+  }
+
+  .trust-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+
+  .trust-heading {
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.1;
+  }
+
+  .trust-heading em {
+    font-style: italic;
+    color: var(--gold-400);
+  }
+
+  .trust-body {
+    font-size: var(--text-base);
+    color: var(--cream-70);
+    line-height: 1.8;
+  }
+
+  .trust-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .trust-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-md);
+    font-size: var(--text-sm);
+    color: var(--cream-70);
+    line-height: 1.6;
+  }
+
+  .trust-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    border-radius: var(--radius-sm);
+    background: rgba(201,168,76,0.12);
+    color: var(--gold-500);
+  }
+
+  .trust-image-wrap {
+    position: relative;
+  }
+
+  .trust-img-frame {
+    position: relative;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    border: 1px solid var(--bg-border);
+  }
+
+  .trust-img-frame img {
+    width: 100%;
+    aspect-ratio: 4/5;
+    object-fit: cover;
+    display: block;
+  }
+
+  .trust-img-badge {
+    position: absolute;
+    bottom: var(--space-lg);
+    left: var(--space-lg);
+    background: rgba(12,12,14,0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--gold-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-md) var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .badge-num {
+    font-family: var(--font-display);
+    font-size: var(--text-3xl);
+    font-weight: 800;
+    color: var(--gold-400);
+    letter-spacing: -0.04em;
+    line-height: 1;
+  }
+
+  .badge-txt {
+    font-size: var(--text-xs);
+    font-weight: 500;
+    color: var(--cream-70);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    line-height: 1.4;
+  }
+
+  .trust-img-glow {
+    position: absolute;
+    bottom: -15%;
+    left: 5%;
+    width: 90%;
+    height: 50%;
+    background: radial-gradient(ellipse, rgba(201,168,76,0.12) 0%, transparent 70%);
+    filter: blur(40px);
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  /* ═══════════ CLIENTS ═══════════ */
+  .clients-section {
+    padding: var(--space-4xl) 0;
+    background: var(--bg-base);
+    border-top: 1px solid var(--bg-border);
+  }
+
+  .clients-header {
+    margin-bottom: var(--space-2xl);
+  }
+
+  .clients-sub {
+    font-size: var(--text-base);
+    color: var(--cream-50);
+    margin-top: var(--space-xs);
+  }
+
+  .marquee-track {
+    width: 100%;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+  }
+
+  .marquee-inner {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 3rem;
+    width: max-content;
+    animation: marquee 24s linear infinite;
+    padding: 1rem 0;
+  }
+
+  .marquee-track:hover .marquee-inner {
+    animation-play-state: paused;
+  }
+
+  .marquee-inner img {
+    display: block;
+    height: 70px;
+    width: auto;
+    max-width: 160px;
+    object-fit: contain;
+    flex-shrink: 0;
+    filter: grayscale(100%) brightness(0.55);
+    opacity: 0.65;
+    transition: filter 0.3s ease, opacity 0.3s ease;
+  }
+
+  .marquee-inner img:hover {
+    filter: grayscale(20%) brightness(0.9);
+    opacity: 1;
+  }
+
+  /* ═══════════ CTA SECTION ═══════════ */
+  .cta-section {
+    position: relative;
+    padding: var(--space-5xl) 0;
+    background: var(--bg-surface);
+    border-top: 1px solid var(--bg-border);
+    overflow: hidden;
+  }
+
+  .cta-section .container {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: var(--space-4xl);
+    align-items: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  .cta-bg-pattern {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--cream-04) 1px, transparent 1px),
+      linear-gradient(90deg, var(--cream-04) 1px, transparent 1px);
+    background-size: 56px 56px;
+    opacity: 0.5;
+  }
+
+  .cta-glow-orb {
+    position: absolute;
+    top: 50%;
+    right: 20%;
+    width: 500px;
+    height: 500px;
+    transform: translateY(-50%);
+    background: radial-gradient(circle, rgba(201,168,76,0.07) 0%, transparent 70%);
+    filter: blur(80px);
+    pointer-events: none;
+  }
+
+  .cta-inner {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+  }
+
+  .cta-heading {
+    font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+  }
+
+  .cta-heading em {
+    font-style: italic;
+    color: var(--gold-400);
+  }
+
+  .cta-body {
+    font-size: var(--text-base);
+    color: var(--cream-70);
+    line-height: 1.8;
+    max-width: 480px;
+  }
+
+  .cta-contact-row { margin-top: calc(-1 * var(--space-sm)); }
+
+  .cta-address-box {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-sm);
+    font-size: var(--text-sm);
+    color: var(--cream-50);
+    line-height: 1.6;
+    padding: var(--space-md) var(--space-lg);
+    background: var(--cream-04);
+    border: 1px solid var(--bg-border);
+    border-radius: var(--radius-md);
+    max-width: 480px;
+  }
+
+  .cta-address-box svg {
+    flex-shrink: 0;
+    margin-top: 1px;
+    color: var(--gold-500);
+  }
+
+  .cta-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+  }
+
+  .cta-image-wrap {
+    position: relative;
+  }
+
+  .cta-image-wrap img {
+    width: 100%;
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--bg-border);
+    display: block;
+  }
+
+  .cta-img-glow {
+    position: absolute;
+    bottom: -20%;
+    left: 10%;
+    width: 80%;
+    height: 60%;
+    background: radial-gradient(ellipse, rgba(201,168,76,0.14) 0%, transparent 70%);
+    filter: blur(50px);
+    z-index: -1;
+  }
+
+  .cta-img-badge {
+    position: absolute;
+    bottom: var(--space-lg);
+    right: var(--space-lg);
+    background: rgba(12,12,14,0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--gold-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-sm) var(--space-md);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .cta-img-badge span {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--cream-50);
+  }
+
+  .cta-img-badge strong {
+    font-family: var(--font-display);
+    font-size: var(--text-base);
+    color: var(--gold-400);
+    letter-spacing: -0.01em;
+  }
+
+  /* ═══════════ RESPONSIVE ═══════════ */
+  @media (max-width: 992px) {
+    .products-grid { grid-template-columns: 1fr; }
+    .trust-grid { grid-template-columns: 1fr; gap: var(--space-2xl); }
+    .trust-image-wrap { max-width: 460px; margin: 0 auto; }
+    .cta-section .container { grid-template-columns: 1fr; }
+    .cta-image-wrap { display: none; }
+    .stats-grid { grid-template-columns: 1fr; border-radius: var(--radius-lg); }
+  }
+
+  @media (max-width: 768px) {
+    .hero-container { padding-top: 8rem; padding-bottom: 4rem; }
+    .hero-title { font-size: clamp(2.2rem, 10vw, 3.5rem); }
+    .hero-stats { flex-wrap: wrap; gap: var(--space-lg); }
+    .stat-divider { display: none; }
+    .hero-actions { flex-direction: column; }
+    .btn-gold, .btn-ghost { justify-content: center; }
+    .products-grid { grid-template-columns: 1fr; }
+    .cta-actions { flex-direction: column; }
   }
 </style>
