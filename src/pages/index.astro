@@ -61,6 +61,8 @@ import Layout from '../layouts/Layout.astro';
     <img
       class="hero-bg-img"
       src="/img/Panel-matrix-simetri.webp"
+      srcset="/img/Panel-matrix-simetri.webp 1600w"
+      sizes="(max-width: 768px) 100vw, 1600px"
       alt=""
       width="1600"
       height="900"
@@ -837,6 +839,8 @@ document.addEventListener('astro:page-load', () => {
 
   /* ═══════════ STATS SECTION ═══════════ */
   .stats-section {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 300px;
     padding: var(--space-5xl) 0;
     background: var(--bg-surface);
     border-top: 1px solid var(--bg-border);
@@ -1054,6 +1058,8 @@ document.addEventListener('astro:page-load', () => {
 
   /* ═══════════ TRUST SECTION ═══════════ */
   .trust-section {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 500px;
     padding: var(--space-5xl) 0;
     background: var(--bg-surface);
     border-top: 1px solid var(--bg-border);
@@ -1414,5 +1420,24 @@ document.addEventListener('astro:page-load', () => {
     .product-card-img { height: 180px; }
     .hero-stats { gap: var(--space-md); }
     .stat-num { font-size: var(--text-xl); }
+  }
+
+  /* ── Matikan efek berat di mobile untuk performa ── */
+  @media (max-width: 768px) {
+    /* Nonaktifkan blur filter mahal */
+    .trust-img-glow,
+    .cta-img-glow,
+    .cta-glow-orb,
+    .product-card-glow { display: none; }
+
+    /* Kurangi animasi hero yang tidak perlu */
+    .hero-sweep { animation: none; opacity: 0; }
+    .hero-grid  { animation: none; }
+
+    /* Nonaktifkan tilt 3D di mobile (tidak ada mouse) */
+    .tilt-card { transform: none !important; }
+
+    /* Kurangi grain noise SVG (berat di mobile) */
+    .hero::before { opacity: 0; }
   }
 </style>

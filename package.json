@@ -12,6 +12,8 @@
     "@astrojs/cloudflare": "^12.6.13",
     "@astrojs/react": "^5.0.7",
     "@astrojs/sitemap": "^3.6.0",
+    "@fontsource-variable/dm-sans": "^5.2.8",
+    "@fontsource/playfair-display": "^5.2.8",
     "@iconify-json/mdi": "^1.2.3",
     "@tailwindcss/vite": "^4.3.0",
     "@types/react": "^19.2.16",
