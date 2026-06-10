@@ -349,17 +349,26 @@ import Layout from '../layouts/Layout.astro';
         <p class="clients-sub">Dipercaya oleh perusahaan-perusahaan terkemuka Indonesia</p>
       </div>
     </div>
-    <div class="marquee-track">
-      <div class="marquee-inner">
-        <img src="/img/klien/klien-1.webp" alt="Klien 1" />
-        <img src="/img/klien/klien-2.webp" alt="Klien 2" />
-        <img src="/img/klien/klien-3.webp" alt="Klien 3" />
-        <img src="/img/klien/klien-4.webp" alt="Klien 4" />
-        <!-- duplicate for seamless loop -->
-        <img src="/img/klien/klien-1.webp" alt="Klien 1" aria-hidden="true" />
-        <img src="/img/klien/klien-2.webp" alt="Klien 2" aria-hidden="true" />
-        <img src="/img/klien/klien-3.webp" alt="Klien 3" aria-hidden="true" />
-        <img src="/img/klien/klien-4.webp" alt="Klien 4" aria-hidden="true" />
+    <div class="marquee-wrap">
+      <div class="marquee-track">
+        <div class="marquee-inner" aria-hidden="true">
+          <img src="/img/klien/klien-1.webp" alt="Klien 1" loading="lazy" />
+          <img src="/img/klien/klien-2.webp" alt="Klien 2" loading="lazy" />
+          <img src="/img/klien/klien-3.webp" alt="Klien 3" loading="lazy" />
+          <img src="/img/klien/klien-4.webp" alt="Klien 4" loading="lazy" />
+        </div>
+        <div class="marquee-inner" aria-hidden="true">
+          <img src="/img/klien/klien-1.webp" alt="" loading="lazy" />
+          <img src="/img/klien/klien-2.webp" alt="" loading="lazy" />
+          <img src="/img/klien/klien-3.webp" alt="" loading="lazy" />
+          <img src="/img/klien/klien-4.webp" alt="" loading="lazy" />
+        </div>
+        <div class="marquee-inner" aria-hidden="true">
+          <img src="/img/klien/klien-1.webp" alt="" loading="lazy" />
+          <img src="/img/klien/klien-2.webp" alt="" loading="lazy" />
+          <img src="/img/klien/klien-3.webp" alt="" loading="lazy" />
+          <img src="/img/klien/klien-4.webp" alt="" loading="lazy" />
+        </div>
       </div>
     </div>
   </section>
@@ -1187,44 +1196,51 @@ document.addEventListener('astro:page-load', () => {
     margin-top: var(--space-xs);
   }
 
-  .marquee-track {
-    width: 100%;
+  /* marquee-wrap ikut lebar container dengan fade di tepi */
+  .marquee-wrap {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--space-lg);
     overflow: hidden;
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
-    mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  }
+
+  /* track = flex row dari 3 inner yang masing2 berisi 4 logo */
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 20s linear infinite;
+  }
+
+  .marquee-track:hover {
+    animation-play-state: paused;
   }
 
   .marquee-inner {
     display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
     align-items: center;
-    gap: 3rem;
-    width: max-content;
-    animation: marquee 24s linear infinite;
-    padding: 1rem 0;
-  }
-
-  .marquee-track:hover .marquee-inner {
-    animation-play-state: paused;
+    gap: 3.5rem;
+    padding: 1rem 1.75rem;
+    flex-shrink: 0;
   }
 
   .marquee-inner img {
     display: block;
-    height: 70px;
+    height: 68px;
     width: auto;
-    max-width: 160px;
+    max-width: 150px;
     object-fit: contain;
     flex-shrink: 0;
-    filter: grayscale(30%) brightness(0.88);
-    opacity: 0.85;
+    filter: grayscale(25%) brightness(0.90);
+    opacity: 0.88;
     transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
   }
 
   .marquee-inner img:hover {
     filter: grayscale(0%) brightness(1);
     opacity: 1;
-    transform: scale(1.05);
+    transform: scale(1.06);
   }
 
   /* ═══════════ CTA SECTION ═══════════ */
