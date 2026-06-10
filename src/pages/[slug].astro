@@ -149,6 +149,8 @@ const breadcrumbSchema = {
           src={urlFor(post.mainImage).width(1600).height(700).url()}
           alt={post.mainImage.alt || post.title}
           class="hero-img"
+          width="1600"
+          height="700"
           loading="eager"
         />
       ) : (
@@ -222,7 +224,7 @@ const breadcrumbSchema = {
       <!-- SIDEBAR -->
       <aside class="article-sidebar">
         <div class="sidebar-card">
-          <img src="/img/yudi-sales-simetri.webp" alt="Tri Yudhi Sales Manager Panel Listrik Simetri" loading="lazy" class="sidebar-avatar" />
+          <img src="/img/yudi-sales-simetri.webp" alt="Tri Yudhi Sales Manager Panel Listrik Simetri" loading="lazy" class="sidebar-avatar" width="80" height="80" />
           <h3>Tri Yudhi</h3>
           <p class="sidebar-role">Sales Manager – Simetri</p>
           <p class="sidebar-bio">18+ tahun pengalaman di industri panel listrik. Mulai dari estimator hingga Sales Manager PT Sinar Metrindo Perkasa.</p>
@@ -268,6 +270,8 @@ const breadcrumbSchema = {
                       src={urlFor(rp.mainImage).width(600).height(360).url()}
                       alt={rp.title}
                       loading="lazy"
+                      width="600"
+                      height="360"
                     />
                   ) : (
                     <img src="/img/Panel-matrix-simetri.webp" alt={rp.title} loading="lazy" />
