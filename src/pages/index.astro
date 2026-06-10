@@ -6,60 +6,119 @@ import Layout from '../layouts/Layout.astro';
   title="Jual Panel Listrik Jakarta | SIMOSEC, Matrix, LVMDP, Genset – Simetri"
   description="Sales Panel Listrik Simetri Jakarta – SIMOSEC, Panel Matrix, LVMDP, Panel Genset PKG, Kapasitor Bank, Panel Distribusi. Tri Yudhi Sales Manager SMP 18+ tahun pengalaman."
 >
+  <link slot="head" rel="preload" as="image" href="/img/Panel-matrix-simetri.webp" fetchpriority="high" />
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "PT Sinar Metrindo Perkasa (Simetri)",
+    "alternateName": "Sales Panel Simetri",
+    "url": "https://salespanelsimetri.com",
+    "logo": "https://salespanelsimetri.com/img/logosales.webp",
+    "image": "https://salespanelsimetri.com/img/Panel-matrix-simetri.webp",
+    "description": "Distributor dan panel maker panel listrik premium Jakarta: SIMOSEC, Panel Matrix, LVMDP, Panel Genset PKG, Kapasitor Bank, Panel Distribusi.",
+    "telephone": "+6281213351911",
+    "priceRange": "$$",
+    "foundingDate": "2007",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Aries Niaga Blok A1 No. 3A-3B, Meruya Utara, Kembangan",
+      "addressLocality": "Jakarta Barat",
+      "postalCode": "11620",
+      "addressRegion": "DKI Jakarta",
+      "addressCountry": "ID"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": -6.1751,
+      "longitude": 106.7908
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+6281213351911",
+      "contactType": "sales",
+      "availableLanguage": "Indonesian"
+    },
+    "sameAs": [
+      "https://wa.me/6281213351911"
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Produk Panel Listrik",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Panel SIMOSEC" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Panel Matrix" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Panel LVMDP" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Panel Genset PKG" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Panel Kapasitor Bank" } }
+      ]
+    }
+  })} />
 
   <!-- ═══════════════════════════════════════
        1. HERO
   ═══════════════════════════════════════ -->
-  <section class="hero">
-    <!-- Radial spotlight that follows cursor -->
-    <div class="hero-spotlight" id="hero-spotlight" aria-hidden="true"></div>
-    <!-- Background product image -->
-    <div class="hero-bg-img" aria-hidden="true"></div>
-    <!-- Gradient vignette -->
+  <section class="hero" aria-label="Panel listrik premium untuk industri">
+    <img
+      class="hero-bg-img"
+      src="/img/Panel-matrix-simetri.webp"
+      alt=""
+      width="1600"
+      height="900"
+      decoding="async"
+      fetchpriority="high"
+      aria-hidden="true"
+    />
     <div class="hero-gradient" aria-hidden="true"></div>
-    <!-- Subtle grid -->
     <div class="hero-grid" aria-hidden="true"></div>
+    <div class="hero-corners" aria-hidden="true">
+      <span class="corner corner--tl"></span>
+      <span class="corner corner--tr"></span>
+      <span class="corner corner--bl"></span>
+      <span class="corner corner--br"></span>
+    </div>
+    <div class="hero-sweep" aria-hidden="true"></div>
+    <div class="hero-spotlight" id="hero-spotlight" aria-hidden="true"></div>
 
     <div class="hero-container container">
-      <div class="hero-eyebrow">
+      <div class="hero-eyebrow" data-delay="0">
         <span class="eyebrow-dot"></span>
         <span>Trusted Since 2007</span>
       </div>
 
       <h1 class="hero-title">
-        <span class="hero-title-line" data-delay="0">Panel Listrik</span>
-        <em class="hero-title-line hero-title-gold" data-delay="80">Premium</em>
-        <span class="hero-title-line" data-delay="160">untuk Industri Anda</span>
+        <span class="hero-title-line" data-delay="100">Panel Listrik</span>
+        <em class="hero-title-line hero-title-gold" data-delay="220">Premium</em>
+        <span class="hero-title-line" data-delay="340">untuk Industri Anda</span>
       </h1>
 
-      <p class="hero-subtitle" data-delay="280">
+      <p class="hero-subtitle" data-delay="450">
         PT Sinar Metrindo Perkasa (Simetri) — solusi panel listrik berkualitas tinggi
         untuk distribusi, kontrol, dan proteksi tenaga listrik di seluruh Indonesia.
       </p>
 
-      <div class="hero-actions" data-delay="380">
+      <div class="hero-actions" data-delay="550">
         <a href="#kontak" class="btn-gold magnetic-btn">
           <span>Hubungi Sales</span>
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
             <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </a>
-        <a href="#produk" class="btn-ghost">Lihat Produk</a>
+        <a href="#produk" class="btn-ghost magnetic-btn">Lihat Produk</a>
       </div>
 
-      <div class="hero-stats" data-delay="500">
+      <div class="hero-stats" data-delay="650">
         <div class="stat-item">
-          <span class="stat-num">18+</span>
+          <span class="stat-num" data-target="18" data-suffix="+">0</span>
           <span class="stat-lbl">Tahun Pengalaman</span>
         </div>
         <div class="stat-divider"></div>
         <div class="stat-item">
-          <span class="stat-num">500+</span>
+          <span class="stat-num" data-target="500" data-suffix="+">0</span>
           <span class="stat-lbl">Proyek Selesai</span>
         </div>
         <div class="stat-divider"></div>
         <div class="stat-item">
-          <span class="stat-num">100%</span>
+          <span class="stat-num" data-target="100" data-suffix="%">0</span>
           <span class="stat-lbl">Bergaransi</span>
         </div>
       </div>
@@ -78,19 +137,19 @@ import Layout from '../layouts/Layout.astro';
       <div class="stats-grid stagger">
         <div class="stats-card">
           <div class="stats-card-accent"></div>
-          <span class="stats-number" data-target="18" data-suffix="+">0</span>
+          <span class="stats-number">18+</span>
           <span class="stats-unit">Tahun</span>
           <p class="stats-desc">Berpengalaman melayani industri manufaktur, properti, dan infrastruktur.</p>
         </div>
         <div class="stats-card stats-card--featured">
           <div class="stats-card-accent"></div>
-          <span class="stats-number" data-target="500" data-suffix="+">0</span>
+          <span class="stats-number">500+</span>
           <span class="stats-unit">Proyek</span>
           <p class="stats-desc">Panel listrik yang telah kami rancang, produksi, dan instalasi di seluruh Indonesia.</p>
         </div>
         <div class="stats-card">
           <div class="stats-card-accent"></div>
-          <span class="stats-number" data-target="100" data-suffix="%">0</span>
+          <span class="stats-number">100%</span>
           <span class="stats-unit">Bergaransi</span>
           <p class="stats-desc">Setiap produk dilengkapi garansi penuh dan dukungan purna jual yang responsif.</p>
         </div>
@@ -115,7 +174,7 @@ import Layout from '../layouts/Layout.astro';
       </div>
 
       <div class="products-grid">
-        <div class="product-card tilt-card reveal" style="transition-delay: 0ms">
+        <div class="product-card tilt-card reveal" >
           <div class="product-card-img">
             <img src="/img/panel-listrik-simosec.webp" alt="Panel SIMOSEC Simetri" loading="lazy" />
             <div class="product-card-overlay"></div>
@@ -359,17 +418,21 @@ import Layout from '../layouts/Layout.astro';
      VANILLA JS EFFECTS
 ═══════════════════════════════════════ -->
 <script>
+/* Restart hero CSS animations after ViewTransitions swap */
+document.addEventListener('astro:after-swap', () => {
+  const animatedEls = document.querySelectorAll<HTMLElement>(
+    '.hero-eyebrow, .hero-title-line, .hero-subtitle, .hero-actions, .hero-stats, .eyebrow-dot, .hero-sweep, .scroll-line'
+  );
+  animatedEls.forEach(el => {
+    el.style.animation = 'none';
+    el.offsetHeight; // force reflow
+    el.style.animation = '';
+  });
+});
+
 document.addEventListener('astro:page-load', () => {
 
-  /* ── 1. Hero staggered text reveal ── */
-  const heroItems = document.querySelectorAll<HTMLElement>('[data-delay]');
-  heroItems.forEach(el => {
-    const delay = parseInt(el.getAttribute('data-delay') || '0');
-    el.style.animationDelay = `${delay}ms`;
-    el.classList.add('hero-animate');
-  });
-
-  /* ── 2. Hero cursor spotlight ── */
+  /* ── 1. Hero cursor spotlight ── */
   const spotlight = document.getElementById('hero-spotlight');
   const hero = document.querySelector('.hero') as HTMLElement | null;
   if (spotlight && hero) {
@@ -385,21 +448,21 @@ document.addEventListener('astro:page-load', () => {
   }
 
   /* ── 3. Counter animation ── */
-  const counters = document.querySelectorAll<HTMLElement>('.stats-number');
+  const counters = document.querySelectorAll<HTMLElement>('[data-target]');
   const counterObs = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
       const el = entry.target as HTMLElement;
       const target = parseInt(el.getAttribute('data-target') || '0');
       const suffix = el.getAttribute('data-suffix') || '';
-      const duration = 1600;
+      const duration = 2800;
       const start = performance.now();
 
       function tick(now: number) {
         const elapsed = now - start;
         const progress = Math.min(elapsed / duration, 1);
-        // ease out expo
-        const eased = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+        // ease-out cubic: slower through the middle, never snaps at the end
+        const eased = 1 - Math.pow(1 - progress, 3);
         el.textContent = Math.floor(eased * target) + suffix;
         if (progress < 1) requestAnimationFrame(tick);
       }
@@ -453,6 +516,23 @@ document.addEventListener('astro:page-load', () => {
     overflow: hidden;
     background: var(--bg-base);
   }
+  @keyframes goldPulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.75); }
+  }
+
+  @keyframes shimmerGold {
+    0%   { background-position: 200% 50%; }
+    100% { background-position: -200% 50%; }
+  }
+
+  @keyframes scrollLine {
+    0%   { transform: scaleY(0); transform-origin: top; }
+    50%  { transform: scaleY(1); transform-origin: top; }
+    51%  { transform: scaleY(1); transform-origin: bottom; }
+    100% { transform: scaleY(0); transform-origin: bottom; }
+  }
+
 
   /* Grain texture via pseudo-element */
   .hero::before {
@@ -466,20 +546,62 @@ document.addEventListener('astro:page-load', () => {
     background-size: 200px 200px;
   }
 
-  .hero-spotlight {
-    position: absolute;
-    inset: 0;
-    z-index: 3;
-    pointer-events: none;
-    transition: background 0.12s ease;
-  }
-
   .hero-bg-img {
     position: absolute;
     inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center right;
     z-index: 0;
-    background: url('/img/Panel-matrix-simetri.webp') center right / cover no-repeat;
-    opacity: 0.22;
+    opacity: 0.42;
+    filter: saturate(0.8);
+    pointer-events: none;
+  }
+
+  /* Gold corner brackets - the "cantik" detail */
+  .hero-corners {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .corner {
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--gold-500);
+    opacity: 0.55;
+  }
+  .corner--tl { top: 24px; left: 24px; border-right: 0; border-bottom: 0; }
+  .corner--tr { top: 24px; right: 24px; border-left: 0; border-bottom: 0; }
+  .corner--bl { bottom: 24px; left: 24px; border-right: 0; border-top: 0; }
+  .corner--br { bottom: 24px; right: 24px; border-left: 0; border-top: 0; }
+  @media (max-width: 600px) {
+    .corner { width: 24px; height: 24px; }
+    .corner--tl, .corner--bl { left: 14px; }
+    .corner--tl, .corner--tr { top: 14px; }
+    .corner--br, .corner--bl { bottom: 14px; }
+    .corner--tr, .corner--br { right: 14px; }
+  }
+
+  /* Slow gold sweep that travels across the hero */
+  .hero-sweep {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(115deg, transparent 0%, transparent 40%, rgba(201,168,76,0.06) 50%, transparent 60%, transparent 100%);
+    background-size: 220% 100%;
+    background-position: 100% 0;
+    animation: heroSweep 16s linear infinite;
+  }
+  @keyframes heroSweep {
+    0%   { background-position: 100% 0; }
+    100% { background-position: -120% 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-sweep { animation: none; }
   }
 
   .hero-gradient {
@@ -487,8 +609,17 @@ document.addEventListener('astro:page-load', () => {
     inset: 0;
     z-index: 1;
     background:
-      linear-gradient(to right, var(--bg-base) 40%, rgba(12,12,14,0.6) 75%, rgba(12,12,14,0.3) 100%),
-      linear-gradient(to bottom, rgba(12,12,14,0.5) 0%, transparent 20%, transparent 75%, var(--bg-base) 100%);
+      linear-gradient(to right, rgba(12,12,14,0.92) 30%, rgba(12,12,14,0.5) 65%, rgba(12,12,14,0.15) 100%),
+      linear-gradient(to bottom, rgba(12,12,14,0.3) 0%, transparent 20%, transparent 70%, var(--bg-base) 100%);
+  }
+
+  @keyframes gridDrift {
+    0%   { background-position: 0 0; }
+    100% { background-position: 120px 120px; }
+  }
+  @keyframes gridFade {
+    0%, 100% { opacity: 0.6; }
+    50%       { opacity: 1; }
   }
 
   .hero-grid {
@@ -496,11 +627,24 @@ document.addEventListener('astro:page-load', () => {
     inset: 0;
     z-index: 1;
     background-image:
-      linear-gradient(rgba(245,240,232,0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(245,240,232,0.04) 1px, transparent 1px);
-    background-size: 64px 64px;
-    mask-image: radial-gradient(ellipse 70% 60% at 30% 50%, black 0%, transparent 80%);
-    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 30% 50%, black 0%, transparent 80%);
+      linear-gradient(rgba(201,168,76,0.14) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,168,76,0.14) 1px, transparent 1px);
+    background-size: 120px 120px;
+    mask-image: radial-gradient(ellipse 80% 70% at 35% 50%, black 0%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 70% at 35% 50%, black 0%, transparent 80%);
+    pointer-events: none;
+    animation: gridDrift 18s linear infinite, gridFade 7s ease-in-out infinite;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-grid { animation: none; }
+  }
+
+  .hero-spotlight {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none;
+    transition: background 0.12s ease;
   }
 
   .hero-container {
@@ -590,6 +734,9 @@ document.addEventListener('astro:page-load', () => {
     display: flex;
     align-items: center;
     gap: var(--space-xl);
+    padding: 0;
+    margin: 0;
+    list-style: none;
     animation: fadeUp 0.8s cubic-bezier(0.19,1,0.22,1) 0.65s both;
   }
 
@@ -779,13 +926,20 @@ document.addEventListener('astro:page-load', () => {
     gap: var(--space-lg);
   }
 
-  @media (min-width: 900px) {
-    .products-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
+  /* tablet: 2 kolom */
+  @media (min-width: 640px) {
+    .products-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* desktop: 3 kolom */
+  @media (min-width: 1024px) {
+    .products-grid { grid-template-columns: repeat(3, 1fr); }
   }
 
   .product-card {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 420px;
+
     position: relative;
     background: var(--bg-surface);
     border: 1px solid var(--bg-border);
@@ -799,34 +953,33 @@ document.addEventListener('astro:page-load', () => {
 
   .product-card:hover {
     border-color: var(--gold-border-hover);
-    box-shadow: 0 0 60px rgba(201,168,76,0.12), var(--shadow-card);
+    box-shadow: 0 0 60px rgba(201,168,76,0.14), var(--shadow-card);
+    transform: translateY(-4px);
   }
 
   .product-card-img {
     position: relative;
-    height: 200px;
+    height: 220px;
     overflow: hidden;
-  }
-
-  @media (min-width: 900px) {
-    .product-card-img { height: 220px; }
   }
 
   .product-card-img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.7s var(--ease-expo);
+    filter: brightness(0.85) saturate(0.9);
+    transition: transform 0.7s var(--ease-expo), filter 0.4s ease;
   }
 
   .product-card:hover .product-card-img img {
     transform: scale(1.06);
+    filter: brightness(1) saturate(1);
   }
 
   .product-card-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom, transparent 30%, var(--bg-surface) 100%);
+    background: linear-gradient(to bottom, transparent 45%, rgba(17,17,20,0.85) 100%);
   }
 
   .product-card-body {
@@ -1063,14 +1216,15 @@ document.addEventListener('astro:page-load', () => {
     max-width: 160px;
     object-fit: contain;
     flex-shrink: 0;
-    filter: grayscale(100%) brightness(0.55);
-    opacity: 0.65;
-    transition: filter 0.3s ease, opacity 0.3s ease;
+    filter: grayscale(30%) brightness(0.88);
+    opacity: 0.85;
+    transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
   }
 
   .marquee-inner img:hover {
-    filter: grayscale(20%) brightness(0.9);
+    filter: grayscale(0%) brightness(1);
     opacity: 1;
+    transform: scale(1.05);
   }
 
   /* ═══════════ CTA SECTION ═══════════ */
@@ -1216,7 +1370,6 @@ document.addEventListener('astro:page-load', () => {
 
   /* ═══════════ RESPONSIVE ═══════════ */
   @media (max-width: 992px) {
-    .products-grid { grid-template-columns: 1fr; }
     .trust-grid { grid-template-columns: 1fr; gap: var(--space-2xl); }
     .trust-image-wrap { max-width: 460px; margin: 0 auto; }
     .cta-section .container { grid-template-columns: 1fr; }
@@ -1225,13 +1378,25 @@ document.addEventListener('astro:page-load', () => {
   }
 
   @media (max-width: 768px) {
-    .hero-container { padding-top: 8rem; padding-bottom: 4rem; }
-    .hero-title { font-size: clamp(2.2rem, 10vw, 3.5rem); }
+    .hero-container { padding-top: 7rem; padding-bottom: 4rem; }
+    .hero-title { font-size: clamp(2rem, 10vw, 3.2rem); }
     .hero-stats { flex-wrap: wrap; gap: var(--space-lg); }
     .stat-divider { display: none; }
     .hero-actions { flex-direction: column; }
-    .btn-gold, .btn-ghost { justify-content: center; }
-    .products-grid { grid-template-columns: 1fr; }
+    .btn-gold, .btn-ghost { justify-content: center; width: 100%; max-width: 320px; }
     .cta-actions { flex-direction: column; }
+    .section-header { text-align: center; }
+    .section-header .section-label { justify-content: center; }
+    .clients-header { text-align: center; }
+    .clients-header .section-label { justify-content: center; }
+    .stats-section { padding: var(--space-3xl) 0; }
+    .products-section, .trust-section, .cta-section { padding: var(--space-4xl) 0; }
+  }
+
+  @media (max-width: 480px) {
+    .hero-eyebrow { font-size: 0.65rem; }
+    .product-card-img { height: 180px; }
+    .hero-stats { gap: var(--space-md); }
+    .stat-num { font-size: var(--text-xl); }
   }
 </style>

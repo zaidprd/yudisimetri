@@ -33,6 +33,10 @@ const metaImageUrl = image.startsWith('http')
   <title>{title}</title>
   <meta name="description" content={description} />
   <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0C0C0E" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#F5F0E8" media="(prefers-color-scheme: light)" />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="format-detection" content="telephone=no" />
   <link rel="canonical" href={url} />
   <meta property="og:type" content={type} />
   <meta property="og:url" content={url} />
@@ -48,14 +52,15 @@ const metaImageUrl = image.startsWith('http')
   <link rel="icon" href="/favicon.ico" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
   <link
     rel="preload"
     as="style"
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
     onload="this.onload=null;this.rel='stylesheet'"
   />
   <noscript>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
   </noscript>
   <slot name="head" />
   <ViewTransitions />
@@ -116,6 +121,7 @@ const metaImageUrl = image.startsWith('http')
       --space-2xl: 3rem;
       --space-3xl: 4rem;
       --space-4xl: 6rem;
+      --space-5xl: 8rem;
 
       --container-max: 1200px;
 
@@ -128,12 +134,14 @@ const metaImageUrl = image.startsWith('http')
       --radius-sm:   6px;
       --radius-md:   12px;
       --radius-lg:   20px;
+      --radius-xl:   24px;
       --radius-full: 9999px;
 
       --shadow-gold: 0 0 40px var(--gold-glow);
-      --shadow:    0 2px 12px rgba(0,0,0,0.07);
-      --shadow-lg: 0 8px 32px rgba(0,0,0,0.13);
-      --transition: 0.25s ease;
+      --shadow:      0 2px 12px rgba(0,0,0,0.07);
+      --shadow-lg:   0 8px 32px rgba(0,0,0,0.13);
+      --shadow-card: 0 4px 32px rgba(0,0,0,0.35);
+      --transition:  0.25s ease;
     }
 
     *, *::before, *::after {
@@ -298,14 +306,22 @@ const metaImageUrl = image.startsWith('http')
   </footer>
 
   <script>
-    document.addEventListener('astro:page-load', () => {
+    const setupReveal = () => {
+      if (typeof IntersectionObserver === 'undefined') return;
       const io = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) entry.target.classList.add('visible');
         });
       }, { threshold: 0.08 });
       document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .stagger').forEach(el => io.observe(el));
-    });
+    };
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(setupReveal, { timeout: 1500 });
+    } else {
+      setTimeout(setupReveal, 200);
+    }
+    document.addEventListener('astro:page-load', setupReveal);
+    document.addEventListener('astro:after-swap', setupReveal);
   </script>
 
   <style>

@@ -1,18 +1,20 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
+import react from '@astrojs/react';
 
 import tailwindcss from '@tailwindcss/vite';
-
-import react from '@astrojs/react';
 
 export default defineConfig({
   site: 'https://salespanelsimetri.com',
 
-  integrations: [sitemap({
-    changefreq: 'weekly',
-    priority: 0.7,
-  }), react()],
+  integrations: [
+    react(),
+    sitemap({
+      changefreq: 'weekly',
+      priority: 0.7,
+    }),
+  ],
 
   compressHTML: true,
 
@@ -23,5 +25,6 @@ export default defineConfig({
 
   vite: {
     plugins: [tailwindcss()],
+    cacheDir: '.vite-build',
   },
 });
